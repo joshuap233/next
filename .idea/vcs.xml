@@ -2,6 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/components/comment" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/components/comments/material-comment-system" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/components/material-comment-system" vcs="Git" />
   </component>
 </project>

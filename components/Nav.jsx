@@ -3,16 +3,16 @@ import Link from 'next/link';
 import {Box} from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
 import Tooltip from '@material-ui/core/Tooltip';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 import InfoIcon from '@material-ui/icons/Info';
 import LabelIcon from '@material-ui/icons/Label';
 import ArchiveIcon from '@material-ui/icons/Archive';
-import ForumIcon from '@material-ui/icons/Forum';
 import CommentIcon from '@material-ui/icons/Comment';
+import Info from "./Info";
+
 
 function Nav() {
+
   return (
     <nav>
       <div style={{
@@ -169,57 +169,7 @@ function Nav() {
           alignItems: 'center',
           justifyContent: "space-around"
         }}>
-
-          <Tooltip title={'github'}>
-            <div style={{
-              width: '50px',
-              fontWeight: 'bold',
-              color: '#fff',
-
-              display: 'flex',
-              justifyContent: "center"
-            }}>
-              <GitHubIcon style={{
-                height: '30px',
-                width: '30px',
-              }}/>
-            </div>
-          </Tooltip>
-
-          <Tooltip title={'stack overflow'}>
-            <div style={{
-              width: '50px',
-              fontWeight: 'bold',
-              color: '#fff',
-
-              display: 'flex',
-              justifyContent: "center"
-            }}>
-              <img
-                style={{
-                  // border: '2px solid #fff',
-                  height: '30px',
-                  width: '30px',
-                }}
-                src="/asset/stack-overflow.png" alt=""/>
-            </div>
-          </Tooltip>
-
-          <Tooltip title={'邮箱'}>
-            <div style={{
-              width: '50px',
-              fontWeight: 'bold',
-              color: '#fff',
-
-              display: 'flex',
-              justifyContent: "center"
-            }}>
-              <MailOutlineIcon style={{
-                height: '30px',
-                width: '30px',
-              }}/>
-            </div>
-          </Tooltip>
+          <Info/>
         </div>
 
         {/*<div style={{*/}

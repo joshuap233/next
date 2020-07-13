@@ -4,6 +4,7 @@ import Nav from '../../components/Nav';
 import Footer from "../../components/Footer";
 import Link from 'next/link';
 import {Button} from "@material-ui/core";
+import Container from "../../components/Container";
 
 
 function Excerpt({pid}) {
@@ -66,39 +67,31 @@ function Excerpt({pid}) {
 
 function Index() {
   return (
-    <div>
+    <Container>
       <div style={{
-        display: 'flex',
-        // height: '100vh',
-        // width: '100vw'
-      }}>
-        <div style={{
-          height: '100%',
-          width: '100%',
-          // background: '#000',
+        height: '100%',
+        width: '100%',
+        // background: '#000',
 
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center'
-        }}>
-          <Excerpt pid={1}/>
-          <Excerpt pid={2}/>
-          <Excerpt pid={3}/>
-          <Button
-            style={{
-              border: 'none',
-              width: '100px',
-              height: '38px',
-              marginBottom: 20,
-              borderRadius: 10,
-            }}>
-            下一页
-          </Button>
-          <Footer/>
-        </div>
-        <Nav/>
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+      }}>
+        <Excerpt pid={1}/>
+        <Excerpt pid={2}/>
+        <Excerpt pid={3}/>
+        <Button
+          style={{
+            border: 'none',
+            width: '100px',
+            height: '38px',
+            marginBottom: 20,
+            borderRadius: 10,
+          }}>
+          下一页
+        </Button>
       </div>
-    </div>
+    </Container>
   );
 }
 

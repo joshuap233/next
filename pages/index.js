@@ -1,10 +1,11 @@
 import Head from 'next/head';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import GitHubIcon from '@material-ui/icons/GitHub';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import TwitterIcon from '@material-ui/icons/Twitter';
 import Link from "next/link";
 import React from "react";
+import Info from '../components/Info';
+import Search from "../components/comments/Search";
+import {Button} from "@material-ui/core";
+
 
 export default function Home() {
   return (
@@ -35,7 +36,6 @@ export default function Home() {
         </div>
         <div style={{
           color: '#fff',
-          // color: '#DBDAD6',
           fontWeight: 'bold',
           fontSize: '20px',
           marginTop: 10,
@@ -48,7 +48,7 @@ export default function Home() {
           display: 'flex',
         }}>
           <div>
-            <button style={{
+            <Button style={{
               height: '40px',
               width: '140px',
               borderRadius: '15px',
@@ -57,35 +57,29 @@ export default function Home() {
               background: '#3F3E3A',
               color: '#938E83'
             }}>
-              关于我
-            </button>
+              <Link href={"/about"}><a>关于我</a></Link>
+            </Button>
           </div>
           <div>
-            <button
+            <Button
               style={{
                 height: '40px',
                 width: '140px',
                 borderRadius: '15px',
-                border: '0',
-                color: '#DBDAD6',
+                color: '#fff',
                 letterSpacing: '4px',
                 fontWeight: 'bold',
                 background: 'linear-gradient(to right bottom, #CB88D2, #8E79E9)'
               }}
             >
-              文章
-            </button>
+              <Link href={"/articles"}><a>文章</a></Link>
+            </Button>
           </div>
         </div>
         <div style={{
           marginTop: 100
         }}>
-          <input style={{
-            width: 300,
-            height: 40,
-            borderRadius: '10px',
-            border: '0'
-          }} type="text"/>
+          <Search/>
         </div>
         <div style={{
           color: '#fff',
@@ -93,31 +87,25 @@ export default function Home() {
           fontSize: '20px',
           marginTop: 80,
           letterSpacing: '2px',
-
         }}>
           联系我
         </div>
         <div style={{
-          marginTop: 20
+          marginTop: 20,
+          display: 'flex',
         }}>
-          <GitHubIcon style={{
-            color: '#fff'
-          }}/>
-          <MailOutlineIcon style={{
-            color: '#fff',
-            margin: '0 20px 0 20px'
-          }}/>
-          <TwitterIcon style={{
-            color: '#fff'
-          }}/>
+          <Info/>
         </div>
         <div style={{
-          marginTop: '100px'
+          marginTop: '100px',
         }}>
           <Link href={'/articles'}>
-            <a><ExpandMoreIcon style={{
-              color: '#fff'
-            }}/></a>
+            <a>
+              <ExpandMoreIcon
+                style={{
+                  color: '#fff'
+                }}/>
+            </a>
           </Link>
         </div>
       </div>

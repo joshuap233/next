@@ -12,6 +12,7 @@ html, body, #root {
     padding: 0;
     color: #3B454E;
     font-family: Rubik-Regular, serif;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -40,6 +41,18 @@ li {
 ::-moz-selection {
     color: #fff;
     background: #000;
+}
+
+@keyframes shake {
+    0% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 0.8;
+    }
 }
 
 

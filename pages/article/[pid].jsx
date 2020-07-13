@@ -11,7 +11,9 @@ import 'prismjs/components/prism-bash.min';
 import 'prismjs/components/prism-c.min';
 import useCodeStyle from './prism.style';
 import Container from "../../components/Container";
-
+import Comment from "./Comment";
+import {Divider} from "@material-ui/core";
+import Contents from "./TreeView";
 
 function Pid() {
   const editorCSS = useEditorStyle();
@@ -85,8 +87,13 @@ function Pid() {
           className={combineClassName(editorCSS.root, editorCSS.table, editorCSS.emoji, codeCSS.root)}
           dangerouslySetInnerHTML={{__html: article}}
         />
-
       </div>
+      <div style={{fontSize: '20px'}}>
+        标签,版权声明
+      </div>
+      {/*<Contents htmlString={article}/>*/}
+      <Divider variant={"middle"}/>
+      <Comment/>
     </Container>
   );
 }
