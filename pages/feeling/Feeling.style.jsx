@@ -12,6 +12,7 @@ export default makeStyles((theme) => ({
     width: '100%'
   },
   avatar: {
+    marginRight: '10px',
     [theme.breakpoints.only('xs')]: {
       display: 'none',
     },
@@ -20,7 +21,7 @@ export default makeStyles((theme) => ({
     display: "flex",
     marginTop: '40px',
     height: '150px',
-    justifyContent:'center',
+    justifyContent: 'center',
     [theme.breakpoints.only('xs')]: {
       width: '95%',
     },
@@ -42,7 +43,9 @@ export default makeStyles((theme) => ({
     color: dark ? '#fff' : "000",
     '& > div:first-child': {
       height: '80px',
-      padding: '10px'
+      padding: '15px',
+      maxHeight: '150px',
+      overflow: 'hidden',
     },
     '& .eventIcon': {
       padding: '10px',
@@ -52,6 +55,9 @@ export default makeStyles((theme) => ({
     },
     '& .time': {
       marginLeft: '10px'
+    },
+    pagingButton: {
+      marginTop: 40
     }
   })
 }));

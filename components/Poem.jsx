@@ -7,13 +7,12 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     alignItems: 'center',
     padding: '10px',
-    marginBottom: 100,
-    '@media (max-width:400px)': {
-      marginBottom: '20px!important',
+    marginBottom: 20,
+    '@media (min-width:500px)': {
+      marginBottom: 80,
     },
     '& .space': {
       marginLeft: '20px'
-
     }
   }
 });

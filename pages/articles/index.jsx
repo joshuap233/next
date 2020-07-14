@@ -92,7 +92,9 @@ function Excerpt(props) {
 function Index() {
   const classes = useStyles();
   return (
-    <Container>
+    <Container
+      route={'文章'}
+      poem={"自以为历经沧桑，其实刚刚蹒跚学步；自以为悟出了生存竞争的秘密，其实还远没有竞争的资格"}>
       <div className={classes.wrapper}>
         {
           excerpts.map((excerpt, index) => (

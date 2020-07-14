@@ -4,7 +4,7 @@ export default makeStyles(theme => ({
   bg: ({innerWidth}) => ({
     height: '100%',
     width: '100%',
-    background: 'url(/asset/article-bg.jpg) no-repeat',
+    background: 'url(/asset/article-bg1-md.jpg) no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
 
@@ -13,7 +13,7 @@ export default makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    '@media (max-width:400px)': {
+    '@media (max-width:500px)': {
       marginTop: '20px',
       height: '100px!important',
     },
@@ -37,6 +37,9 @@ export default makeStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       // 上侧导航栏
       color: '#000',
+    },
+    '@media (max-width:500px)': {
+      marginTop: '10px',
     },
   },
   articleInfo: {

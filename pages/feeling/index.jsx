@@ -77,10 +77,7 @@ function Index() {
             );
           })
         }
-        <Button
-          style={{
-            marginTop: 40
-          }}>
+        <Button className={classes.pagingButton}>
           下一页
         </Button>
       </div>

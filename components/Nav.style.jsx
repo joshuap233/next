@@ -23,7 +23,7 @@ export default makeStyles((theme) => ({
     position: 'fixed',
     height: '100%',
     minHeight: '900px',
-    background: 'url(/asset/nv-bg.jpg) no-repeat',
+    background: 'url(/asset/nv-sm.jpg) no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
 

@@ -21,12 +21,11 @@ import LabelIcon from '@material-ui/icons/Label';
 function Article() {
   const [innerWidth, setInnerWidth] = useState(null);
   const classes = useStyles({innerWidth});
-  const [contentsOpen, setContentsOpen] = useState(false);
+  const [contentsOpen, setContentsOpen] = useState(true);
 
   const editorStyle = useEditorStyle();
   const codeStyle = useCodeStyle();
   const router = useRouter();
-  const {pid} = router.query;
 
   useEffect(() => {
     setInnerWidth(window.innerWidth);
@@ -52,7 +51,8 @@ function Article() {
           <h1>标题</h1>
         </div>
         <div className={classes.articleInfo}>
-          <p>2019/10/20 12:10|3条评论|3人读过</p>
+          <p>2019/10/20 12:10|3条评论</p>
+          {/* TODO:|3人读过*/}
         </div>
         <div className={classes.poem}>
           <span>"</span>
@@ -90,9 +90,7 @@ function Article() {
 
         <div
           className={classes.commentsWrapper}
-          style={{
-
-          }}>
+          >
           <div>
             <Divider variant={"middle"}/>
             <Comment/>

@@ -14,6 +14,11 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: 'row-reverse',
     }
   },
+  contentAndPoem: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: "column",
+  },
   wrapper: {
     display: 'flex',
     width: '100%',
@@ -28,15 +33,17 @@ function Container({children, route, poem, setContentsOpen, contentsOpen}) {
   return (
     <div className={classes.root}>
       <Nav setContentsOpen={setContentsOpen} contentsOpen={contentsOpen}/>
-      {
-        route && poem && (
-          <Poem route={route} poem={poem}/>
-        )
-      }
-      <div className={classes.wrapper}>
-        {children}
-        <ScrollToTop/>
-        <Footer/>
+      <div className={classes.contentAndPoem}>
+        {
+          route && poem && (
+            <Poem route={route} poem={poem}/>
+          )
+        }
+        <div className={classes.wrapper}>
+          {children}
+          <ScrollToTop/>
+          <Footer/>
+        </div>
       </div>
     </div>
   );

@@ -80,11 +80,6 @@ function TreeNode({nodes}) {
 
 export default function TreeView({htmlString, contentsOpen, setContentsOpen}) {
   const classes = useStyles({open: contentsOpen});
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.only('xs'));
-  useEffect(() => {
-    setContentsOpen(!matches);
-  }, [matches]);
 
   const handleOnClick = useCallback(() => {
     setContentsOpen(open => !open);

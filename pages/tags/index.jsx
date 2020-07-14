@@ -9,26 +9,32 @@ import useStyles from './Tags.style';
 
 const tags = [
   {
+    id: 1,
     name: 'Ubuntu',
     desc: '这是简介,这是简介,这是简介',
     url: '/asset/tag-pic.png'
   }, {
+    id: 2,
     name: 'React',
     desc: '这是简介,这是简介,这是简介',
     url: '/asset/tag-pic.png'
   }, {
+    id: 3,
     name: 'Linux',
     desc: '这是简介,这是简介,这是简介',
     url: '/asset/tag-pic.png'
   }, {
+    id: 4,
     name: 'Python',
     desc: '这是简介,这是简介,这是简介',
     url: '/asset/tag-pic.png'
   }, {
+    id: 5,
     name: 'Flask',
     desc: '这是简介,这是简介,这是简介...............................................',
     url: '/asset/tag-pic.png'
   }, {
+    id: 6,
     name: 'JavaScript',
     desc: '这是简介,这是简介,这是简介',
     url: '/asset/tag-pic.png'
@@ -83,7 +89,7 @@ function Index() {
         >
           {
             tags.map(item => (
-              <TagItem {...item}/>
+              <TagItem key={item.id} {...item}/>
             ))
           }
         </Grid>
