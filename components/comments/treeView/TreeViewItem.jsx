@@ -2,13 +2,13 @@ import ReactMarkdown from "react-markdown";
 import React, {useCallback, useContext, useEffect, useMemo, useRef, useState} from "react";
 import Button from "@material-ui/core/Button";
 import ReplyIcon from "@material-ui/icons/Reply";
-import useStyles from './treeViewItem.style';
+import useStyles from './TreeViewItem.style';
 import Avatar from "@material-ui/core/Avatar";
 import CommentContext from "../CommentContext";
 import {areEqual, cln} from "../helper";
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
-import useEditorStyle from '../editorState.style';
+import useEditorStyle from '../editor/EditorState.style';
 
 
 const Content = React.memo(function Content({level, node, parent}) {

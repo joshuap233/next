@@ -1,7 +1,7 @@
 import React, {useCallback, useContext, useMemo} from "react";
 import {TextField, Collapse} from "@material-ui/core";
 import CommentContext from "../CommentContext";
-import useStyles from './editorItem.style';
+import useStyles from './EditorItem.style';
 import {getBrowserVersion, getCurrentTime, cln} from "../helper";
 import {v4 as uuidV4} from "uuid";
 import md5 from "crypto-js/md5";
@@ -14,7 +14,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import SpeedDialAction from "@material-ui/lab/SpeedDialAction";
 import PublishIcon from '@material-ui/icons/Publish';
 import PropTypes from "prop-types";
-import useEditorStyle from '../editorState.style';
+import useEditorStyle from './EditorState.style';
 
 
 export const Field = React.memo(function Field({name, ...props}) {

@@ -1,8 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useRouter} from 'next/router';
 import article from "./data";
 import {combineClassName} from "../../style/help";
-import useEditorStyle from './article.style';
+import useEditorStyle from './Editor.style';
+import useStyles from './Article.style';
 import Prism from "./prism";
 
 import 'prismjs/components/prism-python.min';
@@ -12,90 +13,113 @@ import 'prismjs/components/prism-c.min';
 import useCodeStyle from './prism.style';
 import Container from "../../components/Container";
 import Comment from "./Comment";
-import {Divider} from "@material-ui/core";
+import {Divider, Tooltip} from "@material-ui/core";
 import Contents from "./TreeView";
+import LabelIcon from '@material-ui/icons/Label';
 
-function Pid() {
-  const editorCSS = useEditorStyle();
-  const codeCSS = useCodeStyle();
+
+function Article() {
+  const [innerWidth, setInnerWidth] = useState(null);
+  const classes = useStyles({innerWidth});
+  const editorStyle = useEditorStyle();
+  const codeStyle = useCodeStyle();
   const router = useRouter();
   const {pid} = router.query;
+
+  useEffect(() => {
+    setInnerWidth(window.innerWidth);
+  }, []);
+
   useEffect(() => {
     Prism.highlightAll();
   }, []);
 
   return (
     <Container>
-      <div style={{
-        height: '100%',
-        width: '100%',
-        background: 'url(/asset/article-bg.jpg) no-repeat',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-
-        position: 'relative',
-
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center'
-      }}>
-        <div style={{
-          height: '400px',
-          width: '100%',
-          position: 'absolute',
-          zIndex: -1,
-        }}/>
-
-        <div style={{
-          height: '400px',
-          width: '100%',
-          zIndex: -2
-        }}/>
-
-        <div style={{
-          color: '#fff',
-          marginTop: '-150px'
-        }}>
+      {/*<Contents htmlString={article}/>*/}
+      <div className={classes.bg}>
+        <div className={classes.placeHolder}/>
+        <div className={classes.title}>
           <h1>标题</h1>
         </div>
-
-        <div style={{
-          color: '#fff',
-          marginTop: '-50px',
-          height: '100px'
-        }}>
-          <p style={{
-            padding: '20px 0 20px 0'
-          }}>2019/10/20 12:10|3条评论|3人读过</p>
+        <div className={classes.articleInfo}>
+          <p>2019/10/20 12:10|3条评论|3人读过</p>
         </div>
-        <div style={{
-          color: '#fff',
-          padding: '10px 0 10px 0',
-          fontWeight: 'bold'
-        }}>
+        <div className={classes.poem}>
           <span>"</span>
           多情自古伤离别，更那堪，冷落清秋节！今宵酒醒何处？杨柳岸，晓风残月
           <span>"</span>
         </div>
       </div>
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        color: '#000',
-      }}>
+
+      <div className={classes.articleRoot}>
+        <div className={classes.articleWrapper}>
+          <div
+            className={combineClassName(editorStyle.root, editorStyle.table, editorStyle.emoji, codeStyle.root)}
+            dangerouslySetInnerHTML={{__html: article}}
+          />
+        </div>
+
+        <div style={{
+          width: '100%',
+          fontSize: '20px',
+          display: "flex",
+          justifyContent: "center"
+        }}>
+          <div style={{
+            width: '80%',
+            marginTop: 50
+          }}>
+            <Divider variant={"middle"}/>
+            <div style={{
+              marginTop: 20,
+              marginBottom: 20,
+              display: "flex",
+              alignItems: "center"
+            }}>
+              <Tooltip title={'标签'}>
+                <LabelIcon/>
+              </Tooltip>
+              <span
+                style={{
+                  marginLeft: 10
+                }}>
+                Ubuntu
+              </span>
+              <span
+                style={{
+                  marginLeft: 10
+                }}>
+                React
+              </span>
+            </div>
+            <Divider variant={"middle"}/>
+          </div>
+        </div>
+
+
         <div
-          className={combineClassName(editorCSS.root, editorCSS.table, editorCSS.emoji, codeCSS.root)}
-          dangerouslySetInnerHTML={{__html: article}}
-        />
+          style={{
+          width: '100%',
+          fontSize: '20px',
+          display: "flex",
+          justifyContent: "center"
+        }}>
+          <div style={{
+            width: '80%',
+            marginTop: 50,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center"
+          }}>
+            <Divider variant={"middle"}/>
+            <Comment/>
+          </div>
+        </div>
       </div>
-      <div style={{fontSize: '20px'}}>
-        标签,版权声明
-      </div>
-      {/*<Contents htmlString={article}/>*/}
-      <Divider variant={"middle"}/>
-      <Comment/>
     </Container>
   );
 }
 
-export default Pid;
+export default Article;

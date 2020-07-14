@@ -2,17 +2,22 @@ import {makeStyles} from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   portal: {
-    minHeight: 500,
+    minHeight: 300,
+    maxWidth: 900,
     position: 'fixed',
     zIndex: 101,
     left: '50%',
     top: '50%',
     transform: 'translate(-50%,-50%)',
+
+    border: '1px solid #fff',
+    background: '#fff',
+    borderRadius: 4,
   },
   root: {
-    background: '#fff',
-    width: 800,
-    borderRadius: 4,
+    // background: '#fff',
+    width: '100%',
+    // borderRadius: 4,
     [theme.breakpoints.only('xs')]: {
       width: '100vw'
     }
@@ -36,7 +41,7 @@ export default makeStyles((theme) => ({
   fieldWrapper: {
     width: '100%',
     boxSizing: "border-box",
-    border: '1px solid #C4C4C4',
+    // border: '1px solid #C4C4C4',
     padding: 5,
     borderRadius: 4,
     '& > :nth-child(1)': {

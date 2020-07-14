@@ -1,10 +1,10 @@
-import React, {useState, useCallback, useContext, useLayoutEffect, useEffect} from 'react';
+import React, {useState, useCallback, useContext, useEffect} from 'react';
 import {Box, TextField} from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/Info';
 import ReactDOM from 'react-dom';
 import CloseIcon from '@material-ui/icons/Close';
 import {Field, Emoji, ToolBar, Preview} from "./EditorItem";
-import useStyles from './editor.style';
+import useStyles from './Editor.style';
 import CommentContext from "../CommentContext";
 import PropTypes from 'prop-types';
 
@@ -44,7 +44,7 @@ const Editor = React.memo(function Editor(props) {
 
   return (
     <Box
-      boxShadow={2}
+      // boxShadow={1}
       className={classes.root}
     >
       <div className={classes.editorWrapper}>
@@ -110,7 +110,7 @@ const PortalEditor = React.memo(function PortalEditor(props) {
     setContainer(document.createElement('div'));
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (container) {
       document.body.appendChild(container);
       return () => document.body.removeChild(container);
@@ -123,9 +123,9 @@ const PortalEditor = React.memo(function PortalEditor(props) {
           <>
             {
               state.get('modalOpen') && (
-                <div className={classes.portal}>
+                <Box boxShadow={3} className={classes.portal}>
                   <Editor isModal={true} submitApi={submitApi}/>
-                </div>
+                </Box>
               )
             }
           </>

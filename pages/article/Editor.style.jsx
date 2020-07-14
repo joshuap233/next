@@ -4,9 +4,8 @@ import {makeStyles} from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   root: {
+    width: '100%',
     whiteSpace: 'pre-wrap',
-    width:'80%',
-    // maxWidth: '100%',
     fontFamily: 'Rubik-Regular-kern-latin',
     '& a': {
       wordBreak: 'break-word',

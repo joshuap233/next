@@ -27,7 +27,11 @@ function Comment() {
       <div style={{
         width: '100%',
         marginTop: '50px',
-        marginLeft: '120px'
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        maxWidth: 900
       }}>
         <div
           style={{
@@ -40,7 +44,7 @@ function Comment() {
       </div>
       <div style={{
         marginTop: '100px',
-        marginLeft: '120px'
+        width: '100%',
       }}>
         <Comments initApi={initApi} loadMoreAPi={loadMoreAPi}/>
       </div>

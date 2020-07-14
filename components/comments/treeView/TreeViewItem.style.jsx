@@ -2,11 +2,11 @@ import {makeStyles} from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   contentWrapper: ({level}) => ({
-    marginLeft: level <= 2 ? level * 20 : 3 * 20
+    marginLeft: level <= 2 ? level * 20 : 3 * 20,
+    fontSize:'15px'
   }),
   nickname: ({link}) => link ? {color: '#7986cb'} : {color: '#000'},
   userInfoWrapper: {
-    marginTop: 10,
     display: "flex",
     alignItems: 'center'
   },

@@ -1,27 +1,68 @@
 import React from 'react';
 
 import Container from '../../components/Container';
-import {Avatar, Divider, Box, makeStyles, Button} from '@material-ui/core';
+import {Avatar, Divider, Box, Button} from '@material-ui/core';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
+import useStyles from './Feeling.style';
 
-const useStyle = makeStyles({
-  divider: {
-    backgroundColor: '#fff'
-  }
-});
+const blogs = [{
+  id: 1,
+  content: '内容1',
+  time: '2019/2/10 1:00'
+}, {
+  id: 2,
+  content: '内容1',
+  time: '2019/2/10 1:00'
+}, {
+  id: 3,
+  content: '内容1',
+  time: '2019/2/10 1:00'
+}, {
+  id: 4,
+  content: '内容1',
+  time: '2019/2/10 1:00'
+},
+];
+
+
+function BlogItem({index, content, time}) {
+
+  const dark = React.useMemo(() => {
+    return index % 2 === 0;
+  }, []);
+
+  const classes = useStyles({dark});
+  return (
+    <div className={classes.blogWrapper}>
+      <div className={classes.avatar}>
+        <Avatar src="/asset/avatar.jpeg"/>
+      </div>
+      <Box
+        boxShadow={2}
+        className={classes.blogContent}
+      >
+        <div>
+          {content}
+        </div>
+        <Divider
+          variant="middle"
+          classes={{root: dark ? classes.divider : null}}
+        />
+        <div className={'eventIcon'}>
+          <EventAvailableIcon/>
+          <span className={'time'}>{time}</span>
+        </div>
+      </Box>
+    </div>
+  );
+}
 
 function Index() {
-  const classes = useStyle();
+  const classes = useStyles();
   return (
     <Container>
-      <div style={{
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column",
-        alignItems: "center",
-        width: '100%'
-      }}>
-        <h1 style={{}}>日志</h1>
+      <div className={classes.poems}>
+        <h1>日志</h1>
         <div>
           <span>"</span>
           <span>
@@ -31,98 +72,21 @@ function Index() {
           <span>"</span>
         </div>
         {
-          [1, 2].map(item => {
+          blogs.map(item => {
             return (
-              <>
-                <div style={{
-                  display: "flex",
-                  width: '800px',
-                  height: '150px',
-                  marginTop: '40px'
-                }}>
-                  <Avatar src="/asset/avatar.jpeg"/>
-                  <Box
-                    boxShadow={1}
-                    style={{
-                      width: '100%',
-                      height: '120px',
-                      border: '1px solid #000',
-                      borderRadius: '5px',
-                      marginLeft: 20,
-
-                      background: '#000',
-                      color: '#fff'
-                    }}>
-                    <div style={{
-                      height: '80px',
-                      padding: '10px'
-                    }}>
-                      内容
-                    </div>
-                    <Divider
-                      variant="middle"
-                      classes={{root: classes.divider}}
-                    />
-                    <div style={{
-                      padding: '10px',
-                      display: "flex",
-                      alignItems: 'center'
-                    }}>
-                      <EventAvailableIcon/>
-                      <span style={{
-                        marginLeft: '10px'
-                      }}>2019/10/2 12:10</span>
-                    </div>
-                  </Box>
-
-                </div>
-
-
-                <div style={{
-                  display: "flex",
-                  width: '800px',
-                  height: '150px',
-                  marginTop: '40px'
-                }}>
-                  <Avatar src="/asset/avatar.jpeg"/>
-                  <Box
-                    boxShadow={1}
-                    style={{
-                      width: '100%',
-                      height: '120px',
-                      border: '1px solid #fff',
-                      borderRadius: '5px',
-                      marginLeft: 20,
-
-                      background: '#fff',
-                      color: '#000'
-                    }}>
-                    <div style={{
-                      height: '80px',
-                      padding: '10px'
-                    }}>
-                      内容
-                    </div>
-                    <Divider variant="middle"/>
-                    <div style={{
-                      padding: '10px',
-                      display: "flex",
-                      alignItems: 'center'
-                    }}>
-                      <EventAvailableIcon/>
-                      <span style={{
-                        marginLeft: '10px'
-                      }}>2019/10/2 12:10</span>
-                    </div>
-                  </Box>
-                </div>
-              </>
+              <BlogItem
+                key={item.id}
+                index={item.id}
+                content={item.content}
+                time={item.time}
+              />
             );
           })
         }
-        <Button style={{
-          marginTop: 40
-        }}>
+        <Button
+          style={{
+            marginTop: 40
+          }}>
           下一页
         </Button>
       </div>

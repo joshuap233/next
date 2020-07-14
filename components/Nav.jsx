@@ -9,181 +9,68 @@ import LabelIcon from '@material-ui/icons/Label';
 import ArchiveIcon from '@material-ui/icons/Archive';
 import CommentIcon from '@material-ui/icons/Comment';
 import Info from "./Info";
+import useStyles from './Nav.style';
+
+const navs = [
+  {title: '文章', route: '/articles', icon: <ImportContactsIcon/>},
+  {title: '标签', route: '/tags', icon: <LabelIcon/>},
+  {title: '归档', route: '/archive', icon: <ArchiveIcon/>},
+  {title: "日志", route: '/feeling', icon: <CommentIcon/>},
+  {title: '关于', route: '/about', icon: <InfoIcon/>}
+];
 
 
 function Nav() {
-
+  const classes = useStyles();
   return (
     <nav>
-      <div style={{
-        width: '400px',
-      }}/>
+      <div className={classes.navWrapper}/>
       <Box
         boxShadow={2}
-        style={{
-          position: 'fixed',
-          width: '400px',
-          height: '100%',
-          minHeight: '900px',
-          background: 'url(/asset/nv-bg.jpg) no-repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-
-          display: 'flex',
-          alignItems: 'center',
-          flexDirection: 'column',
-        }}>
-        <div style={{marginTop: '80px'}}>
+        className={classes.navItemRoot}>
+        <div className={classes.avatarWrapper}>
           <img
-            style={{
-              border: '2px solid #fff',
-              height: '150px',
-              width: '150px',
-              boxShadow: '0 2px 5px rgba(0,0,25,0.1), 0 5px 75px 1px rgba(0,0,50,0.2)',
-              borderRadius: '75px'
-            }}
-            src="/asset/avatar.jpeg" alt=""/>
+            className={classes.avatar}
+            src="/asset/avatar.jpeg"
+            alt=""
+          />
         </div>
-        <div style={{
-          // color: '#fff',
-          fontWeight: 'bold',
-          fontSize: '20px'
-        }}>
+        <div className={classes.authorName}>
           Joshua Peng
         </div>
-        <div style={{
-          color: '#000',
-          letterSpacing: '2px'
-        }}>
+        <div className={classes.motto}>
           宁说啥都对
         </div>
         <Tooltip title={'主页'}>
           <Box
             boxShadow={3}
-            style={{
-              marginTop: '40px',
-              height: '30px',
-              width: '30px',
-              borderRadius: '15px',
-              background: '#fff',
-
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
+            className={classes.homeIconWrapper}
+          >
             <Link href={'/'}>
               <a><HomeIcon/></a>
             </Link>
           </Box>
         </Tooltip>
-
-
-        <div style={{
-          marginTop: '10px',
-          height: '100px',
-          width: '300px',
-
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: "space-around"
-        }}>
-          <Tooltip title={'文章'}>
-            <div style={{
-              width: '50px',
-              color: '#fff',
-              display: 'flex',
-              justifyContent: "center"
-            }}>
-              <Link href={'/articles'}>
-                <a><ImportContactsIcon/></a>
-              </Link>
-            </div>
-          </Tooltip>
-
-
-          <Tooltip title={'标签'}>
-            <div style={{
-              width: '50px',
-              // borderRight: '1px solid #fff',
-              fontWeight: 'bold',
-              color: '#fff',
-              display: 'flex',
-              justifyContent: "center"
-            }}>
-              <Link href={'/tags'}>
-                <a><LabelIcon/></a>
-              </Link>
-            </div>
-          </Tooltip>
-
-          <Tooltip title={'归档'}>
-            <div style={{
-              width: '50px',
-              // borderRight: '1px solid #fff',
-              fontWeight: 'bold',
-              color: '#fff',
-              display: 'flex',
-              justifyContent: "center"
-            }}>
-              <Link href={'/archive'}>
-                <a><ArchiveIcon/></a>
-              </Link>
-            </div>
-          </Tooltip>
-          <Tooltip title={'日志'}>
-            <div style={{
-              width: '50px',
-              // borderRight: '1px solid #fff',
-              fontWeight: 'bold',
-              color: '#fff',
-              display: 'flex',
-              justifyContent: "center"
-            }}>
-              <Link href={'/feeling'}>
-                <a><CommentIcon/></a>
-              </Link>
-            </div>
-          </Tooltip>
-
-          <Tooltip title={'关于'}>
-            <div style={{
-              width: '50px',
-              // borderRight: '1px solid #fff',
-              fontWeight: 'bold',
-              color: '#fff',
-              display: 'flex',
-              justifyContent: "center"
-            }}>
-              <Link href={'/about'}>
-                <a><InfoIcon/></a>
-              </Link>
-            </div>
-          </Tooltip>
+        <div className={classes.nav}>
+          {
+            navs.map(item => (
+              <Tooltip title={item.title} key={item.title}>
+                <div className={classes.navItem}>
+                  <Link href={item.route}>
+                    <a>{item.icon}</a>
+                  </Link>
+                </div>
+              </Tooltip>
+            ))
+          }
         </div>
-
-        <div style={{
-          marginTop: '20px',
-          height: '50px',
-          width: '300px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: "space-around"
-        }}>
+        <div className={classes.infoIcon}>
           <Info/>
         </div>
-
-        {/*<div style={{*/}
-        {/*  marginTop: '40px',*/}
-        {/*  height: '50px',*/}
-        {/*  width: '400px',*/}
-        {/*  background: '#fff',*/}
-        {/*  color: '#000'*/}
-        {/*}}>*/}
-        {/*  关于我*/}
-        {/*</div>*/}
       </Box>
     </nav>
   );
 }
+
 
 export default Nav;

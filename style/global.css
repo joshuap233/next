@@ -13,6 +13,7 @@ html, body, #root {
     color: #3B454E;
     font-family: Rubik-Regular, serif;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {

@@ -1,37 +1,20 @@
 import React from 'react';
 import Container from "../../components/Container";
+import useStyles from './About.style';
 
 function Index() {
+  const classes = useStyles();
   return (
     <Container>
-      <div style={{
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column",
-        alignItems: "center",
-        width: '100%'
-      }}>
-        <div style={{
-          width: '800px',
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-          alignItems: "center",
-        }}>
+      <div className={classes.wrapper}>
+        <div>
           <h1>关于我</h1>
-          <div>
-            <span style={{
-              marginLeft: 20
-            }}>"</span>
+          <div className={classes.poem}>
+            <span>"</span>
             <span>
-              <img src="/asset/water_drop.svg" alt="" style={{
-                height: '20px'
-              }}/>
+              <img src="/asset/water_drop.svg" alt=""/>
             </span>
-            <span style={{
-              letterSpacing: '1px',
-              lineHeight: '25px'
-            }}>
+            <span>
               与三体文明的战争使人类第一次看到了宇宙黑暗的真相，地球文明像一个恐惧的孩子，熄灭了寻友的篝火，在暗夜中发抖。
               自以为历经沧桑，其实刚刚蹒跚学步；自以为悟出了生存竞争的秘密，其实还远没有竞争的资格。
               使两个文明命悬一线的黑暗森林打击，不过是宇宙战场上一个微不足道的插曲。真正的星际战争没人见过，也不可能见到，因为战争的方式和武器已经远远超出人类的想象，目睹战场之日，即是灭亡之时。
@@ -40,17 +23,8 @@ function Index() {
             </span>
             <span>"</span>
           </div>
-          <div style={{
-            width: '100%',
-            marginLeft: '10px',
-            color: '#888',
-            fontSize: '15px'
-          }}>
-            <h2 style={{
-              fontSize: '20px',
-              marginTop: 50,
-              color: '#000'
-            }}>
+          <div className={classes.websiteWrapper}>
+            <h2>
               网站
             </h2>
 
@@ -65,17 +39,10 @@ function Index() {
             </ul>
           </div>
 
-          <div style={{
-            width: '100%',
-            marginLeft: '10px',
-            color: '#888',
-            fontSize: '15px'
-          }}>
-            <h2 style={{
-              fontSize: '20px',
-              marginTop: 50,
-              color: '#000',
-            }}>
+          <div
+            className={classes.aboutMe}
+          >
+            <h2>
               关于我
             </h2>
             <p>会一点Python,会一点JavaScript,半吊子前端,后端选手,弱鸡Docker,Ubuntu玩家,算法被小学生吊打</p>
@@ -86,17 +53,8 @@ function Index() {
             <p>选择恐惧症</p>
           </div>
 
-          <div style={{
-            width: '100%',
-            marginLeft: '10px',
-            color: '#888',
-            fontSize: '15px'
-          }}>
-            <h2 style={{
-              fontSize: '20px',
-              marginTop: 50,
-              color: '#000',
-            }}>
+          <div className={classes.blog}>
+            <h2>
               博客源码
             </h2>
             <p>github</p>

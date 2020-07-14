@@ -2,6 +2,12 @@ import {makeStyles} from "@material-ui/core";
 
 export default makeStyles({
   root: {
+    '& pre': {
+      display: 'block',
+    },
+    '& code': {
+      display: 'block',
+    },
     '& code[class*="language-"],pre[class*="language-"]': {
       borderRadius: "5px",
       textAlign: "left",
@@ -11,7 +17,7 @@ export default makeStyles({
       wordWrap: "normal",
       color: "#c3cee3",
       background: "#263238",
-      fontFamily: "Roboto Mono, monospace",
+      fontFamily: "Rubik-Regular-kern-latin",
       fontSize: "1em",
       lineHeight: "1.5em",
       MozTabSize: "4",

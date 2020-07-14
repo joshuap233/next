@@ -3,8 +3,8 @@ import Divider from '@material-ui/core/Divider';
 import Content from './TreeViewItem';
 import CommentContext from "../CommentContext";
 import {areEqual} from "../helper";
-import {Button} from '@material-ui/core';
-import useStyles from './treeView.style';
+import {Button, Box} from '@material-ui/core';
+import useStyles from './TreeView.style';
 import Immutable from "immutable";
 import PropTypes from 'prop-types';
 
@@ -16,7 +16,15 @@ const TreeNode = React.memo(function Node(props) {
       <>
         {
           nodes.map(node => (
-            <div key={node.get('id')}>
+            <Box
+              // boxShadow={level === 0 ? 3 : 0}
+              key={node.get('id')}
+              style={{
+                // borderRadius: level === 0 ? '15px' : 'none',
+                padding: level === 0 ? 40 : 10,
+                marginBottom:level === 0 ? 40 : 10,
+              }}
+            >
               <Content
                 level={level}
                 node={node}
@@ -36,7 +44,7 @@ const TreeNode = React.memo(function Node(props) {
                   />
                 )
               }
-            </div>
+            </Box>
           ))
         }
       </>
@@ -48,6 +56,7 @@ const TreeNode = React.memo(function Node(props) {
 export default React.memo(function TreeView(props) {
     const {initApi, loadMoreAPi} = props;
     const {state, dispatch, action} = useContext(CommentContext);
+
     useEffect(() => {
       initApi().then(data => {
         dispatch(action.mergeDictTree(data));

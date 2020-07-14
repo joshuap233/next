@@ -19,7 +19,6 @@ function Info() {
           width: '50px',
           fontWeight: 'bold',
           color: '#fff',
-
           display: 'flex',
           justifyContent: "center"
         }}>

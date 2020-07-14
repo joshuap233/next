@@ -4,7 +4,7 @@ import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import PanToolIcon from '@material-ui/icons/PanTool';
 // import Draggable from 'react-draggable';
-import useStyles, {treeViewMaxWidth} from './treeView.style';
+import useStyles, {treeViewMaxWidth} from './TreeView.style';
 
 
 const parseArticle = (article) => {
