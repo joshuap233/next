@@ -10,6 +10,9 @@ import ArchiveIcon from '@material-ui/icons/Archive';
 import CommentIcon from '@material-ui/icons/Comment';
 import Info from "./Info";
 import useStyles from './Nav.style';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
+
 
 const navs = [
   {title: '文章', route: '/articles', icon: <ImportContactsIcon/>},
@@ -20,8 +23,13 @@ const navs = [
 ];
 
 
-function Nav() {
+function Nav({setContentsOpen, contentsOpen}) {
   const classes = useStyles();
+
+  const handleContentClick = () => {
+    setContentsOpen && setContentsOpen(open => !open);
+  };
+
   return (
     <nav>
       <div className={classes.navWrapper}/>
@@ -67,6 +75,18 @@ function Nav() {
         <div className={classes.infoIcon}>
           <Info/>
         </div>
+        {
+          setContentsOpen && (
+            <div onClick={handleContentClick} className={classes.visibilityIcon}>
+              <Tooltip title={`${contentsOpen ? '关闭' : '打开'}目录`}>
+                {
+                  contentsOpen ? <VisibilityOffIcon/> : <VisibilityIcon/>
+                }
+              </Tooltip>
+            </div>
+          )
+        }
+
       </Box>
     </nav>
   );

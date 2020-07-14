@@ -1,13 +1,31 @@
 import React from 'react';
-import Tooltip from "@material-ui/core/Tooltip";
+import {Tooltip, makeStyles} from "@material-ui/core";
 import info from "../config/info";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import {CopyToClipboard} from "react-copy-to-clipboard";
 
+const useStyles = makeStyles({
+  wrapper: {
+    width: '50px',
+    fontWeight: 'bold',
+    color: '#fff',
+    display: 'flex',
+    justifyContent: "center"
+  },
+  link: {
+    display: 'block',
+    height: '30px',
+    width: '30px',
+  },
+  icon: {
+    height: '100%',
+    width: '100%',
+  }
+});
 
 function Info() {
-
+  const classes = useStyles();
   const handleOnCopy = () => {
 
   };
@@ -15,85 +33,42 @@ function Info() {
   return (
     <>
       <Tooltip title={'github'}>
-        <div style={{
-          width: '50px',
-          fontWeight: 'bold',
-          color: '#fff',
-          display: 'flex',
-          justifyContent: "center"
-        }}>
+        <div className={classes.wrapper}>
           <a
             href={info.github}
             target={"_blank"}
-            style={{
-              display: 'block',
-              height: '30px',
-              width: '30px',
-            }}
+            className={classes.link}
           >
-            <GitHubIcon
-              style={{
-                height: '100%',
-                width: '100%',
-              }}/>
+            <GitHubIcon className={classes.icon}/>
           </a>
         </div>
       </Tooltip>
 
       <Tooltip title={'stack overflow'}>
-        <div style={{
-          width: '50px',
-          fontWeight: 'bold',
-          color: '#fff',
-
-          display: 'flex',
-          justifyContent: "center"
-        }}>
+        <div className={classes.wrapper}>
           <a
             href={info.stackOverflow}
             target={"_blank"}
-            style={{
-              display: 'block',
-              height: '30px',
-              width: '30px',
-            }}
+            className={classes.link}
           >
             <img
-              style={{
-                // border: '2px solid #fff',
-                height: '100%',
-                width: '100%',
-              }}
+              className={classes.icon}
               src="/asset/stack-overflow.png" alt=""/>
           </a>
         </div>
       </Tooltip>
 
       <Tooltip title={'邮箱'}>
-        <div style={{
-          width: '50px',
-          fontWeight: 'bold',
-          color: '#fff',
-
-          display: 'flex',
-          justifyContent: "center",
-        }}>
+        <div className={classes.wrapper}>
           <CopyToClipboard
             text={info.email}
             onCopy={handleOnCopy}
           >
             <a
-              style={{
-                height: '30px',
-                width: '30px',
-              }}
+              className={classes.link}
               href={`mailto:${info.email}`}
-              // target={"_blank"}
             >
-              <MailOutlineIcon style={{
-                height: '100%',
-                width: '100%',
-              }}/>
+              <MailOutlineIcon className={classes.icon}/>
             </a>
           </CopyToClipboard>
         </div>

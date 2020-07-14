@@ -4,8 +4,8 @@ export const treeViewMaxWidth = 250;
 export default makeStyles((theme) => ({
   root: {
     position: 'fixed',
-    left: ({position: {x}}) => x,
-    top: ({position: {y}}) => y,
+    left: 10,
+    top: 100,
     '& a': {
       color: '#333333'
     },
@@ -35,9 +35,6 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     color: '#000',
-    [theme.breakpoints.only("xs")]: {
-      display: 'none',
-    },
   },
   switch: {
     color: '#000',

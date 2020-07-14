@@ -60,17 +60,11 @@ function BlogItem({index, content, time}) {
 function Index() {
   const classes = useStyles();
   return (
-    <Container>
-      <div className={classes.poems}>
-        <h1>日志</h1>
-        <div>
-          <span>"</span>
-          <span>
-          君不见黄河之水天上，奔流到海不复回。
-          君不见高堂明镜悲白发，朝如青丝暮成雪
-        </span>
-          <span>"</span>
-        </div>
+    <Container
+      route={"日志"}
+      poem={"君不见黄河之水天上，奔流到海不复回.君不见高堂明镜悲白发，朝如青丝暮成雪"}
+    >
+      <div className={classes.wrapper}>
         {
           blogs.map(item => {
             return (

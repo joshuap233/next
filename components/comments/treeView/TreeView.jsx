@@ -11,19 +11,14 @@ import PropTypes from 'prop-types';
 
 const TreeNode = React.memo(function Node(props) {
   const {nodes, parent, level} = props;
+  const classes = useStyles({level})
   if (nodes.size !== 0) {
     return (
       <>
         {
           nodes.map(node => (
             <Box
-              // boxShadow={level === 0 ? 3 : 0}
               key={node.get('id')}
-              style={{
-                // borderRadius: level === 0 ? '15px' : 'none',
-                padding: level === 0 ? 40 : 10,
-                marginBottom:level === 0 ? 40 : 10,
-              }}
             >
               <Content
                 level={level}

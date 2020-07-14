@@ -2,44 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b0aaa4a-0197-4866-8f2d-c3830b7bb3a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/Nav.style.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/about/About.style.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/archive/Archive.style.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/article/Editor.style.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/articles/Articles.style.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/feeling/Feeling.style.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/tags/Tags.style.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/test/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Poem.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Container.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Container.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Footer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Info.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Info.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Nav.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ScrollToTop.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ScrollToTop.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comments/CommentContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/CommentContext.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comments/editor/Editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/editor/Editor.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comments/editor/EditorItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/editor/EditorItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comments/editor/editor.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/editor/Editor.style.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comments/editor/editorItem.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/editor/EditorItem.style.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comments/editorState.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/editor/EditorState.style.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comments/treeView/TreeView.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/treeView/TreeView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comments/treeView/TreeViewItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/treeView/TreeViewItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comments/treeView/treeView.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/treeView/TreeView.style.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comments/treeView/treeViewItem.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/treeView/TreeViewItem.style.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/about/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Nav.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Nav.style.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/comments/treeView/TreeView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/treeView/TreeView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/comments/treeView/TreeViewItem.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/treeView/TreeViewItem.style.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/about/About.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/About.style.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/archive/Archive.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/archive/Archive.style.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/archive/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/archive/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/article/Article.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/Article.style.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/article/Comment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/Comment.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/article/TreeView.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/TreeView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/article/TreeView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/TreeView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/article/TreeView.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/TreeView.style.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/article/[pid].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/[pid].jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/article/article.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/Article.style.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/article/prism.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/prism.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/article/prism.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/prism.style.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/article/treeView.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/TreeView.style.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/articles/Articles.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/articles/Articles.style.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/articles/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/articles/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/feeling/Feeling.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/feeling/Feeling.style.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/feeling/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/feeling/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/tags/Tags.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/tags/Tags.style.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/tags/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/tags/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/style/theme.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +107,7 @@
       <workItem from="1594627928053" duration="272000" />
       <workItem from="1594628899902" duration="3494000" />
       <workItem from="1594632406614" duration="12247000" />
-      <workItem from="1594686655933" duration="27920000" />
+      <workItem from="1594686655933" duration="32592000" />
     </task>
     <servers />
   </component>
@@ -194,10 +179,10 @@
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="1641" y="34" width="706" height="913" key="dock-window-4/0.34.1920.1046@0.34.1920.1046" timestamp="1594726451343" />
-    <state x="543" y="238" width="1155" height="674" key="find.popup" timestamp="1594713088594">
+    <state x="543" y="238" width="1155" height="674" key="find.popup" timestamp="1594730221939">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state x="543" y="238" width="1155" height="674" key="find.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1594713088594" />
+    <state x="543" y="238" width="1155" height="674" key="find.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1594730221939" />
     <state x="59" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1594559302612">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>

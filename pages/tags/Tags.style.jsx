@@ -9,7 +9,6 @@ export default makeStyles((theme) => ({
     alignItems: 'center'
   },
   tagsWrapper: {
-    marginTop: 100,
     paddingLeft: theme.spacing(5),
     paddingRight: theme.spacing(5),
     [theme.breakpoints.up('sm')]: {
@@ -24,12 +23,16 @@ export default makeStyles((theme) => ({
   },
   tagWrapper: ({url}) => ({
     [theme.breakpoints.up('lg')]: {},
-    '& > div': {
+    '& .ButtonBase': {
       background: `url(${url}) no-repeat`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       position: "relative",
       height: 300,
+      display: 'block',
+      '@media (max-width:400px)': {
+        height: '150px!important',
+      },
       [theme.breakpoints.only('sm')]: {
         height: 220,
       },

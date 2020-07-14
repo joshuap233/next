@@ -55,20 +55,12 @@ function ArchiveItem() {
 function Index() {
   const classes = useStyles();
   return (
-    <Container>
+    <Container
+      poem={"今我来思,雨雪霏霏"}
+      route={"归档"}
+    >
       <div className={classes.wrapper}>
         <div>
-          <div>
-            <h1>归档</h1>
-          </div>
-          <div>
-            <span>"</span>
-            <span>
-              今我来思,雨雪霏霏
-             </span>
-            <span>"</span>
-          </div>
-
           <Grid
             container
             direction={"row"}

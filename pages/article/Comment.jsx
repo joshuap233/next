@@ -1,7 +1,6 @@
 import React, {useCallback} from 'react';
 import {initData, newData} from "./mock";
 import {Comments, Editor, Provider} from '../../components/comments';
-import {Divider} from "@material-ui/core";
 
 function Comment() {
   const initApi = useCallback(() => new Promise((resolve) => {

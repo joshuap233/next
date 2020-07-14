@@ -178,16 +178,14 @@ const CommentContent = React.memo(function CommentContent(props) {
 
 
 const ReplayButton = React.memo(function ReplayButton({handleOpenModal, reply}) {
+  const classes = useStyles();
   const handleOnClick = () => {
     handleOpenModal(reply);
   };
   return (
     <ReplyIcon
       onClick={handleOnClick}
-      style={{
-        cursor: "pointer",
-        color: '#000'
-      }}/>
+      className={classes.replyIcon}/>
   );
 });
 

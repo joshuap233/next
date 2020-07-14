@@ -30,7 +30,11 @@ export default makeStyles((theme) => ({
     },
     '& > span:nth-child(3)': {
       letterSpacing: '1px',
-      lineHeight: '25px'
+      lineHeight: '25px',
+      '@media (max-width:400px)': {
+        lineHeight: '15px',
+        fontSize:'8px'
+      }
     },
   },
   websiteWrapper: {

@@ -1,6 +1,7 @@
+import React from "react";
 import Nav from './Nav';
 import Footer from "./Footer";
-import React from "react";
+import Poem from "./Poem";
 import ScrollToTop from "./ScrollToTop";
 import {makeStyles} from "@material-ui/core";
 
@@ -22,11 +23,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // 包含导航栏与页脚的容器
-function Container({children}) {
+function Container({children, route, poem, setContentsOpen, contentsOpen}) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Nav/>
+      <Nav setContentsOpen={setContentsOpen} contentsOpen={contentsOpen}/>
+      {
+        route && poem && (
+          <Poem route={route} poem={poem}/>
+        )
+      }
       <div className={classes.wrapper}>
         {children}
         <ScrollToTop/>

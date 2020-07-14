@@ -9,7 +9,10 @@ const useStyles = makeStyles({
   placeHolder: {
     paddingTop: 20,
     height: '200px',
-    width: '100%'
+    width: '100%',
+    '@media (max-width:400px)': {
+      height: '100px',
+    }
   },
   wrapper: {
     zIndex: '10',

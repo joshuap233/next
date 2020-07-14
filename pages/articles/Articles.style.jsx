@@ -71,7 +71,7 @@ export default makeStyles((theme) => ({
   pic: {
     width: '400px',
     height: '200px',
-    background: '#000 url(/asset/test1.svg) no-repeat',
+    background: ({url, dark}) => `${dark ? '#fff' : '#000'} url(${url}) no-repeat`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     boxShadow: '0 2px 5px rgba(0,0,25,0.1), 0 5px 75px 1px rgba(0,0,50,0.2)',

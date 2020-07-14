@@ -1,9 +1,7 @@
-import React, {useCallback, useEffect, useLayoutEffect, useMemo, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import {Box, useMediaQuery, useTheme} from "@material-ui/core";
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
-import VisibilityIcon from '@material-ui/icons/Visibility';
 import PanToolIcon from '@material-ui/icons/PanTool';
-// import Draggable from 'react-draggable';
 import useStyles, {treeViewMaxWidth} from './TreeView.style';
 
 
@@ -80,91 +78,43 @@ function TreeNode({nodes}) {
 }
 
 
-export default function TreeView({htmlString}) {
-  // const [position, setPosition] = useState(
-  //   {
-  //     x: window.innerWidth - (treeViewMaxWidth + 10),
-  //     y: 100
-  //   }
-  // );
+export default function TreeView({htmlString, contentsOpen, setContentsOpen}) {
+  const classes = useStyles({open: contentsOpen});
   const theme = useTheme();
-  // 不加{noSsr:true} 参数导致matches 默认为false, 渲染一次后才为真正的matches
-  const matches = useMediaQuery(theme.breakpoints.only('xs'), {noSsr: true});
-
-  const [open, setOpen] = useState(false);
-
-  // useLayoutEffect(() => {
-  //   function updateSize() {
-  //     setPosition(position => ({
-  //       x: window.innerWidth - (treeViewMaxWidth + 10),
-  //       y: position.y
-  //     }));
-  //   }
-  //
-  //   window.addEventListener('resize', updateSize);
-  //   updateSize();
-  //   return () => window.removeEventListener('resize', updateSize);
-  //
-  // }, []);
-
+  const matches = useMediaQuery(theme.breakpoints.only('xs'));
   useEffect(() => {
-    setOpen(!matches);
+    setContentsOpen(!matches);
   }, [matches]);
 
   const handleOnClick = useCallback(() => {
-    setOpen(open => !open);
+    setContentsOpen(open => !open);
   }, []);
 
-  // const classes = useStyles({open, position});
-  const classes = useStyles({
-    open, position: {
-      x: 10,
-      y: 100
-    }
-  });
 
   const [dictTree, setDictTree] = useState(null);
   useEffect(() => {
     setDictTree(parseArticle(htmlString));
   }, []);
-  // const dictTree = useMemo(() => {
-  //   return parseArticle(htmlString);
-  // }, [htmlString]);
 
   return (
-    <>
-      <div
-        title={open ? '关闭目录' : '打开目录'}
-        onClick={handleOnClick}
-        className={classes.switch}
-      >
+    <div className={classes.root}>
+      <Box boxShadow={8} component={'div'} className={classes.tree}>
+        <div
+          className={classes.icon}
+          title={'可拖动'}
+        >
+          <PanToolIcon/>
+        </div>
         {
-          open ?
-            <VisibilityOffIcon/> :
-            <VisibilityIcon/>
+          dictTree && <TreeNode nodes={dictTree}/>
         }
-      </div>
-      {/*<Draggable disabled={matches}>*/}
-      <div className={classes.root}>
-        <Box boxShadow={8} component={'div'} className={classes.tree}>
-          <div
-            className={classes.icon}
-            title={'可拖动'}
-          >
-            <PanToolIcon/>
-          </div>
-          {
-            dictTree && <TreeNode nodes={dictTree}/>
-          }
-          <div
-            onClick={handleOnClick}
-            title={'隐藏'}
-            className={classes.icon}>
-            <VisibilityOffIcon/>
-          </div>
-        </Box>
-      </div>
-      {/*</Draggable>*/}
-    </>
+        <div
+          onClick={handleOnClick}
+          title={'隐藏'}
+          className={classes.icon}>
+          <VisibilityOffIcon/>
+        </div>
+      </Box>
+    </div>
   );
 }

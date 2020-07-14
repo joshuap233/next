@@ -21,6 +21,8 @@ import LabelIcon from '@material-ui/icons/Label';
 function Article() {
   const [innerWidth, setInnerWidth] = useState(null);
   const classes = useStyles({innerWidth});
+  const [contentsOpen, setContentsOpen] = useState(false);
+
   const editorStyle = useEditorStyle();
   const codeStyle = useCodeStyle();
   const router = useRouter();
@@ -35,8 +37,15 @@ function Article() {
   }, []);
 
   return (
-    <Container>
-      {/*<Contents htmlString={article}/>*/}
+    <Container
+      contentsOpen={contentsOpen}
+      setContentsOpen={setContentsOpen}
+    >
+      <Contents
+        htmlString={article}
+        contentsOpen={contentsOpen}
+        setContentsOpen={setContentsOpen}
+      />
       <div className={classes.bg}>
         <div className={classes.placeHolder}/>
         <div className={classes.title}>
@@ -60,36 +69,17 @@ function Article() {
           />
         </div>
 
-        <div style={{
-          width: '100%',
-          fontSize: '20px',
-          display: "flex",
-          justifyContent: "center"
-        }}>
-          <div style={{
-            width: '80%',
-            marginTop: 50
-          }}>
+        <div className={classes.tagsWrapper}>
+          <div>
             <Divider variant={"middle"}/>
-            <div style={{
-              marginTop: 20,
-              marginBottom: 20,
-              display: "flex",
-              alignItems: "center"
-            }}>
+            <div className={classes.tags}>
               <Tooltip title={'标签'}>
                 <LabelIcon/>
               </Tooltip>
-              <span
-                style={{
-                  marginLeft: 10
-                }}>
+              <span>
                 Ubuntu
               </span>
-              <span
-                style={{
-                  marginLeft: 10
-                }}>
+              <span>
                 React
               </span>
             </div>
@@ -99,20 +89,11 @@ function Article() {
 
 
         <div
+          className={classes.commentsWrapper}
           style={{
-          width: '100%',
-          fontSize: '20px',
-          display: "flex",
-          justifyContent: "center"
-        }}>
-          <div style={{
-            width: '80%',
-            marginTop: 50,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center"
+
           }}>
+          <div>
             <Divider variant={"middle"}/>
             <Comment/>
           </div>

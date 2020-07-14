@@ -16,7 +16,6 @@ export default makeStyles((theme) => ({
     }
   },
   articlesWrapper: {
-    marginTop: '100px',
     padding: theme.spacing(2),
     [theme.breakpoints.only('xs')]: {
       padding: theme.spacing(1),
@@ -29,9 +28,6 @@ export default makeStyles((theme) => ({
   },
   articleWrapper: {
     position: "relative",
-    [theme.breakpoints.down('md')]: {},
-    [theme.breakpoints.only('xs')]: {},
-    [theme.breakpoints.only('sm')]: {}
   },
   title: {
     height: '40px',

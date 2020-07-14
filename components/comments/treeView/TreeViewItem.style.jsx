@@ -1,9 +1,20 @@
 import {makeStyles} from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
+  node: ({level}) => ({
+    padding: level === 0 ? 40 : 10,
+    marginBottom: level === 0 ? 40 : 10,
+    [theme.breakpoints.only('xs')]: {
+      padding: level === 0 ? 20 : 5,
+      marginBottom: level === 0 ? 20 : 5,
+    }
+  }),
   contentWrapper: ({level}) => ({
     marginLeft: level <= 2 ? level * 20 : 3 * 20,
-    fontSize:'15px'
+    fontSize: '15px',
+    [theme.breakpoints.only('xs')]: {
+      marginLeft: level <= 2 ? level * 5 : 3 * 5,
+    }
   }),
   nickname: ({link}) => link ? {color: '#7986cb'} : {color: '#000'},
   userInfoWrapper: {
@@ -39,7 +50,8 @@ export default makeStyles((theme) => ({
   blockquote: {
     borderLeft: '6px solid #DDDDDD',
     maxHeight: 150,
-    overflow: "hidden"
+    overflowY: "hidden",
+    overflowX: 'auto'
   },
   link: {
     textDecoration: 'none',
@@ -65,5 +77,9 @@ export default makeStyles((theme) => ({
   },
   shake: {
     animation: 'shake 1.0s 2',
+  },
+  replyIcon: {
+    cursor: "pointer",
+    color: '#000'
   }
 }));

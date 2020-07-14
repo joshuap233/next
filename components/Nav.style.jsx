@@ -6,7 +6,7 @@ export default makeStyles((theme) => ({
     width: 300,
     [theme.breakpoints.only('xs')]: {
       // 上侧导航栏
-      height: 200,
+      height: '200px!important',
     },
     [theme.breakpoints.down('sm')]: {
       // 上侧导航栏
@@ -30,9 +30,12 @@ export default makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column',
+    '@media (max-width:400px)': {
+      // height: '200px!important',
+    },
     [theme.breakpoints.only('xs')]: {
       // 上侧导航栏
-      height: 200,
+      height: '200px!important',
     },
     [theme.breakpoints.down('sm')]: {
       // 上侧导航栏
@@ -120,6 +123,9 @@ export default makeStyles((theme) => ({
       marginTop: 10,
       display: 'none'
     },
+  },
+  visibilityIcon: {
+    color: '#fff'
   },
   nav: {
     marginTop: '10px',

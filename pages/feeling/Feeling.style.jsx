@@ -4,7 +4,7 @@ export default makeStyles((theme) => ({
   divider: {
     backgroundColor: '#fff'
   },
-  poems: {
+  wrapper: {
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
@@ -20,6 +20,7 @@ export default makeStyles((theme) => ({
     display: "flex",
     marginTop: '40px',
     height: '150px',
+    justifyContent:'center',
     [theme.breakpoints.only('xs')]: {
       width: '95%',
     },
@@ -36,7 +37,6 @@ export default makeStyles((theme) => ({
     height: '120px',
     border: dark ? '1px solid #000' : '1px solid #fff',
     borderRadius: '5px',
-    marginLeft: 20,
 
     background: dark ? '#000' : '#fff',
     color: dark ? '#fff' : "000",

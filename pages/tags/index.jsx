@@ -47,12 +47,10 @@ function TagItem({name, url, desc}) {
       className={classes.tagWrapper}
     >
       <ButtonBase
+        className={'ButtonBase'}
         component={Box}
         focusRipple
         boxShadow={3}
-        style={{
-          display:'block'
-        }}
       >
         <div className={classes.tagName}>
           {name}
@@ -71,17 +69,11 @@ function TagItem({name, url, desc}) {
 function Index() {
   const classes = useStyles();
   return (
-    <Container>
+    <Container
+      route={"标签"}
+      poem={"靖康耻，犹未雪。臣子恨，何时灭。驾长车，踏破贺兰山缺"}
+    >
       <div className={classes.wrapper}>
-        <div>
-          <h1>标签</h1>
-        </div>
-        <div>
-          <span>"</span>
-          <span>靖康耻，犹未雪。臣子恨，何时灭。驾长车，踏破贺兰山缺</span>
-          <span>"</span>
-        </div>
-
         <Grid
           container
           direction={"row"}

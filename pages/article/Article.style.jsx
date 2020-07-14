@@ -13,6 +13,10 @@ export default makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    '@media (max-width:400px)': {
+      marginTop: '20px',
+      height: '100px!important',
+    },
     [theme.breakpoints.down('sm')]: {
       // 上侧导航栏
       background: 'none',
@@ -50,7 +54,10 @@ export default makeStyles(theme => ({
   poem: {
     color: '#fff',
     padding: '10px 0 10px 0',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    '@media (max-width:400px)': {
+      display: 'none'
+    }
   },
   articleRoot: {
     width: '100%',
@@ -71,5 +78,38 @@ export default makeStyles(theme => ({
     [theme.breakpoints.up('lg')]: {
       width: '80%'
     },
+  },
+  tagsWrapper: {
+    width: '100%',
+    fontSize: '20px',
+    display: "flex",
+    justifyContent: "center",
+    '& > div': {
+      width: '80%',
+      marginTop: 50
+    },
+    '& .tags': {
+      marginTop: 20,
+      marginBottom: 20,
+      display: "flex",
+      alignItems: "center"
+    },
+    '& span': {
+      marginLeft: 10
+    }
+  },
+  commentsWrapper: {
+    width: '100%',
+    fontSize: '20px',
+    display: "flex",
+    justifyContent: "center",
+    '& > div': {
+      width: '80%',
+      marginTop: 50,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center"
+    }
   }
 }));
