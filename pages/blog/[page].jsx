@@ -66,12 +66,12 @@ function Page({blog, nextPage}) {
 
 export async function getStaticProps({params}) {
   const data = await getBlogData(params.page);
-  const nextPage = parseInt(data.page) + 1;
+  const nextPage = parseInt(params.page) + 1;
 
   return {
     props: {
-      blog: data.data.values,
-      nextPage: nextPage < data.data.totalPage ? nextPage : false
+      blog: data.values,
+      nextPage: nextPage < data.totalPage ? nextPage : false
     }
   };
 }

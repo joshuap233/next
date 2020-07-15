@@ -71,11 +71,11 @@ function Page({tags, nextPage}) {
 
 export async function getStaticProps({params}) {
   const data = await getTagsData(params.page);
-  const nextPage = parseInt(data.page) + 1;
+  const nextPage = parseInt(params.page) + 1;
   return {
     props: {
-      tags: data.data.values,
-      nextPage: nextPage < data.data.totalPage ? nextPage : false
+      tags: data.values,
+      nextPage: nextPage < data.totalPage ? nextPage : false
     }
   };
 }

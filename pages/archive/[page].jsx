@@ -92,11 +92,11 @@ function Page({archives, nextPage}) {
 
 export async function getStaticProps({params}) {
   const data = await getArchiveData(params.page);
-  const nextPage = parseInt(data.page) + 1;
+  const nextPage = parseInt(params.page) + 1;
   return {
     props: {
-      archives: data.data.values,
-      nextPage: nextPage < data.data.totalPage ? nextPage : false
+      archives: data.values,
+      nextPage: nextPage < data.totalPage ? nextPage : false
     }
   };
 }

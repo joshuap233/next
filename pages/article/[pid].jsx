@@ -11,7 +11,7 @@ import Contents from "./TreeView";
 import LabelIcon from '@material-ui/icons/Label';
 import {getArticleData, getAllArticleIds} from "../../lib/article";
 
-function Article({article, comments}) {
+function Article({article, comments, pid}) {
   const [innerWidth, setInnerWidth] = useState(null);
   const classes = useStyles({innerWidth});
   const [contentsOpen, setContentsOpen] = useState(true);
@@ -84,7 +84,7 @@ function Article({article, comments}) {
         <div className={classes.commentsWrapper}>
           <div>
             <Divider variant={"middle"}/>
-            <Comment comments={comments}/>
+            <Comment comments={comments} pid={pid}/>
           </div>
         </div>
       </div>
@@ -98,7 +98,8 @@ export async function getStaticProps({params}) {
   return {
     props: {
       article: data.article,
-      comments: data.comments
+      comments: data.comments,
+      pid: params.pid
     }
   };
 }

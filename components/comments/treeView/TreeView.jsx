@@ -11,15 +11,12 @@ import PropTypes from 'prop-types';
 
 const TreeNode = React.memo(function Node(props) {
   const {nodes, parent, level} = props;
-  const classes = useStyles({level});
   if (nodes.size !== 0) {
     return (
       <>
         {
           nodes.map(node => (
-            <Box
-              key={node.get('id')}
-            >
+            <Box key={node.get('id')}>
               <Content
                 level={level}
                 node={node}

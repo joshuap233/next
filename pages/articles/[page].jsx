@@ -76,15 +76,15 @@ function Index({articles, nextPage}) {
 
 export async function getStaticProps({params}) {
   const data = await getArticlesData(params.page);
+  const nextPage = parseInt(params.page) + 1;
   // tag数组拼接为字符串
-  data.data.values.forEach(item => {
+  data.values.forEach(item => {
     item.tag = item.tag.reduce((total, value) => (total ? total + ',' : '') + value, '');
   });
-  const nextPage = parseInt(data.page) + 1;
   return {
     props: {
-      articles: data.data.values,
-      nextPage: nextPage < data.data.totalPage ? nextPage : false
+      articles: data.values,
+      nextPage: nextPage < data.totalPage ? nextPage : false
     }
   };
 }

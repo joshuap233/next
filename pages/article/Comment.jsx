@@ -1,13 +1,12 @@
 import React, {useCallback} from 'react';
-import {initData, newData} from "./mock";
 import {Comments, Editor, Provider} from '../../components/comments';
 
-function Comment({comments}) {
-  const loadMoreAPi = useCallback(() => new Promise(resolve => {
-    setTimeout(() => {
-      resolve(newData);
-    }, 500);
-  }), []);
+
+function Comment({comments, pid}) {
+  const loadMoreAPi = useCallback(() => {
+    return fetch(`http://localhost:3000/api/comments/${pid}/1.json`)
+      .then(response => response.json());
+  }, []);
 
   const submitApi = useCallback((data) => {
     console.log('submit data', data);
