@@ -6,6 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../style/theme';
 import Head from "next/head";
 
+
 export default function MyApp({Component, pageProps}) {
   useEffect(() => {
     // Remove the server-side injected CSS.
@@ -14,6 +15,7 @@ export default function MyApp({Component, pageProps}) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
+
   return (
     <>
       <Head>
@@ -27,4 +29,3 @@ export default function MyApp({Component, pageProps}) {
     </>
   );
 }
-

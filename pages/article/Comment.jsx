@@ -2,14 +2,7 @@ import React, {useCallback} from 'react';
 import {initData, newData} from "./mock";
 import {Comments, Editor, Provider} from '../../components/comments';
 
-function Comment() {
-  const initApi = useCallback(() => new Promise((resolve) => {
-    setTimeout(() => {
-      // mock fetch data
-      resolve(initData);
-    }, 500);
-  }), []);
-
+function Comment({comments}) {
   const loadMoreAPi = useCallback(() => new Promise(resolve => {
     setTimeout(() => {
       resolve(newData);
@@ -45,7 +38,7 @@ function Comment() {
         marginTop: '100px',
         width: '100%',
       }}>
-        <Comments initApi={initApi} loadMoreAPi={loadMoreAPi}/>
+        <Comments comments={comments} loadMoreAPi={loadMoreAPi}/>
       </div>
     </Provider>
   );

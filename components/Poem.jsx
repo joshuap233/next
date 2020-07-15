@@ -8,8 +8,8 @@ const useStyles = makeStyles({
     alignItems: 'center',
     padding: '10px',
     marginBottom: 20,
-    '@media (min-width:500px)': {
-      marginBottom: 80,
+    '@media (min-width:800px)': {
+      marginBottom: 40,
     },
     '& .space': {
       marginLeft: '20px'

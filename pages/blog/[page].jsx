@@ -1,32 +1,13 @@
 import React from 'react';
 
-import Container from '../../components/Container';
-import {Avatar, Divider, Box, Button} from '@material-ui/core';
+import Layout from '../../components/Layout';
+import {Avatar, Divider, Box} from '@material-ui/core';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
-import useStyles from './Feeling.style';
-
-const blogs = [{
-  id: 1,
-  content: '内容1',
-  time: '2019/2/10 1:00'
-}, {
-  id: 2,
-  content: '内容1',
-  time: '2019/2/10 1:00'
-}, {
-  id: 3,
-  content: '内容1',
-  time: '2019/2/10 1:00'
-}, {
-  id: 4,
-  content: '内容1',
-  time: '2019/2/10 1:00'
-},
-];
-
+import useStyles from './Blog.style';
+import {getAllBlogPage, getBlogData} from '../../lib/blog';
+import route from '../../misc/route';
 
 function BlogItem({index, content, time}) {
-
   const dark = React.useMemo(() => {
     return index % 2 === 0;
   }, []);
@@ -57,16 +38,17 @@ function BlogItem({index, content, time}) {
   );
 }
 
-function Index() {
+function Page({blog, nextPage}) {
   const classes = useStyles();
   return (
-    <Container
-      route={"日志"}
+    <Layout
+      route={route.blog}
+      nextPage={nextPage}
       poem={"君不见黄河之水天上，奔流到海不复回.君不见高堂明镜悲白发，朝如青丝暮成雪"}
     >
       <div className={classes.wrapper}>
         {
-          blogs.map(item => {
+          blog.map(item => {
             return (
               <BlogItem
                 key={item.id}
@@ -77,12 +59,29 @@ function Index() {
             );
           })
         }
-        <Button className={classes.pagingButton}>
-          下一页
-        </Button>
       </div>
-    </Container>
+    </Layout>
   );
 }
 
-export default Index;
+export async function getStaticProps({params}) {
+  const data = await getBlogData(params.page);
+  const nextPage = parseInt(data.page) + 1;
+
+  return {
+    props: {
+      blog: data.data.values,
+      nextPage: nextPage < data.data.totalPage ? nextPage : false
+    }
+  };
+}
+
+export async function getStaticPaths() {
+  const paths = getAllBlogPage();
+  return {
+    paths,
+    fallback: false
+  };
+}
+
+export default Page;

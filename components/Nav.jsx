@@ -12,14 +12,15 @@ import Info from "./Info";
 import useStyles from './Nav.style';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
-
+import route from "../misc/route";
+import userInfo from '../config/info'
 
 const navs = [
-  {title: '文章', route: '/articles', icon: <ImportContactsIcon/>},
-  {title: '标签', route: '/tags', icon: <LabelIcon/>},
-  {title: '归档', route: '/archive', icon: <ArchiveIcon/>},
-  {title: "日志", route: '/feeling', icon: <CommentIcon/>},
-  {title: '关于', route: '/about', icon: <InfoIcon/>}
+  {title: route.articles.name, route: `${route.articles.route}/0`, icon: <ImportContactsIcon/>},
+  {title: route.tags.name, route: `${route.tags.route}/0`, icon: <LabelIcon/>},
+  {title: route.archive.name, route: `${route.archive.route}/0`, icon: <ArchiveIcon/>},
+  {title: route.blog.name, route: `${route.blog.route}/0`, icon: <CommentIcon/>},
+  {title: route.about.name, route: route.about.route, icon: <InfoIcon/>}
 ];
 
 
@@ -39,15 +40,15 @@ function Nav({setContentsOpen, contentsOpen}) {
         <div className={classes.avatarWrapper}>
           <img
             className={classes.avatar}
-            src="/asset/avatar.jpeg"
+            src={userInfo.avatar}
             alt=""
           />
         </div>
         <div className={classes.authorName}>
-          Joshua Peng
+          {userInfo.nickname}
         </div>
         <div className={classes.motto}>
-          宁说啥都对
+          {userInfo.motto}
         </div>
         <Tooltip title={'主页'}>
           <Box
@@ -86,7 +87,6 @@ function Nav({setContentsOpen, contentsOpen}) {
             </div>
           )
         }
-
       </Box>
     </nav>
   );

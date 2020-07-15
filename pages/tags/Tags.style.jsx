@@ -62,7 +62,4 @@ export default makeStyles((theme) => ({
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis'
   },
-  pagingButton: {
-    marginTop: '40px'
-  }
 }));

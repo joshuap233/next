@@ -2,44 +2,12 @@ import React from 'react';
 
 import Head from 'next/head';
 import {Box, Button, Grid} from "@material-ui/core";
-import Container from "../../components/Container";
+import Layout from "../../components/Layout";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import useStyles from './Tags.style';
+import {getAllTagsPage, getTagsData} from '../../lib/tags';
+import route from "../../misc/route";
 
-
-const tags = [
-  {
-    id: 1,
-    name: 'Ubuntu',
-    desc: '这是简介,这是简介,这是简介',
-    url: '/asset/tag-pic.png'
-  }, {
-    id: 2,
-    name: 'React',
-    desc: '这是简介,这是简介,这是简介',
-    url: '/asset/tag-pic.png'
-  }, {
-    id: 3,
-    name: 'Linux',
-    desc: '这是简介,这是简介,这是简介',
-    url: '/asset/tag-pic.png'
-  }, {
-    id: 4,
-    name: 'Python',
-    desc: '这是简介,这是简介,这是简介',
-    url: '/asset/tag-pic.png'
-  }, {
-    id: 5,
-    name: 'Flask',
-    desc: '这是简介,这是简介,这是简介...............................................',
-    url: '/asset/tag-pic.png'
-  }, {
-    id: 6,
-    name: 'JavaScript',
-    desc: '这是简介,这是简介,这是简介',
-    url: '/asset/tag-pic.png'
-  },
-];
 
 function TagItem({name, url, desc}) {
   const classes = useStyles({url});
@@ -72,11 +40,13 @@ function TagItem({name, url, desc}) {
 }
 
 
-function Index() {
+function Page({tags, nextPage}) {
   const classes = useStyles();
+
   return (
-    <Container
-      route={"标签"}
+    <Layout
+      nextPage={nextPage}
+      route={route.tags}
       poem={"靖康耻，犹未雪。臣子恨，何时灭。驾长车，踏破贺兰山缺"}
     >
       <div className={classes.wrapper}>
@@ -93,12 +63,30 @@ function Index() {
             ))
           }
         </Grid>
-        <Button className={classes.pagingButton}>
-          下一页
-        </Button>
       </div>
-    </Container>
+    </Layout>
   );
 }
 
-export default Index;
+
+export async function getStaticProps({params}) {
+  const data = await getTagsData(params.page);
+  const nextPage = parseInt(data.page) + 1;
+  return {
+    props: {
+      tags: data.data.values,
+      nextPage: nextPage < data.data.totalPage ? nextPage : false
+    }
+  };
+}
+
+export async function getStaticPaths() {
+  const paths = getAllTagsPage();
+  return {
+    paths,
+    fallback: false
+  };
+}
+
+
+export default Page;

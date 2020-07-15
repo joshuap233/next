@@ -12,7 +12,8 @@ export default makeStyles((theme) => ({
       justifyContent: "center",
       flexDirection: "column",
       alignItems: "center",
-      width: '100%'
+      width: '100%',
+      cursor: "pointer"
     }
   },
   articlesWrapper: {
@@ -63,8 +64,5 @@ export default makeStyles((theme) => ({
     overflow: "hidden",
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis'
-  },
-  pagingButton: {
-    marginTop: 40
   }
 }));

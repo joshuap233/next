@@ -1,7 +1,25 @@
 import React from 'react';
-import {InputBase, IconButton} from '@material-ui/core';
+import {InputBase, IconButton, makeStyles} from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
-import useStyles from './Search.style';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    padding: '2px 4px',
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
+    height: 40,
+    borderRadius: '10px',
+    background: '#fff'
+  },
+  input: {
+    marginLeft: theme.spacing(1),
+    flex: 1,
+  },
+  iconButton: {
+    padding: 10,
+  },
+}));
 
 
 function Search() {

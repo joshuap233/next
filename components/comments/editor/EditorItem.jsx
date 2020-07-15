@@ -77,7 +77,7 @@ export const SubmitButton = React.memo(function SubmitButton({cacheContent, subm
     editorState.content = cacheContent;
     let website = editorState.website;
     if (website && !website.match('https?://')) {
-      website = 'http://' + website;
+      website = 'lib://' + website;
     }
     return [{
       ...editorState,

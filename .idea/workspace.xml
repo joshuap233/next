@@ -2,20 +2,62 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b0aaa4a-0197-4866-8f2d-c3830b7bb3a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/asset/article-bg1-sm.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/asset/nv-sm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.babelrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/pjs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Paging.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/archive.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/article.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/articles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/blog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/tags.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/userInfo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/misc/route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/articles/[page].jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/api/archive/0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/api/archive/1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/api/article/1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/api/article/2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/api/articles/0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/api/blog/0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/api/blog/1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/api/comments/1/0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/api/comments/1/1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/api/tags/0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/api/tags/1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/api/userinfo.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/userinfo.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Container.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Container.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Nav.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Nav.style.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Container.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Nav.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Poem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Poem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/article/Article.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/Article.style.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/article/TreeView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/TreeView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/comments/Search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Search.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/comments/Search.style.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/comments/editor/EditorItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/editor/EditorItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/comments/treeView/TreeView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/treeView/TreeView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/info.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/info.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/about/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/hello.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/archive/Archive.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/archive/Archive.style.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/archive/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/archive/[page].jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/article/Comment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/Comment.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/article/[pid].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/[pid].jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/articles/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/articles/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/feeling/Feeling.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/feeling/Feeling.style.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/feeling/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/feeling/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/tags/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/tags/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/asset/nv-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/article/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/article/prism.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/prism.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/articles/Articles.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/articles/Articles.style.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/articles/index.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/feeling/Feeling.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/blog/Blog.style.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/feeling/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/blog/[page].jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/tags/Tags.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/tags/Tags.style.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/tags/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/tags/[page].jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/test/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/asset/tag-pic.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/api/tag-pic.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/asset/test1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/api/test1.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/asset/top.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +84,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/asset" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/api/comments/1" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -56,16 +99,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/components/comments/editor" />
-      <recent name="$PROJECT_DIR$/style" />
+      <recent name="$PROJECT_DIR$/public/api/comments/1" />
       <recent name="$PROJECT_DIR$/components" />
+      <recent name="$PROJECT_DIR$/public/api/" />
+      <recent name="$PROJECT_DIR$/public/api/blog/1.json" />
+      <recent name="$PROJECT_DIR$/public/api" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/asset" />
-      <recent name="$PROJECT_DIR$/pages/article" />
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/pages/asset" />
-      <recent name="$PROJECT_DIR$/pages" />
+      <recent name="$PROJECT_DIR$/public/api/comments/1" />
+      <recent name="$PROJECT_DIR$/public/api/blog" />
+      <recent name="$PROJECT_DIR$/public/api/archive" />
+      <recent name="$PROJECT_DIR$/public/api/tags" />
+      <recent name="$PROJECT_DIR$/public/api/articles" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -98,7 +143,9 @@
       <workItem from="1594627928053" duration="272000" />
       <workItem from="1594628899902" duration="3494000" />
       <workItem from="1594632406614" duration="12247000" />
-      <workItem from="1594686655933" duration="34712000" />
+      <workItem from="1594686655933" duration="36706000" />
+      <workItem from="1594773570082" duration="25103000" />
+      <workItem from="1594810293476" duration="1412000" />
     </task>
     <servers />
   </component>
@@ -118,10 +165,10 @@
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="627" y="247" width="655" height="617" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.34.1920.1046@0.34.1920.1046" timestamp="1594619325365" />
-    <state x="200" y="258" width="530" height="596" key="FileChooserDialogImpl" timestamp="1594630075630">
+    <state x="200" y="258" width="530" height="596" key="FileChooserDialogImpl" timestamp="1594774708656">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state x="200" y="258" width="530" height="596" key="FileChooserDialogImpl/0.34.1920.1046@0.34.1920.1046" timestamp="1594630075630" />
+    <state x="200" y="258" width="530" height="596" key="FileChooserDialogImpl/0.34.1920.1046@0.34.1920.1046" timestamp="1594774708656" />
     <state x="0" y="34" width="1910" height="1044" key="FileDocumentManager.FileCacheConflict" timestamp="1594024225735">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
@@ -170,10 +217,10 @@
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="1641" y="34" width="706" height="913" key="dock-window-4/0.34.1920.1046@0.34.1920.1046" timestamp="1594726451343" />
-    <state x="543" y="238" width="1155" height="674" key="find.popup" timestamp="1594733748403">
+    <state x="543" y="238" width="1155" height="674" key="find.popup" timestamp="1594810324250">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state x="543" y="238" width="1155" height="674" key="find.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1594733748403" />
+    <state x="543" y="238" width="1155" height="674" key="find.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1594810324250" />
     <state x="59" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1594559302612">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>

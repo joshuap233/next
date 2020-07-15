@@ -8,13 +8,6 @@ export default makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center'
   },
-  pagingButton: {
-    border: 'none',
-    width: '100px',
-    height: '38px',
-    marginBottom: 20,
-    borderRadius: 10,
-  },
   excerptWrapper: {
     width: '100%',
     height: '300px',

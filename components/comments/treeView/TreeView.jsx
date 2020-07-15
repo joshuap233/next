@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 
 const TreeNode = React.memo(function Node(props) {
   const {nodes, parent, level} = props;
-  const classes = useStyles({level})
+  const classes = useStyles({level});
   if (nodes.size !== 0) {
     return (
       <>
@@ -49,14 +49,12 @@ const TreeNode = React.memo(function Node(props) {
 }, areEqual);
 
 export default React.memo(function TreeView(props) {
-    const {initApi, loadMoreAPi} = props;
+    const {comments, loadMoreAPi} = props;
     const {state, dispatch, action} = useContext(CommentContext);
 
     useEffect(() => {
-      initApi().then(data => {
-        dispatch(action.mergeDictTree(data));
-      });
-    }, [action, dispatch, initApi]);
+      dispatch(action.mergeDictTree(comments));
+    }, [action, dispatch]);
 
     const handleOnClick = useCallback(() => {
       loadMoreAPi().then(res => {

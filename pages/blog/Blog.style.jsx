@@ -55,9 +55,6 @@ export default makeStyles((theme) => ({
     },
     '& .time': {
       marginLeft: '10px'
-    },
-    pagingButton: {
-      marginTop: 40
     }
   })
 }));

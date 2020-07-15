@@ -1,11 +1,11 @@
 import React from 'react';
-import Container from "../../components/Container";
+import Layout from "../../components/Layout";
 import useStyles from './About.style';
 
 function Index() {
   const classes = useStyles();
   return (
-    <Container>
+    <Layout>
       <div className={classes.wrapper}>
         <div>
           <h1>关于我</h1>
@@ -61,7 +61,7 @@ function Index() {
           </div>
         </div>
       </div>
-    </Container>
+    </Layout>
   );
 }
 
