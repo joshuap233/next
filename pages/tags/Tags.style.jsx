@@ -21,10 +21,10 @@ export default makeStyles((theme) => ({
     },
 
   },
-  tagWrapper: ({url}) => ({
+  tagWrapper: ({image}) => ({
     [theme.breakpoints.up('lg')]: {},
     '& .ButtonBase': {
-      background: `url(${url}) no-repeat`,
+      background: `url(${image}) no-repeat`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       position: "relative",

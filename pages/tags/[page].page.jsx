@@ -9,8 +9,8 @@ import {getAllTagsPage, getTagsData} from '../../lib/tags';
 import route from "../../misc/route";
 
 
-function TagItem({name, url, desc}) {
-  const classes = useStyles({url});
+function TagItem({name, image, describe}) {
+  const classes = useStyles({image});
   return (
     <Grid
       item
@@ -30,9 +30,9 @@ function TagItem({name, url, desc}) {
           {name}
         </div>
         <div
-          title={desc}
+          title={describe}
           className={classes.tagDesc}>
-          {desc}
+          {describe}
         </div>
       </ButtonBase>
     </Grid>
@@ -40,7 +40,7 @@ function TagItem({name, url, desc}) {
 }
 
 
-function Page({tags, nextPage}) {
+function PagePage({tags, nextPage}) {
   const classes = useStyles();
 
   return (
@@ -71,11 +71,12 @@ function Page({tags, nextPage}) {
 
 export async function getStaticProps({params}) {
   const data = await getTagsData(params.page);
+  const totalPage = Math.floor(data.total / 10);
   const nextPage = parseInt(params.page) + 1;
   return {
     props: {
       tags: data.values,
-      nextPage: nextPage < data.totalPage ? nextPage : false
+      nextPage: nextPage < totalPage ? nextPage : false
     }
   };
 }
@@ -89,4 +90,4 @@ export async function getStaticPaths() {
 }
 
 
-export default Page;
+export default PagePage;

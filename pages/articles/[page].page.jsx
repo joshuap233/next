@@ -5,6 +5,7 @@ import Layout from "../../components/Layout";
 import useStyles from './Articles.style';
 import {getAllArticlesPage, getArticlesData} from "../../lib/articles";
 import route from "../../misc/route";
+import {formatTime} from '../../style/help';
 
 
 function Excerpt(props) {
@@ -34,7 +35,7 @@ function Excerpt(props) {
             </p>
 
             <div>
-              {commentsCount}条评论|{time}|{tag}
+              {commentsCount}条评论|{formatTime(time)}|{tag}
             </div>
           </div>
         </Link>
@@ -61,8 +62,8 @@ function Index({articles, nextPage}) {
               id={article.id}
               index={index}
               title={article.title}
-              content={article.content}
-              url={article.pic}
+              content={article.excerpt}
+              url={article.illustration}
               time={article.time}
               commentsCount={article.commentsCount}
               tag={article.tag}
@@ -77,14 +78,18 @@ function Index({articles, nextPage}) {
 export async function getStaticProps({params}) {
   const data = await getArticlesData(params.page);
   const nextPage = parseInt(params.page) + 1;
+
+  const totalPage = Math.floor(data.total / 10);
+
   // tag数组拼接为字符串
   data.values.forEach(item => {
-    item.tag = item.tag.reduce((total, value) => (total ? total + ',' : '') + value, '');
+    item.tag = item.tags.reduce((total, value) => (total ? total + ',' : '') + value.name, '');
   });
+
   return {
     props: {
       articles: data.values,
-      nextPage: nextPage < data.totalPage ? nextPage : false
+      nextPage: nextPage < totalPage ? nextPage : false
     }
   };
 }

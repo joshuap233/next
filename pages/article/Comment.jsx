@@ -1,42 +1,40 @@
 import React, {useCallback} from 'react';
 import {Comments, Editor, Provider} from '../../components/comments';
-
+import useStyles from './Comments.style';
 
 function Comment({comments, pid}) {
+  const classes = useStyles();
   const loadMoreAPi = useCallback(() => {
     return fetch(`http://localhost:3000/api/comments/${pid}/1.json`)
       .then(response => response.json());
   }, []);
 
-  const submitApi = useCallback((data) => {
-    console.log('submit data', data);
-    //post data
+
+  const submitApi = useCallback(async (data) => {
+    const res = fetch(
+      `http://127.0.0.1:5000/api/test/comments`, {
+        method: 'POST',
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin',
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+      }).then(response => response.json());
+    return res;
   }, []);
 
   return (
     <Provider>
-      <div style={{
-        width: '100%',
-        marginTop: '50px',
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        maxWidth: 900
-      }}>
-        <div
-          style={{
-            fontSize: '20px',
-            marginBottom: '20px'
-          }}>
+      <div className={classes.wrapper}>
+        <div className={classes.note}>
           留言(支持markdown):
         </div>
         <Editor submitApi={submitApi}/>
       </div>
-      <div style={{
-        marginTop: '100px',
-        width: '100%',
-      }}>
+      <div className={classes.comments}>
         <Comments comments={comments} loadMoreAPi={loadMoreAPi}/>
       </div>
     </Provider>

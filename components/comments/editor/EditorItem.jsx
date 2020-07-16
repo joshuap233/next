@@ -93,14 +93,17 @@ export const SubmitButton = React.memo(function SubmitButton({cacheContent, subm
   const handleOnSubmit = useCallback(() => {
     let [data, formatTime] = parseData();
     const tempData = {...data, child: []};
-    submitApi(tempData);
-    data.time = formatTime;
-    if (contextState.get('reply') === null) {
-      dispatch(action.mergeDictTree([data]));
-    } else {
-      dispatch(action.recursiveUpdateDictTree(data));
-    }
-    dispatch(action.closeModal());
+    submitApi(tempData).then(res => {
+      if (res.status && res.status === 'success') {
+        data.time = formatTime;
+        if (contextState.get('reply') === null) {
+          dispatch(action.mergeDictTree([data]));
+        } else {
+          dispatch(action.recursiveUpdateDictTree(data));
+        }
+        dispatch(action.closeModal());
+      }
+    });
   }, [action, contextState, dispatch, parseData, submitApi]);
 
   return (
@@ -117,7 +120,7 @@ export const Preview = React.memo(function Preview(props) {
     <Collapse in={show}>
       {
         show && (
-          <div className={cln(classes.preview,editorStyle.table)}>
+          <div className={cln(classes.preview, editorStyle.table)}>
             <ReactMarkdown
               source={cacheContent}
             />

@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from "../../components/Layout";
 import useStyles from './About.style';
 
-function Index() {
+function IndexPage() {
   const classes = useStyles();
   return (
     <Layout>
@@ -65,4 +65,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default IndexPage;

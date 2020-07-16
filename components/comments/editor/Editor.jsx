@@ -43,10 +43,7 @@ const Editor = React.memo(function Editor(props) {
   }, [action, dispatch]);
 
   return (
-    <Box
-      // boxShadow={1}
-      className={classes.root}
-    >
+    <Box className={classes.root}>
       <div className={classes.editorWrapper}>
         {
           isModal && (

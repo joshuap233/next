@@ -21,9 +21,8 @@ function ArchiveItem({time, title, tags, id}) {
       <Link href={`${route.article.route}/${id}`}>
         <Box
           boxShadow={3}
-          style={{
-            padding: 10
-          }}>
+          className={classes.box}
+          >
           <div className={classes.title}>
             {title}
           </div>
@@ -53,7 +52,7 @@ function ArchiveItem({time, title, tags, id}) {
 }
 
 
-function Page({archives, nextPage}) {
+function PagePage({archives, nextPage}) {
   const classes = useStyles();
 
   return (
@@ -110,4 +109,4 @@ export async function getStaticPaths() {
   };
 }
 
-export default Page;
+export default PagePage;

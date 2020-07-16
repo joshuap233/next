@@ -38,7 +38,7 @@ function BlogItem({index, content, time}) {
   );
 }
 
-function Page({blog, nextPage}) {
+function PagePage({blog, nextPage}) {
   const classes = useStyles();
   return (
     <Layout
@@ -84,4 +84,4 @@ export async function getStaticPaths() {
   };
 }
 
-export default Page;
+export default PagePage;

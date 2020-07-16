@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {combineClassName} from "../../style/help";
+import {combineClassName, formatTime} from "../../style/help";
 import useEditorStyle from './Editor.style';
 import useStyles from './Article.style';
-import Prism from "./prism";
+import Prism from "./Prism";
 import useCodeStyle from './prism.style';
 import Layout from "../../components/Layout";
 import Comment from "./Comment";
@@ -64,7 +64,7 @@ function Article({article, comments, pid}) {
         <div className={classes.tagsWrapper}>
           <div>
             <Divider variant={"middle"}/>
-            <div className={classes.tags}>
+            <div className={'tags'}>
               <Tooltip title={'标签'}>
                 <LabelIcon/>
               </Tooltip>
@@ -95,6 +95,7 @@ function Article({article, comments, pid}) {
 
 export async function getStaticProps({params}) {
   const data = await getArticleData(params.pid);
+  data.article.time = formatTime(data.article.time);
   return {
     props: {
       article: data.article,
@@ -106,7 +107,7 @@ export async function getStaticProps({params}) {
 
 
 export async function getStaticPaths() {
-  const paths = getAllArticleIds();
+  const paths = await getAllArticleIds();
   return {
     paths,
     fallback: false

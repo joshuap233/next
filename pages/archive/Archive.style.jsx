@@ -30,6 +30,9 @@ export default makeStyles((theme) => ({
   articleWrapper: {
     position: "relative",
   },
+  box: {
+    padding: 10
+  },
   title: {
     height: '40px',
     display: "flex",
