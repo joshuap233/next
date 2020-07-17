@@ -2,7 +2,7 @@ import React, {useCallback, useContext, useMemo} from "react";
 import {TextField, Collapse} from "@material-ui/core";
 import CommentContext from "../CommentContext";
 import useStyles from './EditorItem.style';
-import {getBrowserVersion, getCurrentTime, cln} from "../helper";
+import {getBrowserVersion, cln} from "../helper";
 import md5 from "crypto-js/md5";
 import ReactMarkdown from "react-markdown";
 import PageviewIcon from "@material-ui/icons/Pageview";
@@ -19,7 +19,7 @@ import {emoji} from './emoji';
 
 export const Field = React.memo(function Field({name, ...props}) {
   const {state, dispatch, action} = useContext(CommentContext);
-  const fieldValue = state.getIn(['editorState', name]);
+  const fieldValue = state.editorState[name];
   const handleOnChange = useCallback((e) => {
     const {value} = e.target;
     dispatch(action.updateEditorState(name, value));
@@ -64,7 +64,7 @@ export const SubmitButton = React.memo(function SubmitButton({cacheContent, subm
 
   const parseData = useCallback(() => {
     const browser = getBrowserVersion();
-    const editorState = contextState.get('editorState').toJS();
+    const editorState = contextState.editorState;
     editorState.content = cacheContent;
     let website = editorState.website;
     if (website && !website.match('https?://')) {
@@ -85,9 +85,8 @@ export const SubmitButton = React.memo(function SubmitButton({cacheContent, subm
   const handleOnSubmit = useCallback(() => {
     let data = parseData();
     const tempData = {...data, child: []};
-    const replyId = contextState.get('reply');
-    const level = contextState.get('level');
-    console.log(level);
+    const replyId = contextState.reply;
+    const level = contextState.level;
     if (replyId) {
       if (level === 0) {
         tempData.comment_id = replyId;
@@ -118,7 +117,7 @@ export const SubmitButton = React.memo(function SubmitButton({cacheContent, subm
 
 
 export const Preview = React.memo(function Preview(props) {
-  const {cacheContent, show, codeHighlighting} = props;
+  const {cacheContent, show} = props;
   const classes = useStyles();
   const editorStyle = useEditorStyle();
   return (
@@ -204,7 +203,6 @@ SubmitButton.prototype = {
 Preview.prototype = {
   cacheContent: PropTypes.string,
   show: PropTypes.bool,
-  codeHighlighting: PropTypes.bool
 };
 
 ToolBar.prototype = {

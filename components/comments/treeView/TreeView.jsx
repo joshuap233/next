@@ -5,16 +5,15 @@ import CommentContext from "../CommentContext";
 import {areEqual} from "../helper";
 import {Button, Box} from '@material-ui/core';
 import useStyles from './TreeView.style';
-import Immutable from "immutable";
 import PropTypes from 'prop-types';
 
 
 const TreeNode = React.memo(function Node(props) {
   const {nodes, parent, level} = props;
-  if (nodes.size !== 0) {
+  if (nodes.length !== 0) {
     return (
       nodes.map(node => (
-        <Box key={node.get('id')}>
+        <Box key={node.id}>
           <Content
             level={level}
             node={node}
@@ -22,13 +21,13 @@ const TreeNode = React.memo(function Node(props) {
           />
           <Divider variant={'middle'}/>
           {
-            node.get('child').size !== 0 && (
+            node.child && node.child.length !== 0 && (
               <TreeNode
-                nodes={node.get('child')}
+                nodes={node.child}
                 parent={{
-                  id: node.get('id'),
-                  content: node.get('content'),
-                  nickname: node.get('nickname')
+                  id: node.id,
+                  content: node.content,
+                  nickname: node.nickname
                 }}
                 level={level + 1}
               />
@@ -60,15 +59,14 @@ export default React.memo(function TreeView(props) {
         }
       });
     }, [loadMoreAPi]);
-
     return (
       <div className={classes.treeWrapper}>
         <TreeNode
           level={level}
-          nodes={state.get('dictTree')}
+          nodes={state.dictTree}
         />
         {
-          !state.get('bottom') && (
+          !state.bottom && (
             <div>
               <div className={classes.loadMoreButton}>
                 <Button
@@ -86,7 +84,7 @@ export default React.memo(function TreeView(props) {
 );
 
 TreeNode.prototype = {
-  nodes: PropTypes.instanceOf(Immutable.List).isRequired,
+  nodes: PropTypes.array.isRequired,
   parent: PropTypes.shape({
     id: PropTypes.string,
     content: PropTypes.string,

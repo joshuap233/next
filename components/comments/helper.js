@@ -28,12 +28,12 @@ const getCurrentTime = () => {
 const updateDictTreeNode = (nodes, id, data) => {
   const _updateDictTreeNode = (nodes) => {
     return nodes.map(node => {
-      if (node.get('id') === id) {
-        return node.update('child', value => value.push(data));
+      if (node.id === id) {
+        return {...node, child: [...node.child, data]};
       } else {
-        const res = _updateDictTreeNode(node.get('child'));
-        if (res !== node.get('child')) {
-          return node.update('child', () => res);
+        const res = _updateDictTreeNode(node.child);
+        if (res !== node.child) {
+          return {...node, child: res};
         }
         return node;
       }
@@ -50,10 +50,6 @@ const areEqual = (pre, next) => {
     }
     if (key === 'parent') {
       equal = pre[key] ? pre[key].id === next[key].id : true;
-    } else if (key === 'codeHighlighting') {
-      for (let key2 of Object.keys(pre['codeHighlighting'])) {
-        equal = pre['codeHighlighting'][key2] === next['codeHighlighting'][key2];
-      }
     } else {
       equal = Object.is(pre[key], next[key]);
     }

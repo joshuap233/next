@@ -7,7 +7,6 @@ import Avatar from "@material-ui/core/Avatar";
 import CommentContext from "../CommentContext";
 import {areEqual, cln} from "../helper";
 import PropTypes from 'prop-types';
-import Immutable from 'immutable';
 import useEditorStyle from '../editor/EditorState.style';
 import {formatTime} from "../../../style/help";
 
@@ -29,11 +28,10 @@ const Content = React.memo(function Content({level, node, parent}) {
     <ContextContent
       setClickId={setClickId}
       handleOpenModal={handleOpenModal}
-      clickId={state.get('clickId')}
+      clickId={state.clickId}
       level={level}
       node={node}
       parent={parent}
-      codeHighlighting={state.getIn(['config', 'codeHighlighting'])}
       onAnimationEnd={handleOnAnimationEnd}
     />
   );
@@ -41,52 +39,52 @@ const Content = React.memo(function Content({level, node, parent}) {
 
 
 const ContextContent = React.memo(function ContextContent(props) {
-  const {level, node, parent, setClickId, handleOpenModal, clickId, codeHighlighting, handleOnAnimationEnd} = props;
-  const classes = useStyles({level, link: node.get('website')});
+  const {level, node, parent, setClickId, handleOpenModal, clickId, handleOnAnimationEnd} = props;
+  const classes = useStyles({level, link: node.website});
 
   const shake = useMemo(() => {
-    return node.get('id') === clickId;
+    return node.id === clickId;
   }, []);
 
   //没有填website则阻止跳转
   const handleOnNicknameClick = (e) => {
-    if (!node.get('website')) {
+    if (!node.website) {
       e.preventDefault();
     }
   };
   return (
     <div
       className={classes.contentWrapper}
-      id={node.get('id')}
+      id={node.id}
     >
       <div className={classes.userInfoWrapper}>
         <div>
           <Avatar
-            src={`https://www.gravatar.com/avatar/${node.get('avatar')}`}
+            src={`https://www.gravatar.com/avatar/${node.avatar}`}
           />
         </div>
         <div className={classes.userInfo}>
           <a
-            href={node.get('website')}
+            href={node.website}
             target={'_blank'}
             rel="noopener noreferrer"
             onClick={handleOnNicknameClick}
             className={cln(classes.nickname, {'shake': shake})}
             onAnimationEnd={handleOnAnimationEnd}
           >
-            {node.get('nickname')}
+            {node.nickname}
           </a>
           <p>
             <span>
-              {node.get('browser')}
+              {node.browser}
             </span>
             <span>
-              {formatTime(node.get('create_date'))}
+              {formatTime(node.create_date)}
             </span>
             <span className={classes.replayIcon}>
               <ReplyButton
                 level={level}
-                reply={node.get('id')}
+                reply={node.id}
                 handleOpenModal={handleOpenModal}
               />
             </span>
@@ -97,12 +95,10 @@ const ContextContent = React.memo(function ContextContent(props) {
         parent && <ParentCommentContent
           parent={parent}
           setClickId={setClickId}
-          codeHighlighting={codeHighlighting.get('quote')}
         />
       }
       <CommentContent
-        content={node.get("content")}
-        codeHighlighting={codeHighlighting.get('content')}
+        content={node.content}
       />
     </div>
   );
@@ -110,7 +106,7 @@ const ContextContent = React.memo(function ContextContent(props) {
 
 
 const ParentCommentContent = React.memo(function ParentCommentContent(props) {
-  const {codeHighlighting, parent, setClickId} = props;
+  const {parent, setClickId} = props;
   const classes = useStyles();
   const handleOnClick = () => {
     setClickId(parent.id);
@@ -136,7 +132,7 @@ const ParentCommentContent = React.memo(function ParentCommentContent(props) {
 }, areEqual);
 
 const CommentContent = React.memo(function CommentContent(props) {
-  const {content, codeHighlighting} = props;
+  const {content} = props;
   const classes = useStyles();
   const editorStyle = useEditorStyle();
   const contentRef = useRef();
@@ -201,7 +197,7 @@ export default Content;
 
 Content.prototype = {
   level: PropTypes.number,
-  node: PropTypes.instanceOf(Immutable.Map),
+  node: PropTypes.object,
   parent: PropTypes.shape({
     id: PropTypes.string,
     content: PropTypes.string,
@@ -211,7 +207,7 @@ Content.prototype = {
 
 ContextContent.prototype = {
   level: PropTypes.number,
-  node: PropTypes.instanceOf(Immutable.Map),
+  node: PropTypes.object,
   parent: PropTypes.shape({
     id: PropTypes.string,
     content: PropTypes.string,
@@ -220,7 +216,6 @@ ContextContent.prototype = {
   setClickId: PropTypes.func,
   handleOpenModal: PropTypes.func,
   clickId: PropTypes.string,
-  codeHighlighting: PropTypes.bool,
   handleOnAnimationEnd: PropTypes.func
 };
 

@@ -89,7 +89,6 @@ const Editor = React.memo(function Editor(props) {
       <Preview
         cacheContent={cacheContent}
         show={state.preview}
-        codeHighlighting={contextState.getIn(['config', 'codeHighlighting', 'preview'])}
       />
       <Emoji setCacheContent={setCacheContent} show={state.emoji}/>
     </Box>
@@ -119,7 +118,7 @@ const PortalEditor = React.memo(function PortalEditor(props) {
       {container && ReactDOM.createPortal((
           <>
             {
-              state.get('modalOpen') && (
+              state.modalOpen && (
                 <Box boxShadow={3} className={classes.portal}>
                   <Editor isModal={true} submitApi={submitApi}/>
                 </Box>
