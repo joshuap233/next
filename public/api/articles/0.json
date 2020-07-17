@@ -1,6 +1,6 @@
 {
   "data": {
-    "totalPage": 2,
+    "total": 4,
     "values": [
       {
         "id": 5,
@@ -9,9 +9,15 @@
         "pic": "http://localhost:3000/api/test1.svg",
         "time": "2019-2-10 3:00",
         "commentsCount": 1,
-        "tag": [
-          "新app",
-          "测试"
+        "tags": [
+          {
+            "id": 1,
+            "name": "新app"
+          },
+          {
+            "id": 2,
+            "name": "测试"
+          }
         ]
       },
       {
@@ -21,9 +27,15 @@
         "pic": "http://localhost:3000/api/test1.svg",
         "time": "2019-2-10 3:00",
         "commentsCount": 1,
-        "tag": [
-          "新app",
-          "测试"
+        "tags": [
+          {
+            "id": 1,
+            "name": "新app"
+          },
+          {
+            "id": 2,
+            "name": "测试"
+          }
         ]
       },
       {
@@ -33,9 +45,15 @@
         "pic": "http://localhost:3000/api/test1.svg",
         "time": "2019-2-10 3:00",
         "commentsCount": 1,
-        "tag": [
-          "新app",
-          "测试"
+        "tags": [
+          {
+            "id": 1,
+            "name": "新app"
+          },
+          {
+            "id": 2,
+            "name": "测试"
+          }
         ]
       },
       {
@@ -45,9 +63,15 @@
         "pic": "http://localhost:3000/api/test1.svg",
         "time": "2019-2-10 3:00",
         "commentsCount": 1,
-        "tag": [
-          "新app",
-          "测试"
+        "tags": [
+          {
+            "id": 1,
+            "name": "新app"
+          },
+          {
+            "id": 2,
+            "name": "测试"
+          }
         ]
       }
     ]

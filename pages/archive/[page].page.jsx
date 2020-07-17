@@ -7,7 +7,7 @@ import useStyles from './Archive.style';
 import {getAllArchivePage, getArchiveData} from '../../lib/archive';
 import route from "../../misc/route";
 import Link from "next/link";
-
+import {getPageParams} from "../../lib/helper";
 
 function ArchiveItem({time, title, tags, id}) {
   const classes = useStyles();
@@ -102,7 +102,8 @@ export async function getStaticProps({params}) {
 
 
 export async function getStaticPaths() {
-  const paths = getAllArchivePage();
+  const total = await getAllArchivePage();
+  const paths = getPageParams(total);
   return {
     paths,
     fallback: false

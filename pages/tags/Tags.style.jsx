@@ -17,18 +17,22 @@ export default makeStyles((theme) => ({
     },
     [theme.breakpoints.up('lg')]: {
       paddingLeft: theme.spacing(20),
-      paddingRight: theme.spacing(20)
+      paddingRight: theme.spacing(20),
     },
 
   },
   tagWrapper: ({image}) => ({
-    [theme.breakpoints.up('lg')]: {},
+    [theme.breakpoints.up('xs')]: {
+      padding: '20px!important'
+    },
     '& .ButtonBase': {
       background: `url(${image}) no-repeat`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       position: "relative",
-      height: 300,
+      height: 250,
+      maxHeight: 300,
+      maxWidth: 400,
       display: 'block',
       '@media (max-width:400px)': {
         height: '150px!important',

@@ -10,6 +10,7 @@ import {Divider, Tooltip} from "@material-ui/core";
 import Contents from "./TreeView";
 import LabelIcon from '@material-ui/icons/Label';
 import {getArticleData, getAllArticleIds} from "../../lib/article";
+import {parseTreeData} from "../../misc/parse-comments-tree";
 
 function Article({article, comments, pid}) {
   const [innerWidth, setInnerWidth] = useState(null);
@@ -99,7 +100,7 @@ export async function getStaticProps({params}) {
   return {
     props: {
       article: data.article,
-      comments: data.comments,
+      comments: parseTreeData(data.comments),
       pid: params.pid
     }
   };
@@ -107,7 +108,12 @@ export async function getStaticProps({params}) {
 
 
 export async function getStaticPaths() {
-  const paths = await getAllArticleIds();
+  const ids = await getAllArticleIds();
+  const paths = ids.map(item => ({
+    params: {
+      pid: `${item}`
+    }
+  }));
   return {
     paths,
     fallback: false

@@ -6,6 +6,8 @@ import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import useStyles from './Blog.style';
 import {getAllBlogPage, getBlogData} from '../../lib/blog';
 import route from '../../misc/route';
+import {getPageParams} from "../../lib/helper";
+import {formatTime} from "../../style/help";
 
 function BlogItem({index, content, time}) {
   const dark = React.useMemo(() => {
@@ -31,7 +33,7 @@ function BlogItem({index, content, time}) {
         />
         <div className={'eventIcon'}>
           <EventAvailableIcon/>
-          <span className={'time'}>{time}</span>
+          <span className={'time'}>{formatTime(time)}</span>
         </div>
       </Box>
     </div>
@@ -54,7 +56,7 @@ function PagePage({blog, nextPage}) {
                 key={item.id}
                 index={item.id}
                 content={item.content}
-                time={item.time}
+                time={item.change_date}
               />
             );
           })
@@ -77,7 +79,8 @@ export async function getStaticProps({params}) {
 }
 
 export async function getStaticPaths() {
-  const paths = getAllBlogPage();
+  const total = await getAllBlogPage();
+  const paths = getPageParams(total);
   return {
     paths,
     fallback: false

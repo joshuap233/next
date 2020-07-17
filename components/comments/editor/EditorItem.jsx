@@ -3,7 +3,6 @@ import {TextField, Collapse} from "@material-ui/core";
 import CommentContext from "../CommentContext";
 import useStyles from './EditorItem.style';
 import {getBrowserVersion, getCurrentTime, cln} from "../helper";
-import {v4 as uuidV4} from "uuid";
 import md5 from "crypto-js/md5";
 import ReactMarkdown from "react-markdown";
 import PageviewIcon from "@material-ui/icons/Pageview";
@@ -15,7 +14,8 @@ import SpeedDialAction from "@material-ui/lab/SpeedDialAction";
 import PublishIcon from '@material-ui/icons/Publish';
 import PropTypes from "prop-types";
 import useEditorStyle from './EditorState.style';
-
+import {random} from '../../../misc/pseudo-random';
+import {emoji} from './emoji';
 
 export const Field = React.memo(function Field({name, ...props}) {
   const {state, dispatch, action} = useContext(CommentContext);
@@ -26,22 +26,14 @@ export const Field = React.memo(function Field({name, ...props}) {
   }, [action, dispatch, name]);
 
   return (
-    <ContextField handleOnChange={handleOnChange} fieldValue={fieldValue} {...props}/>
-  );
-});
-
-const ContextField = React.memo(function ContextField(props) {
-  const {fieldValue, handleOnChange, ...otherProps} = props;
-  return (
     <TextField
-      {...otherProps}
+      {...props}
       value={fieldValue}
       onChange={handleOnChange}
     />
   );
 });
 
-const emoji = ['(′゜ω。‵)', '(つ´ω`)つ', '(◉３◉)', '(ノ▼Д▼)ノ', '⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄', 'w(ﾟДﾟ)w', 'w(ﾟДﾟ)w', '(ノへ￣、)', '(￣_,￣ )', 'ヽ(✿ﾟ▽ﾟ)ノ', '(๑•̀ㅂ•́)و✧', '(￣ε(#￣)☆╰╮o(￣皿￣///)', '（づ￣3￣）づ╭❤～', 'Σ( ° △ °|||)︴', '(～￣(OO)￣)ブ', '凸(艹皿艹 )', '(* ￣3)(ε￣ *)', '(*￣rǒ￣)', '┗|｀O′|┛ 嗷~~', 'φ(≧ω≦*)♪', '︿(￣︶￣)︿', '(u‿ฺu✿ฺ)', 'Hi~ o(*￣▽￣*)ブ', '♪(^∇^*)', 'o(*≧▽≦)ツ┏━┓', '╰(*°▽°*)╯'];
 
 // TODO: 超过最大高度换页
 export const Emoji = React.memo(function Emoji({setCacheContent, show}) {
@@ -72,33 +64,46 @@ export const SubmitButton = React.memo(function SubmitButton({cacheContent, subm
 
   const parseData = useCallback(() => {
     const browser = getBrowserVersion();
-    const {formatTime, timestamp} = getCurrentTime();
     const editorState = contextState.get('editorState').toJS();
     editorState.content = cacheContent;
     let website = editorState.website;
     if (website && !website.match('https?://')) {
       website = 'lib://' + website;
     }
-    return [{
+    return {
       ...editorState,
       website,
-      id: uuidV4(),
-      time: timestamp,
+      id: random(),
+      create_date: (new Date()).getTime(),
       browser: browser,
       child: [],
       avatar: editorState.email ? md5(editorState.email).toString() : ''
-    }, formatTime];
+    };
   }, [cacheContent, contextState]);
 
+
   const handleOnSubmit = useCallback(() => {
-    let [data, formatTime] = parseData();
+    let data = parseData();
     const tempData = {...data, child: []};
+    const replyId = contextState.get('reply');
+    const level = contextState.get('level');
+    console.log(level);
+    if (replyId) {
+      if (level === 0) {
+        tempData.comment_id = replyId;
+      } else {
+        tempData.parent_id = replyId;
+      }
+    }
     submitApi(tempData).then(res => {
       if (res.status && res.status === 'success') {
-        data.time = formatTime;
-        if (contextState.get('reply') === null) {
+        console.log(res.data.id);
+        //TODO:更新ids
+        //评论没有父评论,直接更新
+        if (replyId === null) {
           dispatch(action.mergeDictTree([data]));
         } else {
+          //有父评论则递归查找更新
           dispatch(action.recursiveUpdateDictTree(data));
         }
         dispatch(action.closeModal());
@@ -184,11 +189,6 @@ export const ToolBar = React.memo(function ToolBar(props) {
 
 Field.prototype = {
   name: PropTypes.string
-};
-
-ContextField.prototype = {
-  fieldValue: PropTypes.string,
-  handleOnChange: PropTypes.func
 };
 
 Emoji.prototype = {

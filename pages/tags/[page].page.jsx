@@ -1,16 +1,17 @@
 import React from 'react';
 
 import Head from 'next/head';
-import {Box, Button, Grid} from "@material-ui/core";
+import {Box, Grid} from "@material-ui/core";
 import Layout from "../../components/Layout";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import useStyles from './Tags.style';
 import {getAllTagsPage, getTagsData} from '../../lib/tags';
 import route from "../../misc/route";
+import {getPageParams} from "../../lib/helper";
 
 
 function TagItem({name, image, describe}) {
-  const classes = useStyles({image});
+  const classes = useStyles({image: image.url});
   return (
     <Grid
       item
@@ -42,7 +43,6 @@ function TagItem({name, image, describe}) {
 
 function PagePage({tags, nextPage}) {
   const classes = useStyles();
-
   return (
     <Layout
       nextPage={nextPage}
@@ -82,7 +82,8 @@ export async function getStaticProps({params}) {
 }
 
 export async function getStaticPaths() {
-  const paths = getAllTagsPage();
+  const total = await getAllTagsPage();
+  const paths = getPageParams(total);
   return {
     paths,
     fallback: false

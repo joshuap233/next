@@ -1,6 +1,14 @@
 {
   "data": [
     {
+      "browser": "chrome",
+      "nickname": "nickname123",
+      "website": "https://www.asdfads123.com",
+      "email": "nczkx@qq.com",
+      "id": "abc1212",
+      "create_date": "1594956011306",
+      "content": "i have an apple",
+      "avatar": "",
       "child": [
         {
           "browser": "chrome",
@@ -9,7 +17,7 @@
           "email": "shushugo233@gmail.com",
           "id": "1231asdf",
           "content": "oooops",
-          "time": "2019/10/2 10:20",
+          "create_date": "1594956011306",
           "avatar": "4bd4bb9c9fa6057bb546b3c12a2c3e5c",
           "child": [
             {
@@ -19,7 +27,7 @@
               "email": "12313@qq.com",
               "id": "1231123zcxv",
               "content": "test",
-              "time": "2019/10/2 10:20",
+              "create_date": "1594956011306",
               "avatar": "",
               "child": []
             }
@@ -32,19 +40,11 @@
           "email": "adfads@qq.com",
           "id": "123654",
           "content": "i have a pen",
-          "time": "2019/10/2 10:20",
+          "create_date": "1594956011306",
           "avatar": "",
           "child": []
         }
-      ],
-      "browser": "chrome",
-      "nickname": "nickname123",
-      "website": "https://www.asdfads123.com",
-      "email": "nczkx@qq.com",
-      "id": "abc1212",
-      "time": "2019/10/2 10:20",
-      "content": "i have an apple",
-      "avatar": ""
+      ]
     },
     {
       "child": [],
@@ -53,7 +53,7 @@
       "website": "https://www.asdfaddds123.com",
       "email": "nczkxd@qq.com",
       "id": "abc121da2",
-      "time": "2019/10/2 10:20",
+      "create_date": "1594956011306",
       "avatar": "",
       "content": "```jsx\nfunction ParentContent({parent, setClickId}) {\n  return (\n    <blockquote style={{\n      // display: 'inline-block',\n      borderLeft: '6px solid #DDDDDD',\n      maxHeight: 200,\n    }}>\n      <a\n        style={{\n          textDecoration: 'none',\n          color: '#757575'\n        }}\n        onClick={() => {\n          setClickId(parent.id);\n        }}>\n         <span style={{marginLeft: 2}}>@{parent.nickname}</span>\n        <span>:</span>\n        <span>\n          <ReactMarkdown source={parent.content}/>\n        </span>\n      </a>\n    </blockquote>\n  );\n}      ```\n    "
     }

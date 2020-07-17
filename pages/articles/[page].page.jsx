@@ -3,9 +3,10 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Layout from "../../components/Layout";
 import useStyles from './Articles.style';
-import {getAllArticlesPage, getArticlesData} from "../../lib/articles";
+import {getArticlesPageTotal, getArticlesData} from "../../lib/articles";
 import route from "../../misc/route";
 import {formatTime} from '../../style/help';
+import {getPageParams} from "../../lib/helper";
 
 
 function Excerpt(props) {
@@ -19,9 +20,11 @@ function Excerpt(props) {
     tag,
     index
   } = props;
+
   const dark = React.useMemo(() => {
     return index % 2 === 0;
   }, []);
+
   const classes = useStyles({url, dark});
   return (
     <div className={classes.excerptWrapper}>
@@ -79,7 +82,7 @@ export async function getStaticProps({params}) {
   const data = await getArticlesData(params.page);
   const nextPage = parseInt(params.page) + 1;
 
-  const totalPage = Math.floor(data.total / 10);
+  const totalPage = Math.ceil(data.total / 10);
 
   // tag数组拼接为字符串
   data.values.forEach(item => {
@@ -96,7 +99,8 @@ export async function getStaticProps({params}) {
 
 
 export async function getStaticPaths() {
-  const paths = getAllArticlesPage();
+  const total = await getArticlesPageTotal();
+  const paths = getPageParams(total);
   return {
     paths,
     fallback: false

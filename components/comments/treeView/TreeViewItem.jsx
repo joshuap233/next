@@ -9,12 +9,12 @@ import {areEqual, cln} from "../helper";
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import useEditorStyle from '../editor/EditorState.style';
-
+import {formatTime} from "../../../style/help";
 
 const Content = React.memo(function Content({level, node, parent}) {
   const {state, dispatch, action} = useContext(CommentContext);
-  const handleOpenModal = useCallback((reply) => {
-    dispatch(action.openModal(reply));
+  const handleOpenModal = useCallback((reply, level) => {
+    dispatch(action.openModal({reply, level}));
   }, [action, dispatch]);
 
   const setClickId = useCallback((clickId) => {
@@ -39,6 +39,7 @@ const Content = React.memo(function Content({level, node, parent}) {
   );
 }, areEqual);
 
+
 const ContextContent = React.memo(function ContextContent(props) {
   const {level, node, parent, setClickId, handleOpenModal, clickId, codeHighlighting, handleOnAnimationEnd} = props;
   const classes = useStyles({level, link: node.get('website')});
@@ -47,12 +48,12 @@ const ContextContent = React.memo(function ContextContent(props) {
     return node.get('id') === clickId;
   }, []);
 
+  //没有填website则阻止跳转
   const handleOnNicknameClick = (e) => {
     if (!node.get('website')) {
       e.preventDefault();
     }
   };
-
   return (
     <div
       className={classes.contentWrapper}
@@ -80,10 +81,14 @@ const ContextContent = React.memo(function ContextContent(props) {
               {node.get('browser')}
             </span>
             <span>
-              {node.get('time')}
+              {formatTime(node.get('create_date'))}
             </span>
             <span className={classes.replayIcon}>
-              <ReplayButton reply={node.get('id')} handleOpenModal={handleOpenModal}/>
+              <ReplyButton
+                level={level}
+                reply={node.get('id')}
+                handleOpenModal={handleOpenModal}
+              />
             </span>
           </p>
         </div>
@@ -137,6 +142,7 @@ const CommentContent = React.memo(function CommentContent(props) {
   const contentRef = useRef();
   const [overflow, setOverflow] = useState(false);
   const [hidden, setHidden] = useState(true);
+
   const handleOnClick = useCallback(() => {
     setHidden(false);
     setOverflow(false);
@@ -156,9 +162,7 @@ const CommentContent = React.memo(function CommentContent(props) {
         ref={contentRef}
         className={cln(classes.scroll, editorStyle.table, {[classes.overflow]: hidden})}
       >
-        <ReactMarkdown
-          source={content}
-        />
+        <ReactMarkdown source={content}/>
       </div>
       {
         overflow && hidden && (
@@ -177,11 +181,14 @@ const CommentContent = React.memo(function CommentContent(props) {
 });
 
 
-const ReplayButton = React.memo(function ReplayButton({handleOpenModal, reply}) {
+const ReplyButton = React.memo(function ReplyButton(props) {
+  const {handleOpenModal, reply, level} = props;
   const classes = useStyles();
+
   const handleOnClick = () => {
-    handleOpenModal(reply);
+    handleOpenModal(reply, level);
   };
+
   return (
     <ReplyIcon
       onClick={handleOnClick}
@@ -231,7 +238,7 @@ CommentContent.prototype = {
 };
 
 
-ReplayButton.prototype = {
+ReplyButton.prototype = {
   handleOpenModal: PropTypes.func,
   reply: PropTypes.string,
 };

@@ -5,6 +5,9 @@ import {areEqual} from "./helper";
 
 const defaultValue = fromJS({
   dictTree: [],
+  //被回复节点层次,第一层为0,文章的回复为null
+  level: null,
+  // 回复者id
   reply: null,
   // 编辑器拟态框
   modalOpen: false,
@@ -34,12 +37,14 @@ function reducer(state, action) {
     case 'closeModal':
       return state.merge({
         modalOpen: false,
-        reply: null
+        reply: null,
+        level: null
       });
     case 'openModal':
       return state.merge({
         modalOpen: true,
-        reply: data
+        reply: data.reply,
+        level: data.level
       });
     case 'mergeDictTree':
       return state.update('dictTree', (value) => value.merge(fromJS(data)));

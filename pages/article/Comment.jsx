@@ -2,28 +2,28 @@ import React, {useCallback} from 'react';
 import {Comments, Editor, Provider} from '../../components/comments';
 import useStyles from './Comments.style';
 
+let page = 0;
+
 function Comment({comments, pid}) {
   const classes = useStyles();
   const loadMoreAPi = useCallback(() => {
-    return fetch(`http://localhost:3000/api/comments/${pid}/1.json`)
+    page++;
+    return fetch(`http://127.0.0.1:5000/api/comments/${pid}?page=${page}`)
       .then(response => response.json());
   }, []);
 
 
   const submitApi = useCallback(async (data) => {
-    const res = fetch(
-      `http://127.0.0.1:5000/api/test/comments`, {
+    return fetch(
+      `http://127.0.0.1:5000/api/comments/${pid}`, {
         method: 'POST',
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        cache: 'no-cache',
         credentials: 'same-origin',
-        redirect: 'follow',
-        referrerPolicy: 'no-referrer',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(data),
       }).then(response => response.json());
-    return res;
   }, []);
 
   return (
