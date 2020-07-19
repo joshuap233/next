@@ -41,10 +41,11 @@ function TagItem({name, image, describe}) {
 }
 
 
-function PagePage({tags, nextPage}) {
+function PagePage({tags = [], nextPage, prePage}) {
   const classes = useStyles();
   return (
     <Layout
+      prePage={prePage}
       nextPage={nextPage}
       route={route.tags}
       poem={"靖康耻，犹未雪。臣子恨，何时灭。驾长车，踏破贺兰山缺"}
@@ -71,12 +72,12 @@ function PagePage({tags, nextPage}) {
 
 export async function getStaticProps({params}) {
   const data = await getTagsData(params.page);
-  const totalPage = Math.floor(data.total / 10);
   const nextPage = parseInt(params.page) + 1;
   return {
     props: {
       tags: data.values,
-      nextPage: nextPage < totalPage ? nextPage : false
+      nextPage: data.values.length === 0 ? false : nextPage,
+      prePage: nextPage - 2
     }
   };
 }
@@ -86,7 +87,7 @@ export async function getStaticPaths() {
   const paths = getPageParams(total);
   return {
     paths,
-    fallback: false
+    fallback: true
   };
 }
 

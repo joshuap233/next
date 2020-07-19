@@ -7,6 +7,7 @@ import {getArticlesPageTotal, getArticlesData} from "../../lib/articles";
 import route from "../../misc/route";
 import {formatTime} from '../../style/help';
 import {getPageParams} from "../../lib/helper";
+import {useRouter} from 'next/router';
 
 
 function Excerpt(props) {
@@ -24,7 +25,6 @@ function Excerpt(props) {
   const dark = React.useMemo(() => {
     return index % 2 === 0;
   }, []);
-
   const classes = useStyles({url, dark});
   return (
     <div className={classes.excerptWrapper}>
@@ -50,11 +50,12 @@ function Excerpt(props) {
   );
 }
 
-function Index({articles, nextPage}) {
+function Index({articles = [], nextPage, prePage}) {
   const classes = useStyles();
   return (
     <Layout
       nextPage={nextPage}
+      prePage={prePage}
       route={route.articles}
       poem={"自以为历经沧桑，其实刚刚蹒跚学步；自以为悟出了生存竞争的秘密，其实还远没有竞争的资格"}>
       <div className={classes.wrapper}>
@@ -82,7 +83,7 @@ export async function getStaticProps({params}) {
   const data = await getArticlesData(params.page);
   const nextPage = parseInt(params.page) + 1;
 
-  const totalPage = Math.ceil(data.total / 10);
+  // const totalPage = Math.ceil(data.total / 10);
 
   // tag数组拼接为字符串
   data.values.forEach(item => {
@@ -92,7 +93,9 @@ export async function getStaticProps({params}) {
   return {
     props: {
       articles: data.values,
-      nextPage: nextPage < totalPage ? nextPage : false
+      // nextPage: nextPage < totalPage ? nextPage : false
+      nextPage: data.values.length === 0 ? false : nextPage,
+      prePage: nextPage - 2
     }
   };
 }
@@ -103,7 +106,7 @@ export async function getStaticPaths() {
   const paths = getPageParams(total);
   return {
     paths,
-    fallback: false
+    fallback: true
   };
 }
 

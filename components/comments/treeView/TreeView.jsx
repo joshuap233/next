@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 
 
 const TreeNode = React.memo(function Node(props) {
-  const {nodes, parent, level} = props;
+  const {nodes, parent, level, comment_id} = props;
   if (nodes.length !== 0) {
     return (
       nodes.map(node => (
@@ -18,11 +18,14 @@ const TreeNode = React.memo(function Node(props) {
             level={level}
             node={node}
             parent={parent}
+            comment_id={comment_id ? comment_id : node.id}
           />
           <Divider variant={'middle'}/>
           {
             node.child && node.child.length !== 0 && (
               <TreeNode
+                // 顶层评论id
+                comment_id={comment_id ? comment_id : node.id}
                 nodes={node.child}
                 parent={{
                   id: node.id,
@@ -44,8 +47,6 @@ export default React.memo(function TreeView(props) {
     const {comments, loadMoreAPi} = props;
     const {state, dispatch, action} = useContext(CommentContext);
     const classes = useStyles();
-    //第一层level为0
-    const level = 0;
     useEffect(() => {
       dispatch(action.mergeDictTree(comments));
     }, [action, dispatch]);
@@ -62,7 +63,8 @@ export default React.memo(function TreeView(props) {
     return (
       <div className={classes.treeWrapper}>
         <TreeNode
-          level={level}
+          //第一层level为0
+          level={0}
           nodes={state.dictTree}
         />
         {

@@ -40,11 +40,12 @@ function BlogItem({index, content, time}) {
   );
 }
 
-function PagePage({blog, nextPage}) {
+function PagePage({blog = [], nextPage, prePage}) {
   const classes = useStyles();
   return (
     <Layout
       route={route.blog}
+      prePage={prePage}
       nextPage={nextPage}
       poem={"君不见黄河之水天上，奔流到海不复回.君不见高堂明镜悲白发，朝如青丝暮成雪"}
     >
@@ -73,7 +74,8 @@ export async function getStaticProps({params}) {
   return {
     props: {
       blog: data.values,
-      nextPage: nextPage < data.totalPage ? nextPage : false
+      nextPage: data.values.length === 0 ? false : nextPage,
+      prePage: nextPage - 2
     }
   };
 }
@@ -83,7 +85,7 @@ export async function getStaticPaths() {
   const paths = getPageParams(total);
   return {
     paths,
-    fallback: false
+    fallback: true
   };
 }
 

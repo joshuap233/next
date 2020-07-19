@@ -8,6 +8,7 @@ import {getAllArchivePage, getArchiveData} from '../../lib/archive';
 import route from "../../misc/route";
 import Link from "next/link";
 import {getPageParams} from "../../lib/helper";
+import {formatTime} from "../../style/help";
 
 function ArchiveItem({time, title, tags, id}) {
   const classes = useStyles();
@@ -22,7 +23,7 @@ function ArchiveItem({time, title, tags, id}) {
         <Box
           boxShadow={3}
           className={classes.box}
-          >
+        >
           <div className={classes.title}>
             {title}
           </div>
@@ -31,7 +32,7 @@ function ArchiveItem({time, title, tags, id}) {
             <div className={classes.info}>
               <TodayIcon/>
               <span>
-            {time}
+            {formatTime(time)}
           </span>
             </div>
             <div className={classes.tags}>
@@ -52,11 +53,12 @@ function ArchiveItem({time, title, tags, id}) {
 }
 
 
-function PagePage({archives, nextPage}) {
+function PagePage({prePage, nextPage, archives = []}) {
   const classes = useStyles();
 
   return (
     <Layout
+      prePage={prePage}
       nextPage={nextPage}
       poem={"今我来思,雨雪霏霏"}
       route={route.archive}
@@ -95,7 +97,8 @@ export async function getStaticProps({params}) {
   return {
     props: {
       archives: data.values,
-      nextPage: nextPage < data.totalPage ? nextPage : false
+      nextPage: data.values.length === 0 ? false : nextPage,
+      prePage: nextPage - 2
     }
   };
 }
@@ -106,7 +109,7 @@ export async function getStaticPaths() {
   const paths = getPageParams(total);
   return {
     paths,
-    fallback: false
+    fallback: true
   };
 }
 

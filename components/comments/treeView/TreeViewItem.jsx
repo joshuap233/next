@@ -10,10 +10,10 @@ import PropTypes from 'prop-types';
 import useEditorStyle from '../editor/EditorState.style';
 import {formatTime} from "../../../style/help";
 
-const Content = React.memo(function Content({level, node, parent}) {
+const Content = React.memo(function Content({level, node, parent, comment_id}) {
   const {state, dispatch, action} = useContext(CommentContext);
   const handleOpenModal = useCallback((reply, level) => {
-    dispatch(action.openModal({reply, level}));
+    dispatch(action.openModal({reply, level, comment_id}));
   }, [action, dispatch]);
 
   const setClickId = useCallback((clickId) => {
@@ -22,7 +22,6 @@ const Content = React.memo(function Content({level, node, parent}) {
 
   const handleOnAnimationEnd = useCallback(() => {
     dispatch(action.setClickId(null));
-
   }, []);
   return (
     <ContextContent
@@ -188,7 +187,8 @@ const ReplyButton = React.memo(function ReplyButton(props) {
   return (
     <ReplyIcon
       onClick={handleOnClick}
-      className={classes.replyIcon}/>
+      className={classes.replyIcon}
+    />
   );
 });
 

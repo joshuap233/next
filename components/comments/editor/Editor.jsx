@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 const Editor = React.memo(function Editor(props) {
   const {isModal, submitApi} = props;
   const classes = useStyles();
-  const {state: contextState, dispatch, action} = useContext(CommentContext);
+  const {dispatch, action} = useContext(CommentContext);
   const [cacheContent, setCacheContent] = useState('(つ´ω`)つ');
   const [state, setState] = useState({
     preview: false,

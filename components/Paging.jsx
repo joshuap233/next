@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, makeStyles} from "@material-ui/core";
 import Link from 'next/link';
+import {useRouter} from "next/router";
 
 
 const useStyles = makeStyles({
@@ -15,13 +16,16 @@ const useStyles = makeStyles({
   }
 });
 
-function Paging({nextPage, route}) {
+function Paging({nextPage, route, action, prePage}) {
   const classes = useStyles();
   return (
     <div className={classes.buttonWrapper}>
-      <Link href={`${route.route}/${nextPage}`}>
-        <Button component={'a'} className={classes.pagingButton}>
-          下一页
+      <Link href={`${route.route}/${nextPage || prePage}`}>
+        <Button
+          component={'a'}
+          className={classes.pagingButton}
+        >
+          {action}
         </Button>
       </Link>
     </div>

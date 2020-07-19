@@ -8,7 +8,9 @@ const defaultValue = {
   level: null,
   // 回复者id
   reply: null,
-  // 编辑器拟态框
+  //顶层评论id
+  comment_id: null,
+  // 编辑器拟态框,
   modalOpen: false,
   editorState: {
     content: '(つ´ω`)つ',
@@ -32,14 +34,16 @@ function reducer(state, action) {
         ...state,
         modalOpen: false,
         reply: null,
-        level: null
+        level: null,
+        comment_id: null
       };
     case 'openModal':
       return {
         ...state,
         modalOpen: true,
         reply: data.reply,
-        level: data.level
+        level: data.level,
+        comment_id: data.comment_id
       };
     case 'mergeDictTree':
       return {...state, dictTree: [...state.dictTree, ...data]};

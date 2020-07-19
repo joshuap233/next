@@ -61,20 +61,20 @@ export const Emoji = React.memo(function Emoji({setCacheContent, show}) {
 
 export const SubmitButton = React.memo(function SubmitButton({cacheContent, submitApi}) {
   const {state: contextState, dispatch, action} = useContext(CommentContext);
-
   const parseData = useCallback(() => {
     const browser = getBrowserVersion();
     const editorState = contextState.editorState;
     editorState.content = cacheContent;
     let website = editorState.website;
     if (website && !website.match('https?://')) {
-      website = 'lib://' + website;
+      // website = 'lib://' + website;
+      website = 'https://' + website;
     }
     return {
       ...editorState,
       website,
       id: random(),
-      create_date: (new Date()).getTime(),
+      create_date: Math.floor((new Date()).getTime() / 1000),
       browser: browser,
       child: [],
       avatar: editorState.email ? md5(editorState.email).toString() : ''
@@ -85,21 +85,19 @@ export const SubmitButton = React.memo(function SubmitButton({cacheContent, subm
   const handleOnSubmit = useCallback(() => {
     let data = parseData();
     const tempData = {...data, child: []};
-    const replyId = contextState.reply;
-    const level = contextState.level;
-    if (replyId) {
-      if (level === 0) {
-        tempData.comment_id = replyId;
-      } else {
-        tempData.parent_id = replyId;
-      }
+    const parentId = contextState.reply;
+    const commentId = contextState.comment_id;
+    if (parentId) {
+      tempData.comment_id = commentId;
+      tempData.parent_id = parentId;
     }
+
     submitApi(tempData).then(res => {
       if (res.status && res.status === 'success') {
         console.log(res.data.id);
         //TODO:更新ids
         //评论没有父评论,直接更新
-        if (replyId === null) {
+        if (parentId === null) {
           dispatch(action.mergeDictTree([data]));
         } else {
           //有父评论则递归查找更新
@@ -143,7 +141,7 @@ export const ToolBar = React.memo(function ToolBar(props) {
   const actions = useMemo(() => [
     {icon: <PageviewIcon color="primary"/>, name: preview ? '关闭预览' : '预览', handleOnClick: handlePreviewClick},
     {icon: <InsertEmoticonIcon color="primary"/>, name: '标签', handleOnClick: handleEmojiClick},
-    {icon: <SubmitButton color="primary" cacheContent={cacheContent} submitApi={submitApi}/>, name: '提交'},
+    {icon: <SubmitButton cacheContent={cacheContent} submitApi={submitApi}/>, name: '提交'},
   ], [cacheContent, handleEmojiClick, handlePreviewClick, preview, submitApi]);
 
   const handleOpen = useCallback(() => {
