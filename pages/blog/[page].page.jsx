@@ -8,6 +8,7 @@ import {getAllBlogPage, getBlogData} from '../../lib/blog';
 import route from '../../misc/route';
 import {getPageParams} from "../../lib/helper";
 import {formatTime} from "../../style/help";
+import paging from '../../config/paging'
 
 function BlogItem({index, content, time}) {
   const dark = React.useMemo(() => {
@@ -82,10 +83,10 @@ export async function getStaticProps({params}) {
 
 export async function getStaticPaths() {
   const total = await getAllBlogPage();
-  const paths = getPageParams(total);
+  const paths = getPageParams(total, paging.blog);
   return {
     paths,
-    fallback: true
+    fallback: false
   };
 }
 

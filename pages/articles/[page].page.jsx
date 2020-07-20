@@ -7,7 +7,7 @@ import {getArticlesPageTotal, getArticlesData} from "../../lib/articles";
 import route from "../../misc/route";
 import {formatTime} from '../../style/help';
 import {getPageParams} from "../../lib/helper";
-import {useRouter} from 'next/router';
+import paging from '../../config/paging'
 
 
 function Excerpt(props) {
@@ -29,20 +29,19 @@ function Excerpt(props) {
   return (
     <div className={classes.excerptWrapper}>
       <div>
-        <Link href={`${route.article.route}/${id}`}>
+        <Link href={`${route.article.route}/[pid]`} as={`${route.article.route}/${id}`}>
           <div className={classes.articleInfo}>
             <h2>{title}</h2>
             <p>
               {/*不要删除span*/}
               <span/>{content}
             </p>
-
             <div>
               {commentsCount}条评论|{formatTime(time)}|{tag}
             </div>
           </div>
         </Link>
-        <Link href={`${route.article.route}/${id}`}>
+        <Link href={`${route.article.route}/[pid]`} as={`${route.article.route}/${id}`}>
           <div className={classes.pic}/>
         </Link>
       </div>
@@ -103,10 +102,10 @@ export async function getStaticProps({params}) {
 
 export async function getStaticPaths() {
   const total = await getArticlesPageTotal();
-  const paths = getPageParams(total);
+  const paths = getPageParams(total, paging.articles);
   return {
     paths,
-    fallback: true
+    fallback: false
   };
 }
 

@@ -1,4 +1,4 @@
-const base = 'http://127.0.0.1:5000/api';
+const base = `http://${process.env.SERVER || "127.0.0.1:5000"}/api`;
 
 const api = {
   comments: '/comments',
@@ -9,6 +9,7 @@ const api = {
   tags: '/tags',
 };
 
+
 const paths = {
   articles: '/posts/total',
   article: '/posts/all',
@@ -16,6 +17,7 @@ const paths = {
   blog: '/blog/total',
   tags: '/tags/total',
 };
+
 
 Object.keys(api).forEach(key => {
   api[key] = base + api[key];

@@ -8,6 +8,7 @@ import useStyles from './Tags.style';
 import {getAllTagsPage, getTagsData} from '../../lib/tags';
 import route from "../../misc/route";
 import {getPageParams} from "../../lib/helper";
+import paging from '../../config/paging';
 
 
 function TagItem({name, image, describe}) {
@@ -84,10 +85,10 @@ export async function getStaticProps({params}) {
 
 export async function getStaticPaths() {
   const total = await getAllTagsPage();
-  const paths = getPageParams(total);
+  const paths = getPageParams(total, paging.tags);
   return {
     paths,
-    fallback: true
+    fallback: false
   };
 }
 

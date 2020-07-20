@@ -9,6 +9,7 @@ import route from "../../misc/route";
 import Link from "next/link";
 import {getPageParams} from "../../lib/helper";
 import {formatTime} from "../../style/help";
+import paging from '../../config/paging'
 
 function ArchiveItem({time, title, tags, id}) {
   const classes = useStyles();
@@ -19,7 +20,7 @@ function ArchiveItem({time, title, tags, id}) {
       sm={6}
       className={classes.articleWrapper}
     >
-      <Link href={`${route.article.route}/${id}`}>
+      <Link href={`${route.article.route}/[pid]`} as={`${route.article.route}/${id}`}>
         <Box
           boxShadow={3}
           className={classes.box}
@@ -106,10 +107,10 @@ export async function getStaticProps({params}) {
 
 export async function getStaticPaths() {
   const total = await getAllArchivePage();
-  const paths = getPageParams(total);
+  const paths = getPageParams(total, paging.archive);
   return {
     paths,
-    fallback: true
+    fallback: false
   };
 }
 

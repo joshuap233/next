@@ -20,7 +20,7 @@ function Paging({nextPage, route, action, prePage}) {
   const classes = useStyles();
   return (
     <div className={classes.buttonWrapper}>
-      <Link href={`${route.route}/${nextPage || prePage}`}>
+      <Link href={`${route.route}/[page]`} as={`${route.route}/${nextPage || prePage}`}>
         <Button
           component={'a'}
           className={classes.pagingButton}

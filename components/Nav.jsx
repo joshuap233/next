@@ -13,14 +13,24 @@ import useStyles from './Nav.style';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import route from "../misc/route";
-import userInfo from '../config/info'
+import userInfo from '../config/info';
 
 const navs = [
-  {title: route.articles.name, route: `${route.articles.route}/0`, icon: <ImportContactsIcon/>},
-  {title: route.tags.name, route: `${route.tags.route}/0`, icon: <LabelIcon/>},
-  {title: route.archive.name, route: `${route.archive.route}/0`, icon: <ArchiveIcon/>},
-  {title: route.blog.name, route: `${route.blog.route}/0`, icon: <CommentIcon/>},
-  {title: route.about.name, route: route.about.route, icon: <InfoIcon/>}
+  {
+    title: route.articles.name,
+    route: `${route.articles.route}/[page]`,
+    as: `${route.articles.route}/0`,
+    icon: <ImportContactsIcon/>
+  },
+  {title: route.tags.name, route: `${route.tags.route}/[page]`, as: `${route.tags.route}/0`, icon: <LabelIcon/>},
+  {
+    title: route.archive.name,
+    route: `${route.archive.route}/[page]`,
+    as: `${route.archive.route}/0`,
+    icon: <ArchiveIcon/>
+  },
+  {title: route.blog.name, route: `${route.blog.route}/[page]`, as: `${route.blog.route}/0`, icon: <CommentIcon/>},
+  {title: route.about.name, route: route.about.route, as: route.about.route, icon: <InfoIcon/>}
 ];
 
 
@@ -65,7 +75,7 @@ function Nav({setContentsOpen, contentsOpen}) {
             navs.map(item => (
               <Tooltip title={item.title} key={item.title}>
                 <div className={classes.navItem}>
-                  <Link href={item.route}>
+                  <Link href={item.route} as={item.as}>
                     <a>{item.icon}</a>
                   </Link>
                 </div>

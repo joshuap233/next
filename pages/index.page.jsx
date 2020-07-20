@@ -134,14 +134,15 @@ export default function Home() {
         </div>
         <div className={classes.aboutWrapper}>
           <div>
-            <Link href={route.about.route}><a>
+            <Link href={route.about.route}>
+              <a>
               <Button className={combineClassName(classes.aboutButton, classes.button)}>
                 关于我
               </Button>
             </a></Link>
           </div>
           <div>
-            <Link href={`${route.articles.route}/0`}>
+            <Link href={`${route.articles.route}/[page]`} as={`${route.articles.route}/0`}>
               <a>
                 <Button className={combineClassName(classes.articleButton, classes.button)}>
                   文章
@@ -162,7 +163,7 @@ export default function Home() {
           <Info/>
         </div>
         <div className={classes.extendBtnWrapper}>
-          <Link href={`${route.articles.route}/0`}>
+          <Link href={`${route.articles.route}/[page]`} as={`${route.articles.route}/0`}>
             <a>
               <ExpandMoreIcon className={classes.extendIcon}/>
             </a>
