@@ -7,8 +7,8 @@ import useStyles from './Blog.style';
 import {getAllBlogPage, getBlogData} from '../../lib/blog';
 import route from '../../misc/route';
 import {getPageParams} from "../../lib/helper";
-import {formatTime} from "../../style/help";
-import paging from '../../config/paging'
+import {formatTime, getPage} from "../../misc/help";
+import paging from '../../config/paging';
 
 function BlogItem({index, content, time}) {
   const dark = React.useMemo(() => {
@@ -70,13 +70,13 @@ function PagePage({blog = [], nextPage, prePage}) {
 
 export async function getStaticProps({params}) {
   const data = await getBlogData(params.page);
-  const nextPage = parseInt(params.page) + 1;
+  const [nextPage, prePage] = getPage(data.total, params.page, paging.blog);
 
   return {
     props: {
       blog: data.values,
-      nextPage: data.values.length === 0 ? false : nextPage,
-      prePage: nextPage - 2
+      nextPage: nextPage,
+      prePage: prePage
     }
   };
 }

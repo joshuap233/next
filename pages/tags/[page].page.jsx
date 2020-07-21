@@ -9,9 +9,10 @@ import {getAllTagsPage, getTagsData} from '../../lib/tags';
 import route from "../../misc/route";
 import {getPageParams} from "../../lib/helper";
 import paging from '../../config/paging';
+import {getPage} from "../../misc/help";
+import Link from "next/link";
 
-
-function TagItem({name, image, describe}) {
+function TagItem({name, image, describe, id}) {
   const classes = useStyles({image: image.url});
   return (
     <Grid
@@ -22,21 +23,26 @@ function TagItem({name, image, describe}) {
       xl={4}
       className={classes.tagWrapper}
     >
-      <ButtonBase
-        className={'ButtonBase'}
-        component={Box}
-        focusRipple
-        boxShadow={3}
+      <Link
+        href={route.tag_articles('tid').route}
+        as={`${route.tag_articles(id).route}/0`}
       >
-        <div className={classes.tagName}>
-          {name}
-        </div>
-        <div
-          title={describe}
-          className={classes.tagDesc}>
-          {describe}
-        </div>
-      </ButtonBase>
+        <ButtonBase
+          className={'ButtonBase'}
+          component={Box}
+          focusRipple
+          boxShadow={3}
+        >
+          <div className={classes.tagName}>
+            {name}
+          </div>
+          <div
+            title={describe}
+            className={classes.tagDesc}>
+            {describe}
+          </div>
+        </ButtonBase>
+      </Link>
     </Grid>
   );
 }
@@ -73,12 +79,12 @@ function PagePage({tags = [], nextPage, prePage}) {
 
 export async function getStaticProps({params}) {
   const data = await getTagsData(params.page);
-  const nextPage = parseInt(params.page) + 1;
+  const [nextPage, prePage] = getPage(data.total, params.page, paging.tags);
   return {
     props: {
       tags: data.values,
-      nextPage: data.values.length === 0 ? false : nextPage,
-      prePage: nextPage - 2
+      nextPage: nextPage,
+      prePage: prePage
     }
   };
 }

@@ -8,7 +8,7 @@ import CommentContext from "../CommentContext";
 import {areEqual, cln} from "../helper";
 import PropTypes from 'prop-types';
 import useEditorStyle from '../editor/EditorState.style';
-import {formatTime} from "../../../style/help";
+import {formatTime} from "../../../misc/help";
 
 const Content = React.memo(function Content({level, node, parent, comment_id}) {
   const {state, dispatch, action} = useContext(CommentContext);

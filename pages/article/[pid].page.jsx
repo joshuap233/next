@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {combineClassName, formatTime} from "../../style/help";
+import {combineClassName, formatTime} from "../../misc/help";
 import useEditorStyle from './Editor.style';
 import useStyles from './Article.style';
 import Prism from "./Prism";

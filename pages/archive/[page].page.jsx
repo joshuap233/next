@@ -8,8 +8,8 @@ import {getAllArchivePage, getArchiveData} from '../../lib/archive';
 import route from "../../misc/route";
 import Link from "next/link";
 import {getPageParams} from "../../lib/helper";
-import {formatTime} from "../../style/help";
-import paging from '../../config/paging'
+import {formatTime, getPage} from "../../misc/help";
+import paging from '../../config/paging';
 
 function ArchiveItem({time, title, tags, id}) {
   const classes = useStyles();
@@ -94,12 +94,13 @@ function PagePage({prePage, nextPage, archives = []}) {
 
 export async function getStaticProps({params}) {
   const data = await getArchiveData(params.page);
-  const nextPage = parseInt(params.page) + 1;
+  const [nextPage, prePage] = getPage(data.total, params.page, paging.archive);
+
   return {
     props: {
       archives: data.values,
-      nextPage: data.values.length === 0 ? false : nextPage,
-      prePage: nextPage - 2
+      nextPage: nextPage,
+      prePage: prePage
     }
   };
 }

@@ -7,6 +7,7 @@ const api = {
   archive: '/archive',
   blog: '/blog',
   tags: '/tags',
+  tag_articles: (tid) => base + `/tag/${tid}/posts`
 };
 
 
@@ -16,11 +17,14 @@ const paths = {
   archive: '/posts/total',
   blog: '/blog/total',
   tags: '/tags/total',
+  tag_articles: '/tags/posts/all'
 };
 
 
 Object.keys(api).forEach(key => {
-  api[key] = base + api[key];
+  if (key !== 'tag_articles') {
+    api[key] = base + api[key];
+  }
 });
 
 Object.keys(paths).forEach(key => {

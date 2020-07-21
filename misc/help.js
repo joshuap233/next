@@ -19,3 +19,15 @@ export const formatTime = (d, accuracy = 'minutes') => {
   const second = d.getSeconds();
   return `${year}/${month}/${date} ${hour}:${minutes < 10 ? 0 : ''}${minutes}${accuracy === 'second' ? `:${second}` : ''}`;
 };
+
+export const combineTags = (data) => {
+  data.forEach(item => {
+    item.tag = item.tags.reduce((total, value) => (total ? total + ',' : '') + value.name, '');
+  });
+};
+
+export const getPage = (total, page, perPage = 10) => {
+  const totalPage = Math.ceil(total / perPage);
+  const nextPage = parseInt(page) + 1;
+  return [nextPage < totalPage ? nextPage : false, nextPage - 2];
+};

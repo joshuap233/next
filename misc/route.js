@@ -13,7 +13,7 @@ const route = {
   },
   articles: {
     route: "/articles",
-    name: "摘录"
+    name: "文章"
   },
   archive: {
     route: "/archive",
@@ -23,10 +23,14 @@ const route = {
     route: "/tags",
     name: "标签"
   },
-  about:{
-    route:"/about",
-    name:"关于"
-  }
+  about: {
+    route: "/about",
+    name: "关于"
+  },
+  tag_articles: (tid) => ({
+    route: `/tag/${tid}/articles`,
+    name: "文章"
+  })
 };
 
 export default route;

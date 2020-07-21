@@ -7,7 +7,7 @@ import Search from "../components/Search";
 import {Button, makeStyles} from "@material-ui/core";
 import useInfo from '../config/info';
 import route from "../misc/route";
-import {combineClassName} from "../style/help";
+import {combineClassName} from "../misc/help";
 
 const useStyles = makeStyles((theme) => ({
   root: {

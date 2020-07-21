@@ -15,14 +15,12 @@
     "axios": "^0.19.2",
     "babel-plugin-prismjs": "^2.0.1",
     "crypto-js": "^4.0.0",
-    "immutable": "^4.0.0-rc.12",
     "next": "9.4.4",
     "prismjs": "^1.20.0",
     "react": "16.13.1",
     "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "16.13.1",
-    "react-markdown": "^4.3.1",
-    "swr": "^0.2.3"
+    "react-markdown": "^4.3.1"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^9.4.4",
