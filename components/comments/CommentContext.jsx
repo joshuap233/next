@@ -1,6 +1,5 @@
 import React, {useReducer} from "react";
-import {updateDictTreeNode} from "./helper";
-import {areEqual} from "./helper";
+import {areEqual, updateDictTreeNode} from "./helper";
 
 const defaultValue = {
   dictTree: [],

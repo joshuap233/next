@@ -14,7 +14,7 @@
     "@material-ui/lab": "^4.0.0-alpha.56",
     "axios": "^0.19.2",
     "babel-plugin-prismjs": "^2.0.1",
-    "crypto-js": "^4.0.0",
+    "blueimp-md5": "^2.16.0",
     "next": "9.4.4",
     "prismjs": "^1.20.0",
     "react": "16.13.1",

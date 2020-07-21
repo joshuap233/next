@@ -1,8 +1,8 @@
 import React, {useCallback, useEffect, useState} from "react";
-import {Box, useMediaQuery, useTheme} from "@material-ui/core";
+import {Box} from "@material-ui/core";
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import PanToolIcon from '@material-ui/icons/PanTool';
-import useStyles, {treeViewMaxWidth} from './TreeView.style';
+import useStyles from './TreeView.style';
 import {parseArticle} from "../../misc/parse-contents";
 
 

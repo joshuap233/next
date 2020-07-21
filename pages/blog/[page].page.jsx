@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Layout from '../../components/Layout';
-import {Avatar, Divider, Box} from '@material-ui/core';
+import {Box, Divider} from '@material-ui/core';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import useStyles from './Blog.style';
 import {getAllBlogPage, getBlogData} from '../../lib/blog';
@@ -19,7 +19,7 @@ function BlogItem({index, content, time}) {
   return (
     <div className={classes.blogWrapper}>
       <div className={classes.avatar}>
-        <Avatar src="/asset/avatar.jpeg"/>
+        <img src="/asset/avatar.jpeg" alt={""}/>
       </div>
       <Box
         boxShadow={2}

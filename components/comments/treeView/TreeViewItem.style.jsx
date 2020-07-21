@@ -21,6 +21,15 @@ export default makeStyles((theme) => ({
     display: "flex",
     alignItems: 'center'
   },
+  avatar: {
+    height: 40,
+    width: 40,
+    '& img': {
+      height: '100%',
+      width: '100%',
+      borderRadius: 20
+    }
+  },
   userInfo: {
     marginLeft: 20,
     display: 'flex',

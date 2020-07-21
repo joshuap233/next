@@ -3,7 +3,6 @@ import {TextField, Collapse} from "@material-ui/core";
 import CommentContext from "../CommentContext";
 import useStyles from './EditorItem.style';
 import {getNewComments, cln} from "../helper";
-import md5 from "crypto-js/md5";
 import ReactMarkdown from "react-markdown";
 import PageviewIcon from "@material-ui/icons/Pageview";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";

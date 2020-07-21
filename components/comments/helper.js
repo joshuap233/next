@@ -1,5 +1,5 @@
 import {random} from "../../misc/pseudo-random";
-import md5 from "crypto-js/md5";
+import md5 from 'blueimp-md5';
 
 const getBrowserVersion = () => {
   const userAgent = navigator.userAgent;
@@ -31,7 +31,7 @@ const getNewComments = (data) => {
     id: random(),
     create_date: Math.floor((new Date()).getTime() / 1000),
     browser: getBrowserVersion(),
-    avatar: data.email ? md5(data.email).toString() : '',
+    avatar: data.email ? md5(data.email): '',
     child: [],
   };
 

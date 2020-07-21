@@ -3,7 +3,6 @@ import React, {useCallback, useContext, useEffect, useMemo, useRef, useState} fr
 import Button from "@material-ui/core/Button";
 import ReplyIcon from "@material-ui/icons/Reply";
 import useStyles from './TreeViewItem.style';
-import Avatar from "@material-ui/core/Avatar";
 import CommentContext from "../CommentContext";
 import {areEqual, cln} from "../helper";
 import PropTypes from 'prop-types';
@@ -57,9 +56,10 @@ const ContextContent = React.memo(function ContextContent(props) {
       id={node.id}
     >
       <div className={classes.userInfoWrapper}>
-        <div>
-          <Avatar
+        <div className={classes.avatar}>
+          <img
             src={`https://www.gravatar.com/avatar/${node.avatar}`}
+            alt=""
           />
         </div>
         <div className={classes.userInfo}>

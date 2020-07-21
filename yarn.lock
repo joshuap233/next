@@ -1635,6 +1635,11 @@ bluebird@^3.5.5:
   resolved "https://registry.npm.taobao.org/bluebird/download/bluebird-3.7.2.tgz?cache=0&sync_timestamp=1587903555262&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbluebird%2Fdownload%2Fbluebird-3.7.2.tgz#9f229c15be272454ffa973ace0dbee79a1b0c36f"
   integrity sha1-nyKcFb4nJFT/qXOs4NvueaGww28=
 
+blueimp-md5@^2.16.0:
+  version "2.16.0"
+  resolved "https://registry.npm.taobao.org/blueimp-md5/download/blueimp-md5-2.16.0.tgz?cache=0&sync_timestamp=1589418714663&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fblueimp-md5%2Fdownload%2Fblueimp-md5-2.16.0.tgz#9018bb805e4ee05512e0e8cbdb9305eeecbdc87c"
+  integrity sha1-kBi7gF5O4FUS4OjL25MF7uy9yHw=
+
 bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.4.0:
   version "4.11.9"
   resolved "https://registry.npm.taobao.org/bn.js/download/bn.js-4.11.9.tgz#26d556829458f9d1e81fc48952493d0ba3507828"
@@ -2297,11 +2302,6 @@ crypto-browserify@^3.11.0:
     randombytes "^2.0.0"
     randomfill "^1.0.3"
 
-crypto-js@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npm.taobao.org/crypto-js/download/crypto-js-4.0.0.tgz?cache=0&sync_timestamp=1581509454262&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcrypto-js%2Fdownload%2Fcrypto-js-4.0.0.tgz#2904ab2677a9d042856a2ea2ef80de92e4a36dcc"
-  integrity sha1-KQSrJnep0EKFai6i74DekuSjbcw=
-
 css-color-names@0.0.4, css-color-names@^0.0.4:
   version "0.0.4"
   resolved "https://registry.npm.taobao.org/css-color-names/download/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
@@ -2940,11 +2940,6 @@ extglob@^2.0.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
-fast-deep-equal@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.npm.taobao.org/fast-deep-equal/download/fast-deep-equal-2.0.1.tgz?cache=0&sync_timestamp=1591599604098&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffast-deep-equal%2Fdownload%2Ffast-deep-equal-2.0.1.tgz#7b05218ddf9667bf7f370bf7fdb2cb15fdd0aa49"
-  integrity sha1-ewUhjd+WZ79/Nwv3/bLLFf3Qqkk=
-
 fast-deep-equal@^3.1.1:
   version "3.1.1"
   resolved "https://registry.npm.taobao.org/fast-deep-equal/download/fast-deep-equal-3.1.1.tgz#545145077c501491e33b15ec408c294376e94ae4"
@@ -3394,11 +3389,6 @@ iferr@^0.1.5:
   version "0.1.5"
   resolved "https://registry.npm.taobao.org/iferr/download/iferr-0.1.5.tgz#c60eed69e6d8fdb6b3104a1fcbca1c192dc5b501"
   integrity sha1-xg7taebY/bazEEofy8ocGS3FtQE=
-
-immutable@^4.0.0-rc.12:
-  version "4.0.0-rc.12"
-  resolved "https://registry.npm.taobao.org/immutable/download/immutable-4.0.0-rc.12.tgz#ca59a7e4c19ae8d9bf74a97bdf0f6e2f2a5d0217"
-  integrity sha1-ylmn5MGa6Nm/dKl73w9uLypdAhc=
 
 import-fresh@^2.0.0:
   version "2.0.0"
@@ -6052,13 +6042,6 @@ svgo@^1.0.0:
     stable "^0.1.8"
     unquote "~1.1.1"
     util.promisify "~1.0.0"
-
-swr@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.npm.taobao.org/swr/download/swr-0.2.3.tgz#e0fb260d27f12fafa2388312083368f45127480d"
-  integrity sha1-4PsmDSfxL6+iOIMSCDNo9FEnSA0=
-  dependencies:
-    fast-deep-equal "2.0.1"
 
 tapable@^1.0.0, tapable@^1.1.3:
   version "1.1.3"

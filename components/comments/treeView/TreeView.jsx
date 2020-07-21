@@ -3,7 +3,7 @@ import Divider from '@material-ui/core/Divider';
 import Content from './TreeViewItem';
 import CommentContext from "../CommentContext";
 import {areEqual} from "../helper";
-import {Button, Box} from '@material-ui/core';
+import {Box, Button} from '@material-ui/core';
 import useStyles from './TreeView.style';
 import PropTypes from 'prop-types';
 import {useLoadMore} from "../hooks";

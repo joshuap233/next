@@ -13,6 +13,13 @@ export default makeStyles((theme) => ({
   },
   avatar: {
     marginRight: '10px',
+    height: 40,
+    width: 40,
+    '& img': {
+      height: '100%',
+      width: '100%',
+      borderRadius: 20
+    },
     [theme.breakpoints.only('xs')]: {
       display: 'none',
     },
