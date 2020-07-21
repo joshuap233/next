@@ -58,6 +58,9 @@ export default makeStyles(theme => ({
     color: '#fff',
     padding: '10px 0 10px 0',
     fontWeight: 'bold',
+    [theme.breakpoints.down('sm')]: {
+      color: '#000'
+    },
     '@media (max-width:400px)': {
       display: 'none'
     }

@@ -5,12 +5,23 @@ import paging from '../../../../config/paging';
 import {combineTags, getPage} from "../../../../misc/help";
 import route from "../../../../misc/route";
 
-export default ({articles = [], nextPage, prePage, tid}) => (
-  <Articles {...{articles, nextPage, prePage, route: route.tag_articles(tid)}}/>
+export default ({articles = [], nextPage, prePage, tid, poem}) => (
+  <Articles
+    {...{
+      articles,
+      nextPage,
+      prePage,
+      poem,
+      route: route.tag_articles(tid),
+      paging: {
+        href: route.tag_articles('[tid]').route,
+        as: `${route.tag_articles(tid).route}/0`
+      }
+    }}/>
 )
 
 export async function getStaticProps({params}) {
-  const data = await getArticlesData(params.page, params.tid);
+  const {data, poem} = await getArticlesData(params.page, params.tid);
   const [nextPage, prePage] = getPage(data.total, params.page, paging.articles);
   combineTags(data.values);
   return {
@@ -18,7 +29,8 @@ export async function getStaticProps({params}) {
       articles: data.values,
       nextPage: nextPage,
       prePage: prePage,
-      tid: params.tid
+      tid: params.tid,
+      poem,
     }
   };
 }

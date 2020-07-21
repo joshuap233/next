@@ -24,7 +24,7 @@ function TagItem({name, image, describe, id}) {
       className={classes.tagWrapper}
     >
       <Link
-        href={route.tag_articles('tid').route}
+        href={`${route.tag_articles('[tid]').route}/[page]`}
         as={`${route.tag_articles(id).route}/0`}
       >
         <ButtonBase
@@ -48,14 +48,14 @@ function TagItem({name, image, describe, id}) {
 }
 
 
-function PagePage({tags = [], nextPage, prePage}) {
+function PagePage({tags = [], nextPage, prePage, poem}) {
   const classes = useStyles();
   return (
     <Layout
       prePage={prePage}
       nextPage={nextPage}
       route={route.tags}
-      poem={"靖康耻，犹未雪。臣子恨，何时灭。驾长车，踏破贺兰山缺"}
+      poem={poem}
     >
       <div className={classes.wrapper}>
         <Grid
@@ -78,13 +78,14 @@ function PagePage({tags = [], nextPage, prePage}) {
 
 
 export async function getStaticProps({params}) {
-  const data = await getTagsData(params.page);
+  const {data, poem} = await getTagsData(params.page);
   const [nextPage, prePage] = getPage(data.total, params.page, paging.tags);
   return {
     props: {
       tags: data.values,
       nextPage: nextPage,
-      prePage: prePage
+      prePage: prePage,
+      poem
     }
   };
 }

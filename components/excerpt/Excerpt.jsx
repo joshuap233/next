@@ -15,9 +15,7 @@ function Excerpt(props) {
     index
   } = props;
 
-  const dark = React.useMemo(() => {
-    return index % 2 === 0;
-  }, []);
+  const dark = index % 2 === 0;
   const classes = useStyles({url, dark});
   return (
     <div className={classes.excerptWrapper}>

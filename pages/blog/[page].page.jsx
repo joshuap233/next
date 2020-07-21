@@ -41,14 +41,14 @@ function BlogItem({index, content, time}) {
   );
 }
 
-function PagePage({blog = [], nextPage, prePage}) {
+function PagePage({blog = [], nextPage, prePage, poem}) {
   const classes = useStyles();
   return (
     <Layout
       route={route.blog}
       prePage={prePage}
       nextPage={nextPage}
-      poem={"君不见黄河之水天上，奔流到海不复回.君不见高堂明镜悲白发，朝如青丝暮成雪"}
+      poem={poem}
     >
       <div className={classes.wrapper}>
         {
@@ -69,14 +69,15 @@ function PagePage({blog = [], nextPage, prePage}) {
 }
 
 export async function getStaticProps({params}) {
-  const data = await getBlogData(params.page);
+  const {data, poem} = await getBlogData(params.page);
   const [nextPage, prePage] = getPage(data.total, params.page, paging.blog);
 
   return {
     props: {
       blog: data.values,
       nextPage: nextPage,
-      prePage: prePage
+      prePage: prePage,
+      poem
     }
   };
 }

@@ -16,11 +16,15 @@ const useStyles = makeStyles({
   }
 });
 
-function Paging({nextPage, route, action, prePage}) {
+function Paging({nextPage, route, action, prePage, paging}) {
   const classes = useStyles();
   return (
     <div className={classes.buttonWrapper}>
-      <Link href={`${route.route}/[page]`} as={`${route.route}/${nextPage || prePage}`}>
+      <Link
+        prefetch={false}
+        href={`${paging ? paging.href : route.route}/[page]`}
+        as={`${paging ? paging.as : route.route}/${nextPage || prePage}`}
+      >
         <Button
           component={'a'}
           className={classes.pagingButton}

@@ -5,7 +5,6 @@ import Poem from "./Poem";
 import Paging from './Paging';
 import ScrollToTop from "./ScrollToTop";
 import {makeStyles} from "@material-ui/core";
-import {bool} from "prop-types";
 
 // TODO: 添加Head
 const useStyles = makeStyles((theme) => ({
@@ -32,14 +31,14 @@ const useStyles = makeStyles((theme) => ({
 
 // 包含导航栏与页脚的容器
 function Layout(props) {
-  const {children, route, poem, setContentsOpen, contentsOpen, nextPage, prePage} = props;
+  const {children, route, setContentsOpen, contentsOpen, nextPage, prePage, paging, poem} = props;
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <Nav setContentsOpen={setContentsOpen} contentsOpen={contentsOpen}/>
       <div className={classes.contentAndPoem}>
         {
-          route && poem && (
+          route && (
             <Poem route={route.name} poem={poem}/>
           )
         }
@@ -57,6 +56,7 @@ function Layout(props) {
                   route={route}
                   prePage={prePage}
                   action={'上一页'}
+                  paging={paging}
                 />
               )
             }
@@ -66,6 +66,7 @@ function Layout(props) {
                   route={route}
                   nextPage={nextPage}
                   action={'下一页'}
+                  paging={paging}
                 />
               )
             }

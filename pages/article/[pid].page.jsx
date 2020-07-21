@@ -12,7 +12,7 @@ import LabelIcon from '@material-ui/icons/Label';
 import {getArticleData, getAllArticleIds} from "../../lib/article";
 import {parseTreeData} from "../../misc/parse-comments-tree";
 
-function Article({article, comments, pid}) {
+function Article({article, comments, pid, poem}) {
   const [innerWidth, setInnerWidth] = useState(null);
   const classes = useStyles({innerWidth});
   const [contentsOpen, setContentsOpen] = useState(true);
@@ -49,7 +49,7 @@ function Article({article, comments, pid}) {
         </div>
         <div className={classes.poem}>
           <span>"</span>
-          多情自古伤离别，更那堪，冷落清秋节！今宵酒醒何处？杨柳岸，晓风残月
+          {poem}
           <span>"</span>
         </div>
       </div>
@@ -95,13 +95,14 @@ function Article({article, comments, pid}) {
 
 
 export async function getStaticProps({params}) {
-  const data = await getArticleData(params.pid);
+  const {data, poem} = await getArticleData(params.pid);
   data.article.time = formatTime(data.article.time);
   return {
     props: {
       article: data.article,
       comments: parseTreeData(data.comments),
-      pid: params.pid
+      pid: params.pid,
+      poem
     }
   };
 }

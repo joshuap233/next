@@ -54,14 +54,14 @@ function ArchiveItem({time, title, tags, id}) {
 }
 
 
-function PagePage({prePage, nextPage, archives = []}) {
+function PagePage({prePage, nextPage, archives = [], poem}) {
   const classes = useStyles();
 
   return (
     <Layout
+      poem={poem}
       prePage={prePage}
       nextPage={nextPage}
-      poem={"今我来思,雨雪霏霏"}
       route={route.archive}
     >
       <div className={classes.wrapper}>
@@ -93,14 +93,15 @@ function PagePage({prePage, nextPage, archives = []}) {
 
 
 export async function getStaticProps({params}) {
-  const data = await getArchiveData(params.page);
-  const [nextPage, prePage] = getPage(data.total, params.page, paging.archive);
+  const {data, poem} = await getArchiveData(params.page);
+  const [nextPage, prePage] = getPage(data.data, params.page, paging.archive);
 
   return {
     props: {
       archives: data.values,
       nextPage: nextPage,
-      prePage: prePage
+      prePage: prePage,
+      poem
     }
   };
 }
