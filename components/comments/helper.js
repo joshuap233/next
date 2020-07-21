@@ -1,3 +1,6 @@
+import {random} from "../../misc/pseudo-random";
+import md5 from "crypto-js/md5";
+
 const getBrowserVersion = () => {
   const userAgent = navigator.userAgent;
   let browser = 'Unknown';
@@ -15,14 +18,23 @@ const getBrowserVersion = () => {
   return browser;
 };
 
-const getCurrentTime = () => {
-  const d = new Date();
-  const year = d.getFullYear();
-  const month = d.getMonth() + 1;
-  const date = d.getDate();
-  const hour = d.getHours();
-  const minutes = d.getMinutes();
-  return {formatTime: `${year}/${month}/${date} ${hour}:${minutes < 10 ? 0 : ''}${minutes}`, timestamp: d.getTime()};
+
+const getNewComments = (data) => {
+  let website = data.website;
+  if (website && !website.match('https?://')) {
+    data.website = 'https://' + website;
+  }
+
+  return {
+    ...data,
+    website,
+    id: random(),
+    create_date: Math.floor((new Date()).getTime() / 1000),
+    browser: getBrowserVersion(),
+    avatar: data.email ? md5(data.email).toString() : '',
+    child: [],
+  };
+
 };
 
 const updateDictTreeNode = (nodes, id, data) => {
@@ -73,4 +85,4 @@ const cln = (...classes) => {
   return className;
 };
 
-export {cln, getCurrentTime, getBrowserVersion, updateDictTreeNode, areEqual};
+export {cln, getBrowserVersion, updateDictTreeNode, areEqual, getNewComments};

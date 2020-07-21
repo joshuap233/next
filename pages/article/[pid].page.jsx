@@ -44,7 +44,10 @@ function Article({article, comments, pid, poem}) {
           <h1>{article.title}</h1>
         </div>
         <div className={classes.articleInfo}>
-          <p>{article.time}|{article.commentsCount}条评论</p>
+          <p>{article.time}
+          {/*TODO:*/}
+          {/*|{article.commentsCount}条评论*/}
+          </p>
           {/* TODO:|3人读过*/}
         </div>
         <div className={classes.poem}>
@@ -95,12 +98,12 @@ function Article({article, comments, pid, poem}) {
 
 
 export async function getStaticProps({params}) {
-  const {data, poem} = await getArticleData(params.pid);
-  data.article.time = formatTime(data.article.time);
+  const {data, poem, comments} = await getArticleData(params.pid);
+  data.time = formatTime(data.time);
   return {
     props: {
-      article: data.article,
-      comments: parseTreeData(data.comments),
+      article: data,
+      comments: parseTreeData(comments),
       pid: params.pid,
       poem
     }

@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 
 
 const Editor = React.memo(function Editor(props) {
-  const {isModal, submitApi} = props;
+  const {isModal} = props;
   const classes = useStyles();
   const {dispatch, action} = useContext(CommentContext);
   const [cacheContent, setCacheContent] = useState('(つ´ω`)つ');
@@ -53,7 +53,6 @@ const Editor = React.memo(function Editor(props) {
           )
         }
         <ToolBar
-          submitApi={submitApi}
           preview={state.preview}
           handlePreviewClick={handlePreviewClick}
           handleEmojiClick={handleEmojiClick}
@@ -97,7 +96,6 @@ const Editor = React.memo(function Editor(props) {
 
 
 const PortalEditor = React.memo(function PortalEditor(props) {
-  const {submitApi} = props;
   const classes = useStyles();
   const {state} = useContext(CommentContext);
 
@@ -120,7 +118,7 @@ const PortalEditor = React.memo(function PortalEditor(props) {
             {
               state.modalOpen && (
                 <Box boxShadow={3} className={classes.portal}>
-                  <Editor isModal={true} submitApi={submitApi}/>
+                  <Editor isModal={true}/>
                 </Box>
               )
             }
@@ -134,20 +132,15 @@ const PortalEditor = React.memo(function PortalEditor(props) {
 
 
 export default React.memo(function MaterialEditor(props) {
-  const {submitApi} = props;
   return (
     <>
-      <Editor submitApi={submitApi}/>
-      <PortalEditor submitApi={submitApi}/>
+      <Editor/>
+      <PortalEditor/>
     </>
   );
 });
 
-PortalEditor.prototype = {
-  submitApi: PropTypes.func.isRequired,
-};
 
 Editor.prototype = {
   isModal: PropTypes.bool.isRequired,
-  submitApi: PropTypes.func.isRequired
 };

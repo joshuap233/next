@@ -4,6 +4,8 @@ import {areEqual} from "./helper";
 
 const defaultValue = {
   dictTree: [],
+  page: 1,
+  pid: 0,
   //被回复节点层次,第一层为0,文章的回复为null
   level: null,
   // 回复者id
@@ -55,6 +57,10 @@ function reducer(state, action) {
       return {...state, clickId: data};
     case 'setBottom':
       return {...state, bottom: true};
+    case 'setState':
+      return {...state, ...data};
+    case 'incrementPage':
+      return {...state, page: state.page + 1};
     default:
       throw new Error();
   }
@@ -88,6 +94,13 @@ const action = {
   }),
   setBottom: () => ({
     type: 'setBottom',
+  }),
+  setState: (data) => ({
+    type: 'setState',
+    data
+  }),
+  incrementPage: () => ({
+    type: 'incrementPage'
   })
 };
 

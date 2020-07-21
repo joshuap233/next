@@ -28,7 +28,9 @@ function Excerpt(props) {
               <span/>{content}
             </p>
             <div>
-              {commentsCount}条评论|{formatTime(time)}|{tag}
+              {/*TODO*/}
+              {/*{commentsCount}条评论|*/}
+              {formatTime(time)}|{tag}
             </div>
           </div>
         </Link>
