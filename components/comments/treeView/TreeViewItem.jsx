@@ -9,10 +9,10 @@ import PropTypes from 'prop-types';
 import useEditorStyle from '../editor/EditorState.style';
 import {formatTime} from "../../../misc/help";
 
-const Content = React.memo(function Content({level, node, parent, comment_id}) {
+const Content = React.memo(function Content({level, node, parent}) {
   const {state, dispatch, action} = useContext(CommentContext);
-  const handleOpenModal = useCallback((reply, level) => {
-    dispatch(action.openModal({reply, level, comment_id}));
+  const handleOpenModal = useCallback((reply) => {
+    dispatch(action.openModal({reply}));
   }, [action, dispatch]);
 
   const setClickId = useCallback((clickId) => {

@@ -10,7 +10,7 @@ import {useLoadMore} from "../hooks";
 
 
 const TreeNode = React.memo(function Node(props) {
-  const {nodes, parent, level, comment_id} = props;
+  const {nodes, parent, level} = props;
   if (nodes.length !== 0) {
     return (
       nodes.map(node => (
@@ -19,14 +19,11 @@ const TreeNode = React.memo(function Node(props) {
             level={level}
             node={node}
             parent={parent}
-            comment_id={comment_id ? comment_id : node.id}
           />
           <Divider variant={'middle'}/>
           {
             node.child && node.child.length !== 0 && (
               <TreeNode
-                // 顶层评论id
-                comment_id={comment_id ? comment_id : node.id}
                 nodes={node.child}
                 parent={{
                   id: node.id,

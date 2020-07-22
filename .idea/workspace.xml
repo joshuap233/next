@@ -3,11 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6b0aaa4a-0197-4866-8f2d-c3830b7bb3a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/article.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/article.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/axios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/misc/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/misc/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/article/Comment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/Comment.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/article/[pid].page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/[pid].page.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/comments/CommentContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/CommentContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/comments/editor/EditorItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/editor/EditorItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/comments/treeView/TreeView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/treeView/TreeView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/comments/treeView/TreeViewItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/treeView/TreeViewItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/misc/parse-comments-tree.js" beforeDir="false" afterPath="$PROJECT_DIR$/misc/parse-comments-tree.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +36,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/components/excerpt" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react-blog-admin" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -128,6 +128,9 @@
       <workItem from="1595244488602" duration="4082000" />
       <workItem from="1595294640079" duration="2889000" />
       <workItem from="1595319925793" duration="4792000" />
+      <workItem from="1595324732139" duration="7684000" />
+      <workItem from="1595423148584" duration="475000" />
+      <workItem from="1595427243901" duration="595000" />
     </task>
     <servers />
   </component>
@@ -155,30 +158,30 @@
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="658" y="91" width="1059" height="932" key="#xdebugger.evaluate/0.34.1920.1046@0.34.1920.1046" timestamp="1595321141209" />
-    <state x="200" y="258" width="530" height="596" key="FileChooserDialogImpl" timestamp="1595248570192">
+    <state x="200" y="258" width="530" height="596" key="FileChooserDialogImpl" timestamp="1595427837754">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state x="200" y="258" width="530" height="596" key="FileChooserDialogImpl/0.34.1920.1046@0.34.1920.1046" timestamp="1595248570192" />
+    <state x="200" y="258" width="530" height="596" key="FileChooserDialogImpl/0.34.1920.1046@0.34.1920.1046" timestamp="1595427837754" />
     <state x="0" y="34" width="1910" height="1044" key="FileDocumentManager.FileCacheConflict" timestamp="1594024225735">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="0" y="34" width="1910" height="1044" key="FileDocumentManager.FileCacheConflict/0.34.1920.1046@0.34.1920.1046" timestamp="1594024225735" />
-    <state width="904" height="363" key="GridCell.Tab.0.bottom" timestamp="1595324718479">
+    <state width="903" height="363" key="GridCell.Tab.0.bottom" timestamp="1595423623407">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="904" height="363" key="GridCell.Tab.0.bottom/0.34.1920.1046@0.34.1920.1046" timestamp="1595324718479" />
-    <state width="904" height="363" key="GridCell.Tab.0.center" timestamp="1595324718478">
+    <state width="903" height="363" key="GridCell.Tab.0.bottom/0.34.1920.1046@0.34.1920.1046" timestamp="1595423623407" />
+    <state width="903" height="363" key="GridCell.Tab.0.center" timestamp="1595423623406">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="904" height="363" key="GridCell.Tab.0.center/0.34.1920.1046@0.34.1920.1046" timestamp="1595324718478" />
-    <state width="904" height="363" key="GridCell.Tab.0.left" timestamp="1595324718477">
+    <state width="903" height="363" key="GridCell.Tab.0.center/0.34.1920.1046@0.34.1920.1046" timestamp="1595423623406" />
+    <state width="903" height="363" key="GridCell.Tab.0.left" timestamp="1595423623405">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="904" height="363" key="GridCell.Tab.0.left/0.34.1920.1046@0.34.1920.1046" timestamp="1595324718477" />
-    <state width="904" height="363" key="GridCell.Tab.0.right" timestamp="1595324718478">
+    <state width="903" height="363" key="GridCell.Tab.0.left/0.34.1920.1046@0.34.1920.1046" timestamp="1595423623405" />
+    <state width="903" height="363" key="GridCell.Tab.0.right" timestamp="1595423623407">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="904" height="363" key="GridCell.Tab.0.right/0.34.1920.1046@0.34.1920.1046" timestamp="1595324718478" />
+    <state width="903" height="363" key="GridCell.Tab.0.right/0.34.1920.1046@0.34.1920.1046" timestamp="1595423623407" />
     <state width="904" height="447" key="GridCell.Tab.1.bottom" timestamp="1595324718466">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
@@ -239,10 +242,10 @@
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="331" y="192" width="1571" height="844" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.34.1920.1046@0.34.1920.1046" timestamp="1595323490758" />
-    <state x="1288" y="34" width="904" height="913" key="dock-window-1" timestamp="1595324526292">
+    <state x="-775" y="140" width="904" height="913" key="dock-window-1" timestamp="1595337079916">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state x="1288" y="34" width="904" height="913" key="dock-window-1/0.34.1920.1046@0.34.1920.1046" timestamp="1595324526292" />
+    <state x="-775" y="140" width="904" height="913" key="dock-window-1/0.34.1920.1046@0.34.1920.1046" timestamp="1595337079916" />
     <state x="-527" y="34" width="903" height="913" key="dock-window-2" timestamp="1594707875061">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
@@ -255,10 +258,10 @@
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="1641" y="34" width="706" height="913" key="dock-window-4/0.34.1920.1046@0.34.1920.1046" timestamp="1594726451343" />
-    <state x="548" y="238" width="1155" height="756" key="find.popup" timestamp="1595323669342">
+    <state x="217" y="294" width="1221" height="756" key="find.popup" timestamp="1595427596401">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state x="548" y="238" width="1155" height="756" key="find.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1595323669342" />
+    <state x="217" y="294" width="1221" height="756" key="find.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1595427596401" />
     <state x="59" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1594559302612">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>

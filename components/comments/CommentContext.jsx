@@ -5,12 +5,8 @@ const defaultValue = {
   dictTree: [],
   page: 1,
   pid: 0,
-  //被回复节点层次,第一层为0,文章的回复为null
-  level: null,
   // 回复者id
   reply: null,
-  //顶层评论id
-  comment_id: null,
   // 编辑器拟态框,
   modalOpen: false,
   editorState: {
@@ -35,16 +31,12 @@ function reducer(state, action) {
         ...state,
         modalOpen: false,
         reply: null,
-        level: null,
-        comment_id: null
       };
     case 'openModal':
       return {
         ...state,
         modalOpen: true,
         reply: data.reply,
-        level: data.level,
-        comment_id: data.comment_id
       };
     case 'mergeDictTree':
       return {...state, dictTree: [...state.dictTree, ...data]};

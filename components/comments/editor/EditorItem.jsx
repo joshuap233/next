@@ -1,8 +1,8 @@
 import React, {useCallback, useContext, useMemo} from "react";
-import {TextField, Collapse} from "@material-ui/core";
+import {Collapse, TextField} from "@material-ui/core";
 import CommentContext from "../CommentContext";
 import useStyles from './EditorItem.style';
-import {getNewComments, cln} from "../helper";
+import {cln, getNewComments} from "../helper";
 import ReactMarkdown from "react-markdown";
 import PageviewIcon from "@material-ui/icons/Pageview";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
@@ -13,7 +13,6 @@ import SpeedDialAction from "@material-ui/lab/SpeedDialAction";
 import PublishIcon from '@material-ui/icons/Publish';
 import PropTypes from "prop-types";
 import useEditorStyle from './EditorState.style';
-import {random} from '../../../misc/pseudo-random';
 import {emoji} from './emoji';
 import {useSubmit} from "../hooks";
 
@@ -61,7 +60,7 @@ export const Emoji = React.memo(function Emoji({setCacheContent, show}) {
 
 
 export const SubmitButton = React.memo(function SubmitButton({cacheContent}) {
-  const {state: {editorState, pid, reply, comment_id, level}, dispatch, action} = useContext(CommentContext);
+  const {state: {editorState, pid, reply}, dispatch, action} = useContext(CommentContext);
 
   const submitApi = useSubmit(pid);
   const parseData = () => {
@@ -70,14 +69,7 @@ export const SubmitButton = React.memo(function SubmitButton({cacheContent}) {
     return getNewComments(data);
   };
 
-  const setCommentLevel = (data) => {
-    if (reply) {
-      if (level !== 0) {
-        data.parent_id = reply;
-      }
-      data.comment_id = comment_id;
-    }
-  };
+
 
   const handleResult = (res, data) => {
     data.id = res.data.id;
@@ -91,7 +83,11 @@ export const SubmitButton = React.memo(function SubmitButton({cacheContent}) {
 
   const handleOnSubmit = () => {
     const data = parseData();
-    setCommentLevel(data);
+
+    if (reply) {
+      data.parent_id = reply;
+    }
+
     submitApi(data).then(res => {
       if (res.status && res.status === 'success') {
         handleResult(res, data);
