@@ -23,7 +23,7 @@ export default makeStyles((theme) => ({
     position: 'fixed',
     height: '100%',
     minHeight: '900px',
-    background: 'url(/asset/nv-sm.jpg) no-repeat',
+    background: 'url(/asset/nav-sm.jpg) no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
 
@@ -45,6 +45,11 @@ export default makeStyles((theme) => ({
       top: 0,
       position: 'absolute',
       flexDirection: 'column',
+
+      background: 'url(/asset/bg1-md.jpg) no-repeat',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+
     },
     [theme.breakpoints.up('lg')]: {
       width: 400,

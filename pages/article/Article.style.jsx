@@ -1,10 +1,10 @@
 import {makeStyles} from "@material-ui/core";
 
 export default makeStyles(theme => ({
-  bg: ({innerWidth}) => ({
+  bg: {
     height: '100%',
     width: '100%',
-    background: 'url(/asset/article-bg1-md.jpg) no-repeat',
+    background: 'url(/asset/bg1-md.jpg) no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
 
@@ -21,7 +21,7 @@ export default makeStyles(theme => ({
       // 上侧导航栏
       background: 'none',
     },
-  }),
+  },
   placeHolder: {
     height: '400px',
     width: '100%',
@@ -34,6 +34,7 @@ export default makeStyles(theme => ({
   title: {
     color: '#fff',
     marginTop: '-150px',
+    padding: '0px 10px 0px 10px',
     [theme.breakpoints.down('sm')]: {
       // 上侧导航栏
       color: '#000',
@@ -70,10 +71,16 @@ export default makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    '@media (max-width:500px)': {
+      marginTop: '50px',
+    },
   },
   articleWrapper: {
     width: '100%',
+    '@media (max-width:400px)': {
+      padding: '2px!important'
+    },
     [theme.breakpoints.down('xs')]: {
       width: '100%',
       padding: '10px'

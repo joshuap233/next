@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start & node server.js",
+    "start": "next start -p 8890 & node server.js",
     "analyze": "ANALYZE=true yarn build"
   },
   "dependencies": {

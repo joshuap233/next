@@ -9,20 +9,16 @@ import Comment from "./Comment";
 import {Divider, Tooltip} from "@material-ui/core";
 import Contents from "./TreeView";
 import LabelIcon from '@material-ui/icons/Label';
-import {getArticleData, getAllArticleIds} from "../../lib/article";
+import {getAllArticleIds, getArticleData} from "../../lib/article";
 import {parseTreeData} from "../../misc/parse-comments-tree";
 
 function Article({article, comments, pid, poem}) {
-  const [innerWidth, setInnerWidth] = useState(null);
-  const classes = useStyles({innerWidth});
+  const classes = useStyles();
   const [contentsOpen, setContentsOpen] = useState(true);
 
   const editorStyle = useEditorStyle();
   const codeStyle = useCodeStyle();
 
-  useEffect(() => {
-    setInnerWidth(window.innerWidth);
-  }, []);
 
   useEffect(() => {
     Prism.highlightAll();
@@ -45,8 +41,8 @@ function Article({article, comments, pid, poem}) {
         </div>
         <div className={classes.articleInfo}>
           <p>{article.time}
-          {/*TODO:*/}
-          {/*|{article.commentsCount}条评论*/}
+            {/*TODO:*/}
+            {/*|{article.commentsCount}条评论*/}
           </p>
           {/* TODO:|3人读过*/}
         </div>

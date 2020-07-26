@@ -16,7 +16,7 @@ http.createServer((request, response) => {
   rebuild();
   response.writeHead(200, {'Content-Type': 'text/plain'});
   response.end(JSON.stringify({status: 'success'}));
-}).listen(8000);
+}).listen(9000);
 
 // 在控制台打印访问服务器的 URL
-console.log('服务器运行于 http://127.0.0.1:8000/,用于重新构建');
+console.log('服务器运行于 http://127.0.0.1:9000/,用于重新构建');

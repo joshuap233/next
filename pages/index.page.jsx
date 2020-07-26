@@ -23,14 +23,14 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     borderRadius: '0 0px 35px 35px',
 
-    background: '#3F3E3A url(/asset/home-bg.jpg) no-repeat',
+    background: '#3F3E3A url(/asset/home/home-lg.jpg) no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     [theme.breakpoints.only('xs')]: {
       height: '100%',
       maxHeight: 'none',
       borderRadius: '0',
-    }
+    },
   },
   logo: {
     marginTop: 100,
@@ -136,10 +136,10 @@ export default function Home() {
           <div>
             <Link href={route.about.route}>
               <a>
-              <Button className={combineClassName(classes.aboutButton, classes.button)}>
-                关于我
-              </Button>
-            </a></Link>
+                <Button className={combineClassName(classes.aboutButton, classes.button)}>
+                  关于我
+                </Button>
+              </a></Link>
           </div>
           <div>
             <Link href={`${route.articles.route}/[page]`} as={`${route.articles.route}/0`}>

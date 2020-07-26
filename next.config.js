@@ -5,5 +5,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = withBundleAnalyzer({
   pageExtensions: ["page.jsx"],
   distDir: 'build',
+  poweredByHeader: false
+
   // compress: true,//压缩
 });
