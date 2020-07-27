@@ -1,6 +1,6 @@
 import React from 'react';
 import Articles from '../../components/excerpt';
-import {getArticlesPageTotal, getArticlesData} from "../../lib/articles";
+import {getArticlesData, getArticlesPageTotal} from "../../lib/articles";
 import {getPageParams} from "../../lib/helper";
 import paging from '../../config/paging';
 import {combineTags, getPage} from "../../misc/help";
@@ -18,8 +18,9 @@ export async function getStaticProps({params}) {
       nextPage: nextPage,
       // nextPage: data.values.length === 0 ? false : nextPage,
       prePage: prePage,
-      poem
-    }
+      poem,
+    },
+    unstable_revalidate: 5
   };
 }
 
@@ -29,7 +30,7 @@ export async function getStaticPaths() {
   const paths = getPageParams(total, paging.articles);
   return {
     paths,
-    fallback: false
+    fallback: true
   };
 }
 

@@ -1,6 +1,4 @@
 import React from 'react';
-
-import Head from 'next/head';
 import {Box, Grid} from "@material-ui/core";
 import Layout from "../../components/Layout";
 import ButtonBase from "@material-ui/core/ButtonBase";
@@ -86,7 +84,8 @@ export async function getStaticProps({params}) {
       nextPage: nextPage,
       prePage: prePage,
       poem
-    }
+    },
+    unstable_revalidate: 5
   };
 }
 
@@ -95,7 +94,7 @@ export async function getStaticPaths() {
   const paths = getPageParams(total, paging.tags);
   return {
     paths,
-    fallback: false
+    fallback: true
   };
 }
 

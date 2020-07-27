@@ -78,7 +78,8 @@ export async function getStaticProps({params}) {
       nextPage: nextPage,
       prePage: prePage,
       poem
-    }
+    },
+    unstable_revalidate: 5
   };
 }
 
@@ -87,7 +88,7 @@ export async function getStaticPaths() {
   const paths = getPageParams(total, paging.blog);
   return {
     paths,
-    fallback: false
+    fallback: true
   };
 }
 

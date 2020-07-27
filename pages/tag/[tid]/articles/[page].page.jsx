@@ -1,5 +1,5 @@
 import Articles from '../../../../components/excerpt';
-import {getArticlesPageTotal, getArticlesData} from "../../../../lib/tag/articles";
+import {getArticlesData, getArticlesPageTotal} from "../../../../lib/tag/articles";
 import {getMultiPageParams} from "../../../../lib/helper";
 import paging from '../../../../config/paging';
 import {combineTags, getPage} from "../../../../misc/help";
@@ -31,7 +31,8 @@ export async function getStaticProps({params}) {
       prePage: prePage,
       tid: params.tid,
       poem,
-    }
+    },
+    unstable_revalidate: 5
   };
 }
 
@@ -41,7 +42,7 @@ export async function getStaticPaths() {
   const paths = getMultiPageParams(params, paging.articles);
   return {
     paths,
-    fallback: false
+    fallback: true
   };
 }
 

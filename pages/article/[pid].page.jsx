@@ -12,7 +12,8 @@ import LabelIcon from '@material-ui/icons/Label';
 import {getAllArticleIds, getArticleData} from "../../lib/article";
 import {parseTreeData} from "../../misc/parse-comments-tree";
 
-function Article({article, comments, pid, poem}) {
+function Article(props) {
+  const {article = {tags: []}, comments, pid, poem} = props;
   const classes = useStyles();
   const [contentsOpen, setContentsOpen] = useState(true);
 
@@ -102,21 +103,18 @@ export async function getStaticProps({params}) {
       comments: parseTreeData(comments),
       pid: params.pid,
       poem
-    }
+    },
+    unstable_revalidate: 5
   };
 }
 
 
 export async function getStaticPaths() {
   const ids = await getAllArticleIds();
-  const paths = ids.map(item => ({
-    params: {
-      pid: `${item}`
-    }
-  }));
+  const paths = ids.map(item => ({params: {pid: item.toString()}}));
   return {
     paths,
-    fallback: false
+    fallback: true
   };
 }
 
