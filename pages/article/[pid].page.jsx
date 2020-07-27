@@ -27,6 +27,7 @@ function Article(props) {
 
   return (
     <Layout
+      title={article.title}
       contentsOpen={contentsOpen}
       setContentsOpen={setContentsOpen}
     >

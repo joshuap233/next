@@ -59,6 +59,7 @@ function PagePage({prePage, nextPage, archives = [], poem}) {
 
   return (
     <Layout
+      title={'归档'}
       poem={poem}
       prePage={prePage}
       nextPage={nextPage}

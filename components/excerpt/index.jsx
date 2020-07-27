@@ -8,6 +8,7 @@ function Index(props) {
   const classes = useStyles();
   return (
     <Layout
+      title={'文章'}
       nextPage={nextPage}
       prePage={prePage}
       route={route}

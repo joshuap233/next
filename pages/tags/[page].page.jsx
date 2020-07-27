@@ -50,6 +50,7 @@ function PagePage({tags = [], nextPage, prePage, poem}) {
   const classes = useStyles();
   return (
     <Layout
+      title={'标签'}
       prePage={prePage}
       nextPage={nextPage}
       route={route.tags}

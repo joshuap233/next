@@ -45,6 +45,7 @@ function PagePage({blog = [], nextPage, prePage, poem}) {
   const classes = useStyles();
   return (
     <Layout
+      title={'日志'}
       route={route.blog}
       prePage={prePage}
       nextPage={nextPage}

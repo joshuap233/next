@@ -5,8 +5,8 @@ import Poem from "./Poem";
 import Paging from './Paging';
 import ScrollToTop from "./ScrollToTop";
 import {makeStyles} from "@material-ui/core";
+import Head from "next/head";
 
-// TODO: 添加Head
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -27,55 +27,61 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     position: 'relative'
   },
+  pagingWrapper: {
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'center'
+  }
 }));
 
 // 包含导航栏与页脚的容器
 function Layout(props) {
-  const {children, route, setContentsOpen, contentsOpen, nextPage, prePage, paging, poem} = props;
+  const {title, children, route, setContentsOpen, contentsOpen, nextPage, prePage, paging, poem} = props;
   const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <Nav setContentsOpen={setContentsOpen} contentsOpen={contentsOpen}/>
-      <div className={classes.contentAndPoem}>
-        {
-          route && (
-            <Poem route={route.name} poem={poem}/>
-          )
-        }
-        <div className={classes.wrapper}>
-          {children}
+    <>
+      <Head>
+        <title>{title}</title>
+      </Head>
+      <div className={classes.root}>
+        <Nav setContentsOpen={setContentsOpen} contentsOpen={contentsOpen}/>
+        <div className={classes.contentAndPoem}>
+          {
+            route && (
+              <Poem route={route.name} poem={poem}/>
+            )
+          }
+          <div className={classes.wrapper}>
+            {children}
 
-          <div style={{
-            display: 'flex',
-            width: '100%',
-            justifyContent: 'center'
-          }}>
-            {
-              ((prePage === 0 || prePage) && prePage !== -1) && (
-                <Paging
-                  route={route}
-                  prePage={prePage}
-                  action={'上一页'}
-                  paging={paging}
-                />
-              )
-            }
-            {
-              nextPage && (
-                <Paging
-                  route={route}
-                  nextPage={nextPage}
-                  action={'下一页'}
-                  paging={paging}
-                />
-              )
-            }
+            <div className={classes.pagingWrapper}>
+              {
+                ((prePage === 0 || prePage) && prePage !== -1) && (
+                  <Paging
+                    route={route}
+                    prePage={prePage}
+                    action={'上一页'}
+                    paging={paging}
+                  />
+                )
+              }
+              {
+                nextPage && (
+                  <Paging
+                    route={route}
+                    nextPage={nextPage}
+                    action={'下一页'}
+                    paging={paging}
+                  />
+                )
+              }
+            </div>
+            <ScrollToTop/>
+            <Footer/>
           </div>
-          <ScrollToTop/>
-          <Footer/>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
