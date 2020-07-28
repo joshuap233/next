@@ -54,7 +54,6 @@ function PagePage({tags = [], nextPage, prePage, poem}) {
       prePage={prePage}
       nextPage={nextPage}
       route={route.tags}
-      poem={poem}
     >
       <div className={classes.wrapper}>
         <Grid
@@ -77,14 +76,13 @@ function PagePage({tags = [], nextPage, prePage, poem}) {
 
 
 export async function getStaticProps({params}) {
-  const {data, poem} = await getTagsData(params.page);
+  const {data} = await getTagsData(params.page);
   const [nextPage, prePage] = getPage(data.total, params.page, paging.tags);
   return {
     props: {
       tags: data.values,
       nextPage: nextPage,
       prePage: prePage,
-      poem
     },
     unstable_revalidate: 5
   };

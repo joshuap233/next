@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 // 包含导航栏与页脚的容器
 function Layout(props) {
-  const {title, children, route, setContentsOpen, contentsOpen, nextPage, prePage, paging, poem} = props;
+  const {title, children, route, setContentsOpen, contentsOpen, nextPage, prePage, paging} = props;
   const classes = useStyles();
   return (
     <>
@@ -48,7 +48,7 @@ function Layout(props) {
         <div className={classes.contentAndPoem}>
           {
             route && (
-              <Poem route={route.name} poem={poem}/>
+              <Poem route={route.name}/>
             )
           }
           <div className={classes.wrapper}>

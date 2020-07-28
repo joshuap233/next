@@ -1,5 +1,5 @@
 import paging from "../config/paging";
-
+import base from '../config/comment_api'
 const api = {
   comments: '/comments',
   articles: '/posts',
@@ -10,7 +10,6 @@ const api = {
   tag_articles: (tid) => `/tag/${tid}/posts`
 };
 
-const base = `http://${process.env.SERVER || "127.0.0.1:5000"}/api`;
 const commentsApi = {
   loadMore: (pid, page) => {
     const url = `${base}/comments/${pid}?page=${page}&pageSize=${paging.comments}`;

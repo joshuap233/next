@@ -60,7 +60,6 @@ function PagePage({prePage, nextPage, archives = [], poem}) {
   return (
     <Layout
       title={'归档'}
-      poem={poem}
       prePage={prePage}
       nextPage={nextPage}
       route={route.archive}
@@ -94,7 +93,7 @@ function PagePage({prePage, nextPage, archives = [], poem}) {
 
 
 export async function getStaticProps({params}) {
-  const {data, poem} = await getArchiveData(params.page);
+  const {data} = await getArchiveData(params.page);
   const [nextPage, prePage] = getPage(data.data, params.page, paging.archive);
 
   return {
@@ -102,7 +101,6 @@ export async function getStaticProps({params}) {
       archives: data.values,
       nextPage: nextPage,
       prePage: prePage,
-      poem
     },
     unstable_revalidate: 5
   };

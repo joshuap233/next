@@ -17,7 +17,7 @@ export default makeStyles((theme) => ({
     justifyContent: 'center',
     [theme.breakpoints.only('xs')]: {
       marginTop: '10px',
-      height: '200px',
+      height: '150px',
     },
     '& > div': {
       display: 'flex',
@@ -57,8 +57,11 @@ export default makeStyles((theme) => ({
     },
     '& > div': {
       color: '#888',
-      letterSpacing: '3px',
-      lineHeight: '20px'
+      letterSpacing: '2px',
+      lineHeight: '20px',
+      [theme.breakpoints.only('xs')]: {
+      letterSpacing: '1px',
+      },
     },
   },
   pic: {

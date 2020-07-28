@@ -11,9 +11,12 @@ import Contents from "./TreeView";
 import LabelIcon from '@material-ui/icons/Label';
 import {getAllArticleIds, getArticleData} from "../../lib/article";
 import {parseTreeData} from "../../misc/parse-comments-tree";
+import getPoems from "../../config/poems";
+
+const poem = getPoems();
 
 function Article(props) {
-  const {article = {tags: []}, comments, pid, poem} = props;
+  const {article = {tags: []}, comments, pid} = props;
   const classes = useStyles();
   const [contentsOpen, setContentsOpen] = useState(true);
 
@@ -96,14 +99,13 @@ function Article(props) {
 
 
 export async function getStaticProps({params}) {
-  const {data, poem, comments} = await getArticleData(params.pid);
+  const {data, comments} = await getArticleData(params.pid);
   data.time = formatTime(data.time);
   return {
     props: {
       article: data,
       comments: parseTreeData(comments),
       pid: params.pid,
-      poem
     },
     unstable_revalidate: 5
   };

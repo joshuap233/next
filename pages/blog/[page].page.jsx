@@ -41,7 +41,7 @@ function BlogItem({index, content, time}) {
   );
 }
 
-function PagePage({blog = [], nextPage, prePage, poem}) {
+function PagePage({blog = [], nextPage, prePage}) {
   const classes = useStyles();
   return (
     <Layout
@@ -49,7 +49,6 @@ function PagePage({blog = [], nextPage, prePage, poem}) {
       route={route.blog}
       prePage={prePage}
       nextPage={nextPage}
-      poem={poem}
     >
       <div className={classes.wrapper}>
         {
@@ -70,7 +69,7 @@ function PagePage({blog = [], nextPage, prePage, poem}) {
 }
 
 export async function getStaticProps({params}) {
-  const {data, poem} = await getBlogData(params.page);
+  const {data} = await getBlogData(params.page);
   const [nextPage, prePage] = getPage(data.total, params.page, paging.blog);
 
   return {
@@ -78,7 +77,6 @@ export async function getStaticProps({params}) {
       blog: data.values,
       nextPage: nextPage,
       prePage: prePage,
-      poem
     },
     unstable_revalidate: 5
   };

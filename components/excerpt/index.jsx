@@ -3,8 +3,9 @@ import Layout from "../Layout";
 import router from "../../misc/route";
 import Excerpt from "./Excerpt";
 
+
 function Index(props) {
-  const {articles = [], nextPage, prePage, route = router.articles, poem} = props;
+  const {articles = [], nextPage, prePage, route = router.articles} = props;
   const classes = useStyles();
   return (
     <Layout
@@ -12,7 +13,6 @@ function Index(props) {
       nextPage={nextPage}
       prePage={prePage}
       route={route}
-      poem={poem}
     >
       <div className={classes.wrapper}>
         {

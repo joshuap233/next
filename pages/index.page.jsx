@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     borderRadius: '0 0px 35px 35px',
 
-    background: '#3F3E3A url(/asset/home/home-lg.jpg) no-repeat',
+    background: '#3F3E3A url(/asset/home/home-sm-zip.jpg) no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     [theme.breakpoints.only('xs')]: {
@@ -31,6 +31,11 @@ const useStyles = makeStyles((theme) => ({
       maxHeight: 'none',
       borderRadius: '0',
     },
+    [theme.breakpoints.up('lg')]: {
+      background: '#3F3E3A url(/asset/home/home-lg-zip.jpg) no-repeat',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }
   },
   logo: {
     marginTop: 100,

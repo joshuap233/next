@@ -5,10 +5,10 @@ import {getPageParams} from "../../lib/helper";
 import paging from '../../config/paging';
 import {combineTags, getPage} from "../../misc/help";
 
-export default ({articles = [], nextPage, prePage, poem}) => <Articles {...{articles, nextPage, prePage, poem}}/>
+export default ({articles = [], nextPage, prePage}) => <Articles {...{articles, nextPage, prePage}}/>
 
 export async function getStaticProps({params}) {
-  const {data, poem} = await getArticlesData(params.page);
+  const {data} = await getArticlesData(params.page);
   const [nextPage, prePage] = getPage(data.total, params.page, paging.articles);
   // tag数组拼接为字符串
   combineTags(data.values);
@@ -18,7 +18,6 @@ export async function getStaticProps({params}) {
       nextPage: nextPage,
       // nextPage: data.values.length === 0 ? false : nextPage,
       prePage: prePage,
-      poem,
     },
     unstable_revalidate: 5
   };

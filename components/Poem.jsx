@@ -1,5 +1,6 @@
 import React from 'react';
 import {makeStyles} from "@material-ui/core";
+import getPoems from "../config/poems";
 
 
 const useStyles = makeStyles({
@@ -18,7 +19,9 @@ const useStyles = makeStyles({
   }
 });
 
-function Poem({route, poem}) {
+const poem = getPoems();
+
+function Poem({route}) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
