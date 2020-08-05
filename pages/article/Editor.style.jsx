@@ -7,6 +7,7 @@ export default makeStyles((theme) => ({
     width: '100%',
     whiteSpace: 'pre-wrap',
     fontFamily: 'Rubik-Regular-kern-latin',
+    letterSpacing: '1px',
     '& a': {
       wordBreak: 'break-word',
     },

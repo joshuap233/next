@@ -3,16 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6b0aaa4a-0197-4866-8f2d-c3830b7bb3a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comments/CommentContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/CommentContext.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comments/treeView/TreeView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/treeView/TreeView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/excerpt/Articles.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/excerpt/Articles.style.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/excerpt/Excerpt.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/excerpt/Excerpt.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/excerpt/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/excerpt/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/archive/[page].page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/archive/[page].page.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/article/Article.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/Article.style.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/article/TreeView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/TreeView.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/article/[pid].page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/[pid].page.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/comments/helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/helper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/comments/treeView/TreeViewItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/treeView/TreeViewItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/comments/treeView/TreeViewItem.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/treeView/TreeViewItem.style.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/article/Editor.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/Editor.style.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +36,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.18.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../flask_blog" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -152,6 +146,7 @@
       <workItem from="1595901239064" duration="2296000" />
       <workItem from="1596592356572" duration="407000" />
       <workItem from="1596594514259" duration="819000" />
+      <workItem from="1596610153041" duration="2253000" />
     </task>
     <servers />
   </component>
@@ -280,11 +275,11 @@
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="1641" y="34" width="706" height="913" key="dock-window-4/0.34.1920.1046@0.34.1920.1046" timestamp="1594726451343" />
-    <state x="217" y="295" width="1221" height="756" key="find.popup" timestamp="1596595282518">
+    <state x="217" y="295" width="1221" height="756" key="find.popup" timestamp="1596612100068">
       <screen x="0" y="35" width="1920" height="1045" />
     </state>
     <state x="217" y="294" width="1221" height="756" key="find.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1595902765375" />
-    <state x="217" y="295" width="1221" height="756" key="find.popup/0.35.1920.1045@0.35.1920.1045" timestamp="1596595282518" />
+    <state x="217" y="295" width="1221" height="756" key="find.popup/0.35.1920.1045@0.35.1920.1045" timestamp="1596612100068" />
     <state x="59" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1594559302612">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>

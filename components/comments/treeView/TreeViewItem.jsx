@@ -74,18 +74,19 @@ const ContextContent = React.memo(function ContextContent(props) {
             {node.nickname}
           </a>
           <p>
-            <span>
+            <span className={'browser'}>
               {node.browser}
             </span>
-            <span>
+            <span className={'create_date'}>
               {formatTime(node.create_date)}
             </span>
-            <span className={classes.replayIcon}>
-              <ReplyButton
-                level={level}
-                reply={node.id}
-                handleOpenModal={handleOpenModal}
-              />
+            <span className={classes.reply}>
+               <ReplyIcon
+                 onClick={() => {
+                   handleOpenModal(node.id, level);
+                 }}
+                 className={'replyIcon'}
+               />
             </span>
           </p>
         </div>
@@ -121,9 +122,7 @@ const ParentCommentContent = React.memo(function ParentCommentContent(props) {
         </span>
         <span>:</span>
         <span>
-          <ReactMarkdown
-            source={parent.content}
-          />
+          <ReactMarkdown source={parent.content}/>
         </span>
       </a>
     </blockquote>
@@ -176,22 +175,6 @@ const CommentContent = React.memo(function CommentContent(props) {
 });
 
 
-const ReplyButton = React.memo(function ReplyButton(props) {
-  const {handleOpenModal, reply, level} = props;
-  const classes = useStyles();
-
-  const handleOnClick = () => {
-    handleOpenModal(reply, level);
-  };
-
-  return (
-    <ReplyIcon
-      onClick={handleOnClick}
-      className={classes.replyIcon}
-    />
-  );
-});
-
 export default Content;
 
 
@@ -230,10 +213,4 @@ ParentCommentContent.prototype = {
 
 CommentContent.prototype = {
   content: PropTypes.string
-};
-
-
-ReplyButton.prototype = {
-  handleOpenModal: PropTypes.func,
-  reply: PropTypes.string,
 };

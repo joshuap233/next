@@ -16,7 +16,6 @@ export default makeStyles((theme) => ({
       marginLeft: level <= 2 ? level * 5 : 3 * 5,
     }
   }),
-  nickname: ({link}) => link ? {color: '#7986cb'} : {color: '#000'},
   userInfoWrapper: {
     display: "flex",
     alignItems: 'center'
@@ -24,6 +23,10 @@ export default makeStyles((theme) => ({
   avatar: {
     height: 40,
     width: 40,
+    [theme.breakpoints.only('xs')]: {
+      height: 30,
+      width: 30,
+    },
     '& img': {
       height: '100%',
       width: '100%',
@@ -35,11 +38,6 @@ export default makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    '& > :nth-child(1)': {
-      display: 'block',
-      marginBottom: 0,
-      fontSize: '18px',
-    },
     '& > :nth-child(2)': {
       marginTop: 0,
       marginBottom: 0,
@@ -47,14 +45,40 @@ export default makeStyles((theme) => ({
       display: 'flex',
       alignItems: 'center',
       fontSize: '15px',
-      '& > span:nth-child(2)': {
-        marginLeft: 10,
-        marginRight: 10
-      }
+
+    },
+    '& .create_date': {
+      marginLeft: 10,
+      marginRight: 10,
+      [theme.breakpoints.only('xs')]: {
+        marginLeft: 0,
+        marginRight: 10,
+      },
+    },
+    '& .browser': {
+      [theme.breakpoints.only('xs')]: {
+        display: 'none'
+      },
     }
   },
-  replayIcon: {
-    color: theme.palette.primary.light
+  nickname: ({link}) => ({
+    color: link ? '#7986cb' : '#000',
+    display: 'block',
+    marginBottom: 0,
+    fontSize: '18px',
+    [theme.breakpoints.only('xs')]: {
+      fontSize: '15px',
+    },
+  }),
+  reply: {
+    color: theme.palette.primary.light,
+    '& .replyIcon': {
+      cursor: "pointer",
+      color: '#000',
+      [theme.breakpoints.only('xs')]: {
+        fontSize: '15px',
+      },
+    }
   },
   blockquote: {
     borderLeft: '6px solid #DDDDDD',
@@ -87,8 +111,4 @@ export default makeStyles((theme) => ({
   shake: {
     animation: 'shake 1.0s 2',
   },
-  replyIcon: {
-    cursor: "pointer",
-    color: '#000'
-  }
 }));

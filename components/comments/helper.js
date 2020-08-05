@@ -31,7 +31,7 @@ const getNewComments = (data) => {
     id: random(),
     create_date: Math.floor((new Date()).getTime() / 1000),
     browser: getBrowserVersion(),
-    avatar: data.email ? md5(data.email): '',
+    avatar: data.email ? md5(data.email) : '',
     child: [],
   };
 
@@ -78,7 +78,7 @@ const cln = (...classes) => {
         const value = item[key];
         className = value ? className + `${key} ` : className;
       } else {
-        className += `${className} `;
+        className += `${item} `;
       }
     }
   });
