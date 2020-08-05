@@ -46,6 +46,7 @@ export default function TreeView(props) {
   const {state, dispatch, action} = useContext(CommentContext);
   const classes = useStyles();
   const loadMoreAPi = useLoadMore(state.page);
+
   useEffect(() => {
     dispatch(action.setState({pid}));
     dispatch(action.mergeDictTree(comments));

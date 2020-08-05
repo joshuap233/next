@@ -12,11 +12,9 @@ function Excerpt(props) {
     time,
     commentsCount,
     tag,
-    index
   } = props;
 
-  const dark = index % 2 === 0;
-  const classes = useStyles({url, dark});
+  const classes = useStyles();
   return (
     <div className={classes.excerptWrapper}>
       <div>
@@ -30,12 +28,14 @@ function Excerpt(props) {
             <div>
               {/*TODO*/}
               {/*{commentsCount}条评论|*/}
-              {formatTime(time)}|{tag}
+              {formatTime(time)}{tag ? `|${tag}` : ''}
             </div>
           </div>
         </Link>
         <Link href={`${route.article.route}/[pid]`} as={`${route.article.route}/${id}`}>
-          <div className={classes.pic}/>
+          <div className={classes.pic}>
+            <img src={url} alt=""/>
+          </div>
         </Link>
       </div>
     </div>

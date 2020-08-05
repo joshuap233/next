@@ -21,10 +21,7 @@ function ArchiveItem({time, title, tags, id}) {
       className={classes.articleWrapper}
     >
       <Link href={`${route.article.route}/[pid]`} as={`${route.article.route}/${id}`}>
-        <Box
-          boxShadow={3}
-          className={classes.box}
-        >
+        <Box boxShadow={3} className={classes.box}>
           <div className={classes.title}>
             {title}
           </div>
@@ -33,19 +30,23 @@ function ArchiveItem({time, title, tags, id}) {
             <div className={classes.info}>
               <TodayIcon/>
               <span>
-            {formatTime(time)}
-          </span>
+                {formatTime(time)}
+              </span>
             </div>
-            <div className={classes.tags}>
-              <LabelImportantIcon/>
-              {
-                tags.map(item => (
-                  <span key={item.id}>
-                  {item.name}
-                </span>
-                ))
-              }
-            </div>
+            {
+              tags.length !== 0 && (
+                <div className={classes.tags}>
+                  <LabelImportantIcon/>
+                  {
+                    tags.map(item => (
+                      <span key={item.id}>
+                        {item.name}
+                      </span>
+                    ))
+                  }
+                </div>
+              )
+            }
           </div>
         </Box>
       </Link>

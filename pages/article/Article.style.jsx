@@ -72,6 +72,7 @@ export default makeStyles(theme => ({
     justifyContent: 'center',
     flexDirection: 'column',
     alignItems: 'center',
+    marginTop: 50,
     '@media (max-width:500px)': {
       marginTop: '50px',
     },

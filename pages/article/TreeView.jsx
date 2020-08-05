@@ -49,7 +49,11 @@ export default function TreeView({htmlString, contentsOpen, setContentsOpen}) {
 
   const [dictTree, setDictTree] = useState(null);
   useEffect(() => {
-    setDictTree(parseArticle(htmlString));
+    const content = parseArticle(htmlString);
+    if (content.length !== 0) {
+      setContentsOpen(true);
+      setDictTree(content);
+    }
   }, []);
 
   return (

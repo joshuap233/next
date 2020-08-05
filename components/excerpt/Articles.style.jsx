@@ -18,6 +18,8 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.only('xs')]: {
       marginTop: '10px',
       height: '150px',
+      justifyContent: 'flex-start!important',
+
     },
     '& > div': {
       display: 'flex',
@@ -60,19 +62,22 @@ export default makeStyles((theme) => ({
       letterSpacing: '2px',
       lineHeight: '20px',
       [theme.breakpoints.only('xs')]: {
-      letterSpacing: '1px',
+        letterSpacing: '1px',
       },
     },
   },
   pic: {
     width: '400px',
     height: '200px',
-    background: ({url, dark}) => `${dark ? '#fff' : '#000'} url(${url}) no-repeat`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
     boxShadow: '0 2px 5px rgba(0,0,25,0.1), 0 5px 75px 1px rgba(0,0,50,0.2)',
     borderRadius: '5px',
     cursor: 'pointer',
+    '& img': {
+      width: 'auto',
+      height: 'auto',
+      maxWidth: '100%',
+      maxHeight: '100%',
+    },
     '@media (max-width:900px)': {
       width: 250,
       height: 150,
@@ -84,3 +89,4 @@ export default makeStyles((theme) => ({
     },
   }
 }));
+

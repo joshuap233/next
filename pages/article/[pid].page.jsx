@@ -18,7 +18,7 @@ const poem = getPoems();
 function Article(props) {
   const {article = {tags: []}, comments, pid} = props;
   const classes = useStyles();
-  const [contentsOpen, setContentsOpen] = useState(true);
+  const [contentsOpen, setContentsOpen] = useState(false);
 
   const editorStyle = useEditorStyle();
   const codeStyle = useCodeStyle();
@@ -66,25 +66,28 @@ function Article(props) {
           />
         </div>
 
-        <div className={classes.tagsWrapper}>
-          <div>
-            <Divider variant={"middle"}/>
-            <div className={'tags'}>
-              <Tooltip title={'标签'}>
-                <LabelIcon/>
-              </Tooltip>
-              {
-                article.tags.map(tag => (
-                  <span key={tag.id}>
+        {
+          article.tags.length !== 0 && (
+            <div className={classes.tagsWrapper}>
+              <div>
+                <Divider variant={"middle"}/>
+                <div className={'tags'}>
+                  <Tooltip title={'标签'}>
+                    <LabelIcon/>
+                  </Tooltip>
+                  {
+                    article.tags.map(tag => (
+                      <span key={tag.id}>
                     {tag.name}
                   </span>
-                ))
-              }
+                    ))
+                  }
+                </div>
+                <Divider variant={"middle"}/>
+              </div>
             </div>
-            <Divider variant={"middle"}/>
-          </div>
-        </div>
-
+          )
+        }
 
         <div className={classes.commentsWrapper}>
           <div>

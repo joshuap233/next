@@ -2,30 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b0aaa4a-0197-4866-8f2d-c3830b7bb3a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/comment_api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/asset/home/home-lg-zip.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/asset/home/home-sm-zip.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Poem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Poem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/comments/CommentContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/CommentContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/comments/treeView/TreeView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/treeView/TreeView.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/excerpt/Articles.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/excerpt/Articles.style.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/excerpt/Excerpt.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/excerpt/Excerpt.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/excerpt/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/excerpt/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/archive.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/archive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/article.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/article.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/articles.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/articles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/blog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/tag/articles.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tag/articles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/tags.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tags.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/misc/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/misc/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/archive/[page].page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/archive/[page].page.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/article/Article.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/Article.style.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/article/TreeView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/TreeView.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/article/[pid].page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/[pid].page.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/articles/[page].page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/articles/[page].page.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/blog/[page].page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/blog/[page].page.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.page.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/tag/[tid]/articles/[page].page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/tag/[tid]/articles/[page].page.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/tags/[page].page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/tags/[page].page.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/asset/home/home2-md.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +42,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.18.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../flask_blog" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -162,6 +149,9 @@
       <workItem from="1595851910591" duration="1430000" />
       <workItem from="1595853482608" duration="202000" />
       <workItem from="1595861203463" duration="416000" />
+      <workItem from="1595901239064" duration="2296000" />
+      <workItem from="1596592356572" duration="407000" />
+      <workItem from="1596594514259" duration="819000" />
     </task>
     <servers />
   </component>
@@ -189,10 +179,11 @@
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="658" y="91" width="1059" height="932" key="#xdebugger.evaluate/0.34.1920.1046@0.34.1920.1046" timestamp="1595321141209" />
-    <state x="200" y="258" width="530" height="596" key="FileChooserDialogImpl" timestamp="1595817135831">
-      <screen x="0" y="34" width="1920" height="1046" />
+    <state x="200" y="259" width="530" height="596" key="FileChooserDialogImpl" timestamp="1596594970591">
+      <screen x="0" y="35" width="1920" height="1045" />
     </state>
-    <state x="200" y="258" width="530" height="596" key="FileChooserDialogImpl/0.34.1920.1046@0.34.1920.1046" timestamp="1595817135831" />
+    <state x="200" y="258" width="530" height="596" key="FileChooserDialogImpl/0.34.1920.1046@0.34.1920.1046" timestamp="1595903647682" />
+    <state x="200" y="259" key="FileChooserDialogImpl/0.35.1920.1045@0.35.1920.1045" timestamp="1596594970591" />
     <state x="0" y="34" width="1910" height="1044" key="FileDocumentManager.FileCacheConflict" timestamp="1594024225735">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
@@ -289,10 +280,11 @@
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="1641" y="34" width="706" height="913" key="dock-window-4/0.34.1920.1046@0.34.1920.1046" timestamp="1594726451343" />
-    <state x="217" y="294" width="1221" height="756" key="find.popup" timestamp="1595853545732">
-      <screen x="0" y="34" width="1920" height="1046" />
+    <state x="217" y="295" width="1221" height="756" key="find.popup" timestamp="1596595282518">
+      <screen x="0" y="35" width="1920" height="1045" />
     </state>
-    <state x="217" y="294" width="1221" height="756" key="find.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1595853545732" />
+    <state x="217" y="294" width="1221" height="756" key="find.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1595902765375" />
+    <state x="217" y="295" width="1221" height="756" key="find.popup/0.35.1920.1045@0.35.1920.1045" timestamp="1596595282518" />
     <state x="59" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1594559302612">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>

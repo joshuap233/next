@@ -16,11 +16,10 @@ function Index(props) {
     >
       <div className={classes.wrapper}>
         {
-          articles.map((article, index) => (
+          articles.map((article) => (
             <Excerpt
               key={article.id}
               id={article.id}
-              index={index}
               title={article.title}
               content={article.excerpt}
               url={article.illustration}
