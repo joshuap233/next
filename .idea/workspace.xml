@@ -3,10 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="6b0aaa4a-0197-4866-8f2d-c3830b7bb3a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comments/helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/helper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comments/treeView/TreeViewItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/treeView/TreeViewItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comments/treeView/TreeViewItem.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/treeView/TreeViewItem.style.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/comments/CommentContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/CommentContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/comments/treeView/TreeView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/treeView/TreeView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/excerpt/Articles.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/excerpt/Articles.style.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/about/About.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/About.style.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/about/index.page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/index.page.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/article/Editor.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/Editor.style.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.page.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +149,14 @@
       <workItem from="1595901239064" duration="2296000" />
       <workItem from="1596592356572" duration="407000" />
       <workItem from="1596594514259" duration="819000" />
-      <workItem from="1596610153041" duration="2253000" />
+      <workItem from="1596610153041" duration="3896000" />
+      <workItem from="1596619082822" duration="659000" />
+      <workItem from="1596625027745" duration="2301000" />
+      <workItem from="1596713136557" duration="39000" />
+      <workItem from="1596716928299" duration="519000" />
+      <workItem from="1596717457250" duration="9000" />
+      <workItem from="1599710946472" duration="1422000" />
+      <workItem from="1599713813593" duration="1472000" />
     </task>
     <servers />
   </component>
@@ -174,11 +184,12 @@
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="658" y="91" width="1059" height="932" key="#xdebugger.evaluate/0.34.1920.1046@0.34.1920.1046" timestamp="1595321141209" />
-    <state x="200" y="259" width="530" height="596" key="FileChooserDialogImpl" timestamp="1596594970591">
-      <screen x="0" y="35" width="1920" height="1045" />
+    <state x="200" y="256" width="530" height="596" key="FileChooserDialogImpl" timestamp="1599711868743">
+      <screen x="0" y="31" width="1920" height="1049" />
     </state>
+    <state x="200" y="256" key="FileChooserDialogImpl/0.31.1920.1049@0.31.1920.1049" timestamp="1599711868743" />
     <state x="200" y="258" width="530" height="596" key="FileChooserDialogImpl/0.34.1920.1046@0.34.1920.1046" timestamp="1595903647682" />
-    <state x="200" y="259" key="FileChooserDialogImpl/0.35.1920.1045@0.35.1920.1045" timestamp="1596594970591" />
+    <state x="200" y="259" width="530" height="596" key="FileChooserDialogImpl/0.35.1920.1045@0.35.1920.1045" timestamp="1596717465405" />
     <state x="0" y="34" width="1910" height="1044" key="FileDocumentManager.FileCacheConflict" timestamp="1594024225735">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
@@ -275,11 +286,12 @@
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="1641" y="34" width="706" height="913" key="dock-window-4/0.34.1920.1046@0.34.1920.1046" timestamp="1594726451343" />
-    <state x="217" y="295" width="1221" height="756" key="find.popup" timestamp="1596612100068">
-      <screen x="0" y="35" width="1920" height="1045" />
+    <state x="217" y="292" width="1221" height="759" key="find.popup" timestamp="1599711964813">
+      <screen x="0" y="31" width="1920" height="1049" />
     </state>
+    <state x="217" y="292" width="1221" height="759" key="find.popup/0.31.1920.1049@0.31.1920.1049" timestamp="1599711964813" />
     <state x="217" y="294" width="1221" height="756" key="find.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1595902765375" />
-    <state x="217" y="295" width="1221" height="756" key="find.popup/0.35.1920.1045@0.35.1920.1045" timestamp="1596612100068" />
+    <state x="217" y="295" width="1221" height="756" key="find.popup/0.35.1920.1045@0.35.1920.1045" timestamp="1596713152029" />
     <state x="59" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1594559302612">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>

@@ -52,7 +52,10 @@ export default makeStyles((theme) => ({
     },
     '& > p': {
       letterSpacing: '3px',
-      lineHeight: '20px'
+      lineHeight: '20px',
+      [theme.breakpoints.only('xs')]: {
+        letterSpacing: '1px!important',
+      },
     },
     '& > span': {
       marginLeft: '10px',

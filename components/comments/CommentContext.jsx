@@ -47,7 +47,6 @@ function reducer(state, action) {
     case 'setClickId':
       return {...state, clickId: data};
     case 'setBottom':
-      console.log(true);
       return {...state, bottom: true};
     case 'setState':
       return {...state, ...data};

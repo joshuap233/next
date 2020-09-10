@@ -126,6 +126,7 @@ export default function Home() {
   return (
     <div className={classes.root}>
       <Head>
+        <meta name="google-site-verification" content="fruU5_WxbZPgObJ1ctgxAVrn_LjJ2xSgtUkYlVrScW8"/>
         <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
       </Head>
 

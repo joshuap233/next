@@ -48,8 +48,12 @@ export default function TreeView(props) {
   const loadMoreAPi = useLoadMore(state.page);
 
   useEffect(() => {
+    if (comments.length === 0) {
+      dispatch(action.setBottom());
+    } else {
+      dispatch(action.mergeDictTree(comments));
+    }
     dispatch(action.setState({pid}));
-    dispatch(action.mergeDictTree(comments));
   }, [action, dispatch, pid]);
 
   const handleOnClick = useCallback(() => {
