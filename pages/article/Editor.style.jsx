@@ -21,6 +21,14 @@ export default makeStyles((theme) => ({
       borderLeft: '5px solid #ccc',
       color: '#666',
       fontStyle: 'italic'
+    },
+    '& .image-wrap': {
+      '& img': {
+        width: 'auto',
+        height: 'auto',
+        maxWidth: '100%',
+        maxHeight: '100%'
+      }
     }
   },
   emoji: {

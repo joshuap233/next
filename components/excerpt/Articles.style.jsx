@@ -17,9 +17,9 @@ export default makeStyles((theme) => ({
     justifyContent: 'center',
     [theme.breakpoints.only('xs')]: {
       marginTop: '10px',
+      marginBottom: '80px',
       height: '150px',
       justifyContent: 'flex-start!important',
-
     },
     '& > div': {
       display: 'flex',
@@ -50,11 +50,14 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.up('lg')]: {
       padding: theme.spacing(8)
     },
-    '& > p': {
+    '& > .title': {
+      fontSize:'1.5rem'
+    },
+    '& > .content': {
       letterSpacing: '3px',
       lineHeight: '20px',
       [theme.breakpoints.only('xs')]: {
-        letterSpacing: '1px!important',
+        letterSpacing: '1.5px!important',
       },
     },
     '& > span': {

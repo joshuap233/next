@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b0aaa4a-0197-4866-8f2d-c3830b7bb3a2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comments/CommentContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/CommentContext.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/comments/treeView/TreeView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/comments/treeView/TreeView.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/excerpt/Articles.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/excerpt/Articles.style.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/about/About.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/About.style.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/about/index.page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/index.page.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/excerpt/Excerpt.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/excerpt/Excerpt.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/article/Editor.style.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/Editor.style.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.page.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/article/TreeView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/article/TreeView.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JupyterTrust" id="5c43375f-4ae6-43b8-9f6d-a83bd1eb0991" />
   <component name="ProjectId" id="1chnyO6Y3GnZrOiRzajMlvSOU3s" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -38,8 +35,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="javascript.nodejs.core.library.configured.version" value="12.18.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.18.3" />
+    <property name="javascript.nodejs.core.library.typings.version" value="12.12.58" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react-blog-admin" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -86,6 +84,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -157,11 +156,12 @@
       <workItem from="1596717457250" duration="9000" />
       <workItem from="1599710946472" duration="1422000" />
       <workItem from="1599713813593" duration="1472000" />
+      <workItem from="1600176114652" duration="2247000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="351" y="359" width="309" height="394" key="#Notifications" timestamp="1594544499957">
@@ -184,10 +184,10 @@
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="658" y="91" width="1059" height="932" key="#xdebugger.evaluate/0.34.1920.1046@0.34.1920.1046" timestamp="1595321141209" />
-    <state x="200" y="256" width="530" height="596" key="FileChooserDialogImpl" timestamp="1599711868743">
+    <state x="200" y="256" width="530" height="596" key="FileChooserDialogImpl" timestamp="1600176157937">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state x="200" y="256" key="FileChooserDialogImpl/0.31.1920.1049@0.31.1920.1049" timestamp="1599711868743" />
+    <state x="200" y="256" width="530" height="596" key="FileChooserDialogImpl/0.31.1920.1049@0.31.1920.1049" timestamp="1600176157937" />
     <state x="200" y="258" width="530" height="596" key="FileChooserDialogImpl/0.34.1920.1046@0.34.1920.1046" timestamp="1595903647682" />
     <state x="200" y="259" width="530" height="596" key="FileChooserDialogImpl/0.35.1920.1045@0.35.1920.1045" timestamp="1596717465405" />
     <state x="0" y="34" width="1910" height="1044" key="FileDocumentManager.FileCacheConflict" timestamp="1594024225735">
@@ -286,10 +286,10 @@
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="1641" y="34" width="706" height="913" key="dock-window-4/0.34.1920.1046@0.34.1920.1046" timestamp="1594726451343" />
-    <state x="217" y="292" width="1221" height="759" key="find.popup" timestamp="1599711964813">
+    <state x="217" y="292" width="1221" height="759" key="find.popup" timestamp="1600177435508">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state x="217" y="292" width="1221" height="759" key="find.popup/0.31.1920.1049@0.31.1920.1049" timestamp="1599711964813" />
+    <state x="217" y="292" width="1221" height="759" key="find.popup/0.31.1920.1049@0.31.1920.1049" timestamp="1600177435508" />
     <state x="217" y="294" width="1221" height="756" key="find.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1595902765375" />
     <state x="217" y="295" width="1221" height="756" key="find.popup/0.35.1920.1045@0.35.1920.1045" timestamp="1596713152029" />
     <state x="59" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1594559302612">

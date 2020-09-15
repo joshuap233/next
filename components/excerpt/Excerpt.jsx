@@ -20,10 +20,11 @@ function Excerpt(props) {
       <div>
         <Link href={`${route.article.route}/[pid]`} as={`${route.article.route}/${id}`}>
           <div className={classes.articleInfo}>
-            <h2>{title}</h2>
-            <p>
+            <h2 className={'title'}>{title}</h2>
+            <p className={'content'}>
               {/*不要删除span*/}
-              <span/>{content}
+              <span/>
+              {content}
             </p>
             <div>
               {/*TODO*/}

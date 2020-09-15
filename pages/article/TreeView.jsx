@@ -41,17 +41,17 @@ function TreeNode({nodes}) {
 
 export default function TreeView({htmlString, contentsOpen, setContentsOpen}) {
   const classes = useStyles({open: contentsOpen});
-
   const handleOnClick = useCallback(() => {
     setContentsOpen(open => !open);
   }, []);
 
 
   const [dictTree, setDictTree] = useState(null);
+
   useEffect(() => {
     const content = parseArticle(htmlString);
     if (content.length !== 0) {
-      setContentsOpen(true);
+      // setContentsOpen(true);
       setDictTree(content);
     }
   }, []);
